@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+
+		<Include type="all" source="DATA:RA3 Undecided/Data/System/CameraSettings.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Shell/MpGameRules.xml" />
+		<!--<Include type="all" source="DATA:RA3 Undecided/Data/Neutral/Structures/OilDerrick.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Neutral/Crates/MoneyCrateMp.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Neutral/Crates/VeterancyCrateMp.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/BaseObjects/BaseOreNode.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/BaseObjects/BaseMiner.xml" />-->
+
+		
+	</Includes>
+</AssetDeclaration>

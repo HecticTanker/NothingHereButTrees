@@ -1,0 +1,141 @@
+VERSION:FORMAT2
+  // the version will be displayed under Settings / General at the bottom right
+  "RA3 %d.%02d / NoSupW-2 (v1.0)"
+END
+
+RULE:RANDOMCRATES
+  // checkbox caption
+  "No SuperWeapons"
+End
+
+Name:AlliedGunshipAircraft
+"Harbinger Gunship"
+END
+
+Desc:AlliedGunshipAircraft
+"Most Powerful Allied Aircraft Uses Proton Technology to Destroy its targets"
+END
+
+Type:AlliedGunshipAircraft
+"Shock n' Awe"
+END
+
+Name:SovietHeavySupportInfantry
+"Curtain Trooper"
+END
+
+Desc:SovietHeavySupportInfantry
+"Remarkable Unit with the ability to make allied units invulnerable"
+END
+
+Type:SovietHeavySupportInfantry
+"Concentrates hand held iron curtain device at target vehicle to shield it"
+END
+
+Name:NODFlameTank
+"Soviet Flame Tank"
+END
+
+Type:NODFlameTank
+"Burnt to a Chrisp"
+END
+
+Desc:NODFlameTank
+"Uses Immense Fire Technology to direct streams of Fire at enemies, effective against Infantry and Structures"
+END
+
+Name:SovietSputnik
+"Sputnik Transport"
+END
+
+Type:SovietSputnik
+"Open Transport"
+END
+
+Desc:SovietSputnik
+"Transport that holds 5 Infantry, with the capabilities of firing upon enemies!"
+END
+
+Name:AlliedAntiStructureShip2
+"Aircraft Carrier Airpad Mode"
+END
+
+Desc:AlliedAntiStructureShip2
+"Unmoveable But can Refill Aircraft's Fuel and Ammunition On the BattleField!"
+END
+
+Type:AlliedAntiStructureShip2
+"Airpad Mode"
+END
+
+NAME:AbilityPackUpAlliedAircraftCarrier
+"Switch Mode"
+END
+
+DESC:AbilityPackUpAlliedAircraftCarrier
+"Switch between Airpad Mode and Attack Mode"
+END
+
+NAME:AbilityPackUpJapanBaseDefenseGround
+"Pack up"
+END
+
+DESC:AbilityPackUpJapanBaseDefenseGround
+"Pack up Base Defense"
+END
+
+NAME:AbilityPackUpJapanBaseDefenseAir
+"Pack up"
+END
+
+DESC:AbilityPackUpJapanBaseDefenseAir
+"Pack up Base Defense"
+END
+
+Name:JapanBaseDefenseAir
+"Air Defender-VX"
+END
+
+Name:JapanBaseDefenseAirEgg
+"Air Defender Core"
+END
+
+NAME:ToggleTeslaWeapon
+"Disable Vehicle Laser"
+END
+
+DESC:ToggleTeslaWeapon
+"Switches to a Weapon That Will Drastically Disable any Enemy Vehicle Touched By Its Laser"
+END
+
+NAME:ToggleTeslaWeaponOff
+"Tesla Shock Weapon"
+END
+
+DESC:ToggleTeslaWeaponOff
+"Switches To the Tesla Tanks Duel Shock Cannons"
+END
+
+Name:SovietAntiGroundAircraftTech2
+"B754 Screamer"
+END
+
+Type:SovietAntiGroundAircraftTech2
+"Multiple Warhead Bomber"
+END
+
+Desc:SovietAntiGroundAircraftTech2
+"Drops A Missile Which Scatters Multiple Warheads Over The Area of The Target"
+END
+
+Name:JapanArcherInfantry
+"Archer Maiden"
+END
+
+Type:JapanArcherInfantry
+"Archer Infantry"
+END
+
+Desc:JapanArcherInfantry
+"Traditional Japanese Archer that can assassinate enemy Infantry with ease."
+END

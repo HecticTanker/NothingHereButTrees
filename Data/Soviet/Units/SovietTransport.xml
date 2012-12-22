@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		<Include type="all"	source="ART:SUSurveyor_D.xml" />		
+		<Include type="all"	source="ART:SUSurveyor.w3x" />
+		<Include type="instance" source="ART:EX_Headlights.w3x" />
+		<Include type="instance" source="ART:EXTnkTrack.xml" />
+		<Include type="all"	source="ART:SUSurveyor_Pontoons_SKN.w3x" />
+		<Include type="all"	source="ART:SUSurveyor_Pontoons_IDLA.w3x" />
+		<Include type="all"	source="ART:SUSurveyor_Pontoons_TRANS.w3x" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	
+	<GameObject
+		id="SovietTransport"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_SovietSurveyor_big"
+		ButtonImage="Button_SovietSurveyor_small"
+		Side="Soviet"
+		SubGroupPriority="825"
+		EditorSorting="UNIT"		
+		ProductionQueueType="VEHICLE"
+		BuildTime="20"
+		CommandSet="SovietTransportCommandSet"
+		KindOf="SELECTABLE GARRISON CAN_CAST_REFLECTIONS VEHICLE CAN_BE_FAVORITE_UNIT CYCLE_SELECTION AMPHIBIOUS GARRISONABLE_UNTIL_DESTROYED"
+		PlacementViewAngle="315d"
+		VoicePriority="48"
+		EditorName="SovietSurveyor"
+		Description="Desc:SovietSputnik"
+		TypeDescription="Type:SovietSputnik"
+		HealthBoxHeightOffset="30"
+		UnitIntro="Soviet_Sputnik_UnitIntro">
+		<DisplayName
+			xai:joinAction="Replace">Name:SovietSputnik</DisplayName>
+		<GameDependency>
+			<RequiredObject>SovietWarFactory</RequiredObject>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1200"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="SovietSurveyorArmor"
+ 			DamageFX="VehicleDamageFX" />
+ 		<LocomotorSet
+ 			Locomotor="SovietSurveyorLocomotor"
+ 			Condition="NORMAL"
+ 			Speed="80.0" />
+   		<LocomotorSet
+ 			Locomotor="SovietSurveyorWaterLocomotor"
+ 			Condition="NORMAL"
+ 			Speed="80.0" />
+		<Draws>
+			<TruckDraw
+				id="ModuleTag_Draw"
+				LeftFrontTireBone="Bone_Tire_LF"
+				RightFrontTireBone="Bone_Tire_RF"
+				MidLeftRearTireBone="Bone_Tire_LM"
+				MidRightRearTireBone="Bone_Tire_RM"
+				LeftRearTireBone="Bone_Tire_LR"
+				RightRearTireBone="Bone_Tire_RR"
+				TireRotationMultiplier="0.1"
+				TrackMarks="EXTnkTrack"
+				TrackMarksOnlyWhenCorneringQuickly="false"
+				TrackMarksLeftBone="FXTreadL"
+				TrackMarksRightBone="FXTreadR"
+				OkToChangeModelColor="true">
+
+				<TreadTerrainParticles>DefaultTankTerrainParticleMapping</TreadTerrainParticles>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUSurveyor" />
+				</ModelConditionState>
+			
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="SUSurveyor" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="SUSurveyor" />
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" /> 
+				</ModelConditionState>	
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="SUSurveyor" />
+					<Texture
+						Original="SUSurveyor"
+						New="SUSurveyor_D" />						
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />    
+				</ModelConditionState>					
+
+			</TruckDraw>
+			
+			
+			<TruckDraw
+				id="ModuleTag_Draw_Water"
+				TireRotationMultiplier="0.1"
+				OkToChangeModelColor="true">
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUSurveyor_Pontoons_SKN" />				
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model
+						Name="SUSurveyor_Pontoons_SKN" />
+						<ParticleSysBone
+							BoneName="None"
+							FXParticleSystemTemplate="SmallShipWakeIdle"
+							FollowBone="false" />
+				</ModelConditionState>
+								
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_OnLAND">
+					<Animation
+						AnimationName=""
+						AnimationMode="MANUAL"/>
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_OnWater" and Prev ~= "TRANS_toLand" then CurDrawableSetTransitionAnimState("TRANS_toLand")	end;
+					</Script>
+				</AnimationState>					
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING OVER_WATER"
+					StateName="STATE_OnWater">
+					<Animation
+						AnimationName="SUSurveyor_Pontoons_IDLA" 
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_OnLAND" and Prev ~= "TRANS_toWater" then CurDrawableSetTransitionAnimState("TRANS_toWater")	end;
+					</Script>
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AUMCVWaterWake"
+						FollowBone="false" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER"
+					Flags="START_FRAME_LAST"
+					StateName="STATE_OnWater">
+					<Animation
+						AnimationName="SUSurveyor_Pontoons_TRANS"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_OnLAND" and Prev ~= "TRANS_toWater" then CurDrawableSetTransitionAnimState("TRANS_toWater")	end;
+					</Script>
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="StingrayWaterWake"
+						FollowBone="false" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_toWater">
+					<Animation
+						AnimationName="SUSurveyor_Pontoons_TRANS"
+						AnimationMode="ONCE"
+						AnimationBlendTime="0" />
+					<Script>
+						CurDrawablePlaySound("SOV_Miner_WaterSplashMS")
+					</Script>  
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					Flags="START_FRAME_LAST"
+					StateName="TRANS_toLand">
+					<Animation
+						AnimationName="SUSurveyor_Pontoons_TRANS"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationBlendTime="0" />
+					<Script>
+						CurDrawablePlaySound("AmphibiousWaterUnitToLand_ScrapeTreadsOut")
+					</Script>    
+				</AnimationState>
+				
+			</TruckDraw>
+
+		  <!-- include Headlight draw module. -->
+		  <xi:include
+				href="DATA:Includes/HeadlightDraw2.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:HeadlightDraw2/child::*)" />
+		</Draws>
+
+		<Behaviors>
+			<ProductionUpdate
+				id="ModuleTag_ProductionUpdate" />
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="SUSuveyor_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			
+			<GarrisonContain
+				id="ModuleTag_Garrison"
+				ObjectStatusOfContained="ENCLOSED UNSELECTABLE CAN_ATTACK"
+				ContainMax="5"
+				EnterSound="GenericBuilding_Garrison"
+				ExitSound="GenericBuilding_Ungarrison"
+				AllowEnemiesInside="false"
+				AllowAlliesInside="true"
+				AllowNeutralInside="true"
+				AllowOwnPlayerInsideOverride="true"
+				ShowPips="true"
+				PassDisabilityToRiders="true"
+				KillPassengersOnDeath="false">
+				<PassengerFilter
+					Rule="ANY"
+					Include="INFANTRY">
+					<IncludeThing>SovietScoutVehicle</IncludeThing>
+					<ExcludeThing>AlliedScoutInfantry</ExcludeThing>
+					<ExcludeThing>SovietScoutInfantry</ExcludeThing>
+				</PassengerFilter>
+				<DieMuxData
+					DeathTypes="ALL" />
+				<PassengerData
+					BonePrefix="BONEGARRISON">
+					<Filter
+						Rule="ANY"
+						Include="INFANTRY"/>					
+				</PassengerData>					
+			</GarrisonContain>
+			
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierAura" 
+				InitiallyActive="true"
+				AttributeModifierName="AttributeModifier_Garrisoned"
+				RefreshDelay="0.5s"
+				AllowSelf="false"
+				AffectContainedOnly="true">
+				<ObjectFilter
+					Rule="ALL"
+					Exclude="SURPRISE_ATTACKER"/>
+			</AttributeModifierAuraUpdate>
+			
+			<DestroyDie
+				id="ModuleTag_Die">
+					<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			
+			<FXListBehavior
+				xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event 
+				 Index="onDeath" 
+				 FX="FX_Civ_Explosion_Tiny" />
+			</FXListBehavior>
+			
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_MediumVehicleDie" />
+			</FXListBehavior>
+
+
+			<StancesBehavior
+				id="ModuleTag_Stance"
+				xai:joinAction="Remove" />
+
+			<xi:include
+				href="DATA:Includes/SovietTerrorDroneSpawnUpgradePlayerPower.xml" />
+
+			<xi:include
+				href="DATA:Includes/SovietCrushUpgradePlayerPower.xml" />
+			
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="NO"
+				StateMachine="UnitAIStateMachine"/>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="500.0" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_MoveLoop">
+				<ModelConditionSound Sound="Tank_Land_MoveLoop" RequiredFlags="MOVING" ExcludedFlags="OVER_WATER DYING" />
+				<ModelConditionSound Sound="Ship_Small_MoveLoopWater" RequiredFlags="MOVING OVER_WATER" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="SOV_Sputnik_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_WaterSounds">
+				<Override RequiredFlags="OVER_WATER">
+					<AudioArrayVoice>
+						<AudioEntry Sound="SOV_Sputnik_VoiceMoveWater" AudioType="voiceMove" />
+						<AudioEntry Sound="SOV_Sputnik_Water_VoiceSelectMS" AudioType="voiceSelect" />
+						<AudioEntry Sound="SOV_Sputnik_Water_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+					</AudioArrayVoice>
+					<AudioArraySound>
+						<AudioEntry Sound="SOV_Sputnik_MovStartWater" AudioType="soundMoveStart" />
+					</AudioArraySound>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+		</ClientBehaviors>
+		<Geometry>
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="20.0"
+				Height="23.0"
+				ContactPointGeneration="VEHICLE" />
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="SOV_Sputnik_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="SOV_Sputnik_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="SOV_Sputnik_VoiceMoveToLand" AudioType="voiceMoveWaterToLand" />
+			<AudioEntry Sound="SOV_Sputnik_VoiceMoveToWater" AudioType="voiceMoveLandToWater" />
+			<AudioEntry Sound="SOV_Sputnik_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="SOV_Sputnik_Land_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="SOV_Sputnik_Land_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" /> 
+			<NamedEntry Sound="SOV_Sputnik_VoiceDeploy" Name="VoiceDeploy" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="SOV_Sputnik_MovStartLand"
+				AudioType="soundMoveStart" />
+		</AudioArraySound>
+
+		<EvaEventArray>
+			<EvaEntry EvaEvent="StructurePlacementFailed" EvaType="placementFailed" />
+		</EvaEventArray>
+		
+		<VisionInfo
+			VisionRange="250"
+			ShroudClearingRange="300" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushEqualLevelProps="true"
+			CrusherLevel="20"
+			CrushableLevel="20"
+			CrushWeapon="SovietCrushWeapon"
+			CrushDecelerationPercent="80%">
+		<ExtraCrushLevels CrusherLevel="0" CrushableLevel="20" ModelConditionMatch="OVER_WATER"/>	
+		 </CrusherInfo>
+	</GameObject>
+</AssetDeclaration>

@@ -1,0 +1,1231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags />
+	<Includes> 
+		<Include type="all" source="AUDIO:AudioAssets.xml" />
+	</Includes>
+	<Defines>
+		<Define name="WEAPON_FIRE" value="50" />
+		<Define name="WEAPON_IMPACT" value="60" />
+		<Define name="VEHICLE_DIE_EXPLOSION" value="110" />
+	</Defines>
+
+	<!-- Defaults for AudioEvents. Derive all other AudioEvents from this one -->
+	<AudioEvent id="BaseSoundEffect"
+		Volume="100"
+		MinVolume="0"
+		ShrunkenPitchModifier="2.0"
+		ShrunkenVolumeModifier="85"
+		Priority="NORMAL"
+		Limit="3"
+		MinRange="300"
+		MaxRange="1000"
+		PlayPercent="100"
+		Type="UI PLAYER"
+		ReverbEffectLevel="100"
+		ZoomedInOffscreenVolumePercent = "50"
+		ZoomedInOffscreenMinVolumePercent = "100"
+		ZoomedInOffscreenOcclusionPercent = "20"  >
+		<!-- You might think the following was a good idea:
+			SubmixSlider ="SOUNDFX"
+			IT'S NOT. Doing this in the default sound will mess up the special 'use the speech slider if the
+			voice flag is present and no SubmixSlider entry was seen' code.		-->
+	</AudioEvent>
+
+	<!-- Defaults for unit responses. Derive unit responses responses from this one -->
+	<AudioEvent id="BaseUnitResponse" inheritFrom="AudioEvent:BaseSoundEffect"
+		Volume="100"
+		MinVolume="90"
+		ShrunkenPitchModifier="1.3"
+		ShrunkenVolumeModifier="95"
+		Priority="HIGHEST"
+		Limit="3"
+		Type="UI PLAYER VOICE"
+		SubmixSlider="VOICE" >
+	</AudioEvent>
+	
+	<!-- === ALLIED GUNSHIP HARBINGERGUNSHIP HARBINGER GUNSHIP EP1 === -->
+
+	<AudioEvent
+		id="ALL_Gunship_ColliderCannonWeaponFire"
+		inheritFrom="AudioEvent:BaseSoundEffect"
+		Volume="=60"
+		VolumeShift="-10"
+		Limit="3"
+		Type="WORLD SHROUDED EVERYONE"
+		Control="INTERRUPT"
+		Priority="HIGH"
+		SubmixSlider="SOUNDFX">
+		<NonInterruptibleTime Low="0.0s" High=".8s" />
+		<PitchShift Low="-5" High="5" />
+		<Sound>AUGunship_cannonFireA</Sound>
+		<Sound>AUGunship_cannonFireB</Sound>
+		<Sound>AUGunship_cannonFireC</Sound>
+		<Sound>AUGunship_cannonFireD</Sound>
+		<Sound>AUGunship_cannonFireE</Sound>
+	</AudioEvent>
+
+	<AudioEvent
+		id="ALL_Gunship_ColliderCannonExplo1"
+		inheritFrom="AudioEvent:BaseSoundEffect"
+		Volume = "60"
+		VolumeShift="-10"
+		Limit="1"
+		Type="WORLD EVERYONE"
+		SubmixSlider="SOUNDFX">
+		<PitchShift
+		Low="-5"
+		High="5" />
+		<Sound>AUGunship_cannonExplo1A</Sound>
+		<Sound>AUGunship_cannonExplo1B</Sound>
+		<Sound>AUGunship_cannonExplo1C</Sound>
+		<Sound>AUGunship_cannonExplo1D</Sound>
+		<Sound>AUGunship_cannonExplo1E</Sound>
+		<Sound>AUGunship_cannonExplo1F</Sound>
+		<Sound>AUGunship_cannonExplo1G</Sound>
+		<Sound>AUGunship_cannonExplo1H</Sound>
+	</AudioEvent>
+
+	<AudioEvent
+		id="ALL_Gunship_ColliderCannonExplo2"
+		inheritFrom="AudioEvent:BaseSoundEffect"
+		Volume = "60"
+		VolumeShift="-10"
+		Limit="1"
+		Type="WORLD EVERYONE"
+		SubmixSlider="SOUNDFX">
+		<PitchShift
+		Low="-5"
+		High="5" />
+		<Sound>AUGunship_cannonExplo2A</Sound>
+		<Sound>AUGunship_cannonExplo2B</Sound>
+		<Sound>AUGunship_cannonExplo2C</Sound>
+		<Sound>AUGunship_cannonExplo2D</Sound>
+		<Sound>AUGunship_cannonExplo2E</Sound>
+		<Sound>AUGunship_cannonExplo2F</Sound>
+		<Sound>AUGunship_cannonExplo2G</Sound>
+		<Sound>AUGunship_cannonExplo2H</Sound>
+	</AudioEvent>
+
+	<Multisound id="ALL_Gunship_ColliderCannonExploMS">
+		<Subsound>ALL_Gunship_ColliderCannonExplo1</Subsound>
+		<Subsound>ALL_Gunship_ColliderCannonExplo2</Subsound>
+	</Multisound>
+
+	<AudioEvent
+		id="ALL_Gunship_MachineGunWeaponFire"
+		inheritFrom="AudioEvent:BaseSoundEffect"
+		Volume="=$WEAPON_FIRE - 5"
+		VolumeShift="-5"
+		Limit="3"
+		Type="WORLD SHROUDED EVERYONE"
+		Priority="HIGH"
+		Control="INTERRUPT"
+		SubmixSlider="SOUNDFX">
+		<NonInterruptibleTime Low="0.0s" High="0.9s" />
+		<PitchShift
+		Low="-25"
+		High="-15" />
+		<Sound>SUTwinb_weapFire1a</Sound>
+		<Sound>SUTwinb_weapFire1b</Sound>
+		<Sound>SUTwinb_weapFire1c</Sound>
+		<Sound>SUTwinb_weapFire1d</Sound>
+		<Sound>SUTwinb_weapFire1e</Sound>
+		<Sound>SUTwinb_weapFire1f</Sound>
+		<Sound>SUTwinb_weapFire1g</Sound>
+	</AudioEvent>
+
+	<AudioEvent
+		id="ALL_Gunship_MoveByLoop"
+		inheritFrom="AudioEvent:BaseSoundEffect"
+		Volume="40"
+		VolumeShift="-10"
+		Limit="3"
+		Control="LOOP FADE_ON_KILL"
+		Priority="LOW"
+		Type="WORLD SHROUDED EVERYONE"
+		SubmixSlider="SOUNDFX">
+		<PitchShift Low="-10" High="10" />
+		<Delay Low="40" High="80" />
+		<Sound>AUGunsh_movByLoopa</Sound>
+		<Sound>AUGunsh_movByLoopb</Sound>
+		<Sound>AUGunsh_movByLoopc</Sound>
+		<Sound>AUGunsh_movByLoopd</Sound>
+		<Sound>AUGunsh_movByLoope</Sound>
+	</AudioEvent>
+
+	<AudioEvent
+		id="ALL_Gunship_MoveLoop"
+		inheritFrom="AudioEvent:BaseSoundEffect"
+		Volume="25"
+		VolumeShift="-10"
+		MinRange="200"
+		MaxRange="500"
+		Limit="3"
+		Control="LOOP FADE_ON_KILL"
+		Priority="LOWEST"
+		Type="WORLD SHROUDED EVERYONE"
+		SubmixSlider="SOUNDFX">
+		<PitchShift Low="-10" High="0" />
+		<Sound>AUGunsh_movLoopa</Sound>
+	</AudioEvent>
+
+	<AudioEvent
+		id="ALL_Gunship_MoveStart"
+		inheritFrom="AudioEvent:BaseSoundEffect"
+		Volume="40"
+		VolumeShift="-10"
+		Limit="3"
+		Type="WORLD SHROUDED EVERYONE"
+		SubmixSlider="SOUNDFX">
+		<PitchShift Low="-10" High="10" />
+		<Delay Low="0" High="50" />
+		<Sound>AUGunsh_movStarta</Sound>
+		<Sound>AUGunsh_movStartb</Sound>
+		<Sound>AUGunsh_movStartc</Sound>
+		<Sound>AUGunsh_movStartd</Sound>
+	</AudioEvent>
+
+	<AudioEvent
+		id="ALL_Gunship_Weapon1TogglePlayer"
+		inheritFrom="AudioEvent:BaseSoundEffect"
+		Volume="70"
+		VolumeShift="-5"
+		MinVolume="60"
+		Limit="1"
+		Type="WORLD PLAYER"
+		SubmixSlider="SOUNDFX">
+		<PitchShift Low="-5" High="5" />
+		<Delay Low="0" High="70" />
+		<Sound>AUGunsh_wea1Togglea</Sound>
+	</AudioEvent>
+
+	<AudioEvent
+		id="ALL_Gunship_Weapon1ToggleOthers"
+		inheritFrom="AudioEvent:BaseSoundEffect"
+		Volume="70"
+		VolumeShift="-5"
+		Limit="3"
+		Type="WORLD SHROUDED ALLIES ENEMIES"
+		SubmixSlider="SOUNDFX">
+		<PitchShift Low="-5" High="5" />
+		<Delay Low="0" High="70" />
+		<Sound>AUGunsh_wea1Togglea</Sound>
+	</AudioEvent>
+
+	<Multisound id="ALL_Gunship_Weapon1ToggleMS">
+		<Subsound>ALL_Gunship_Weapon1TogglePlayer</Subsound>
+		<Subsound>ALL_Gunship_Weapon1ToggleOthers</Subsound>
+	</Multisound>
+
+	<AudioEvent
+		id="ALL_Gunship_Weapon2TogglePlayer"
+		inheritFrom="AudioEvent:BaseSoundEffect"
+		Volume="70"
+		VolumeShift="-5"
+		MinVolume="60"
+		Limit="1"
+		Type="WORLD PLAYER"
+		SubmixSlider="SOUNDFX">
+		<PitchShift Low="-5" High="5" />
+		<Delay Low="0" High="70" />
+		<Sound>AUGunsh_wea2Togglea</Sound>
+	</AudioEvent>
+
+	<AudioEvent
+		id="ALL_Gunship_Weapon2ToggleOthers"
+		inheritFrom="AudioEvent:BaseSoundEffect"
+		Volume="70"
+		VolumeShift="-5"
+		Limit="3"
+		Type="WORLD SHROUDED ALLIES ENEMIES"
+		SubmixSlider="SOUNDFX">
+		<PitchShift Low="-5" High="5" />
+		<Delay Low="0" High="70" />
+		<Sound>AUGunsh_wea2Togglea</Sound>
+	</AudioEvent>
+
+	<Multisound id="ALL_Gunship_Weapon2ToggleMS">
+		<Subsound>ALL_Gunship_Weapon2TogglePlayer</Subsound>
+		<Subsound>ALL_Gunship_Weapon2ToggleOthers</Subsound>
+	</Multisound>
+
+	<!-- ========================== ALLIED HARBINGER GUNSHIP HARBINGERGUNSHIP GUN SHIP EP1 ========================== -->
+
+	<AudioEvent id="ALL_HarbingerGunship_VoiceAttack"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>AUHarbi_voiAttacka</Sound>
+		<Sound>AUHarbi_voiAttackb</Sound>
+		<Sound>AUHarbi_voiAttackc</Sound>
+		<Sound>AUHarbi_voiAttackd</Sound>
+		<Sound>AUHarbi_voiAttacke</Sound>
+		<Sound>AUHarbi_voiAttackf</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="ALL_HarbingerGunship_VoiceAttackSpecial"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>AUHarbi_voiAttSpeca</Sound>
+		<Sound>AUHarbi_voiAttSpecb</Sound>
+		<Sound>AUHarbi_voiAttSpecc</Sound>
+		<Sound>AUHarbi_voiAttSpecd</Sound>
+		<Sound>AUHarbi_voiAttSpece</Sound>
+		<Sound>AUHarbi_voiAttSpecf</Sound>
+		<Sound>AUHarbi_voiAttSpecg</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="ALL_HarbingerGunship_VoiceCreate"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>AUHarbi_voiCreateb</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="ALL_HarbingerGunship_VoiceMove"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>AUHarbi_voiMovea</Sound>
+		<Sound>AUHarbi_voiMoveb</Sound>
+		<Sound>AUHarbi_voiMovec</Sound>
+		<Sound>AUHarbi_voiMoved</Sound>
+		<Sound>AUHarbi_voiMovee</Sound>
+		<Sound>AUHarbi_voiMovef</Sound>
+		<Sound>AUHarbi_voiMoveg</Sound>
+		<Sound>AUHarbi_voiMoveh</Sound>
+		<Sound>AUHarbi_voiMovei</Sound>
+		<Sound>AUHarbi_voiMovej</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="ALL_HarbingerGunship_VoiceMoveAttack"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>AUHarbi_voiMvAtta</Sound>
+		<Sound>AUHarbi_voiMvAttb</Sound>
+		<Sound>AUHarbi_voiMvAttc</Sound>
+		<Sound Weight="500">AUHarbi_voiMvAttd</Sound>
+		<Sound>AUHarbi_voiMvAtte</Sound>
+		<Sound>AUHarbi_voiMvAttf</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="ALL_HarbingerGunship_VoiceRetreat"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>AUHarbi_voiRetreaa</Sound>
+		<Sound>AUHarbi_voiRetreab</Sound>
+		<Sound>AUHarbi_voiRetreac</Sound>
+		<Sound>AUHarbi_voiRetread</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="ALL_HarbingerGunship_VoiceSelect"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>AUHarbi_voiCreatea</Sound>
+		<Sound>AUHarbi_voiSelecta</Sound>
+		<Sound>AUHarbi_voiSelectb</Sound>
+		<Sound>AUHarbi_voiSelectc</Sound>
+		<Sound>AUHarbi_voiSelectd</Sound>
+		<Sound>AUHarbi_voiSelecte</Sound>
+		<Sound>AUHarbi_voiSelectf</Sound>
+		<Sound>AUHarbi_voiSelectg</Sound>
+		<Sound>AUHarbi_voiSelecth</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="ALL_HarbingerGunship_VoiceSelectBattle"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>AUHarbi_voiSelBata</Sound>
+		<Sound>AUHarbi_voiSelBatb</Sound>
+		<Sound>AUHarbi_voiSelBatc</Sound>
+		<Sound>AUHarbi_voiSelBatd</Sound>
+		<Sound>AUHarbi_voiSelBate</Sound>
+		<Sound>AUHarbi_voiSelBatf</Sound>
+		<Sound>AUHarbi_voiSelBatg</Sound>
+		<Sound>AUHarbi_voiSelBath</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="ALL_HarbingerGunship_VoiceSelectUnderFire"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>AUHarbi_voiSelUnda</Sound>
+		<Sound>AUHarbi_voiSelUndb</Sound>
+		<Sound>AUHarbi_voiSelUndc</Sound>
+		<Sound>AUHarbi_voiSelUndd</Sound>
+		<Sound>AUHarbi_voiSelUnde</Sound>
+		<Sound>AUHarbi_voiSelUndf</Sound>
+		<Sound>AUHarbi_voiSelUndg</Sound>
+	</AudioEvent>
+	
+	<!-- Tesla Coil -->
+	<AudioEvent
+		id="SOV_TeslaCoil_FireWeapon"
+		inheritFrom="AudioEvent:BaseSoundEffect"
+		Volume="125"
+		VolumeShift="-10"
+		Limit="3"
+		Type="WORLD SHROUDED EVERYONE"
+		Control="INTERRUPT"
+		Priority="HIGH"
+		SubmixSlider="SOUNDFX">
+			<NonInterruptibleTime Low="0.0s" High=".8s" />
+			<PitchShift Low="-10" High="10" /> <!-- was -5 & 5 -->
+			<Sound>SOV_TeslaCoil1</Sound>
+			<Sound>SOV_TeslaCoil2</Sound>
+	</AudioEvent>
+	
+	<!-- Sentry Gun -->
+	<AudioEvent
+		id="SOV_Sentry_FireWeapon"
+		inheritFrom="AudioEvent:BaseSoundEffect"
+		Volume="75"
+		VolumeShift="-10"
+		Limit="3"
+		Type="WORLD SHROUDED EVERYONE"
+		Control="INTERRUPT"
+		Priority="HIGH"
+		SubmixSlider="SOUNDFX">
+			<NonInterruptibleTime Low="0.0s" High=".8s" />
+			<PitchShift Low="-7" High="7" /> <!-- was -5 & 5 -->
+			<Sound>SOV_Sentry1</Sound>
+	</AudioEvent>
+	
+	<!-- Flame Tank -->
+	<AudioEvent 
+		id="NOD_FlameTank_VoiceAttack"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NUFlame_VoiAttacka</Sound>
+		<Sound>NUFlame_VoiAttackb</Sound>
+		<Sound>NUFlame_VoiAttackc</Sound>
+		<Sound>NUFlame_VoiAttackd</Sound>
+		<Sound>NUFlame_VoiAttacke</Sound>
+		<Sound>NUFlame_VoiAttackf</Sound>
+	</AudioEvent>
+	<AudioEvent 
+		id="NOD_FlameTank_VoiceAttackBuilding"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NUFlame_VoiAttBuia</Sound>
+		<Sound>NUFlame_VoiAttBuib</Sound>
+		<Sound>NUFlame_VoiAttBuic</Sound>
+	</AudioEvent>
+	<AudioEvent 
+		id="NOD_FlameTank_VoiceCreate"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NUFlame_VoiCreatea</Sound>
+		<Sound>NUFlame_VoiCreateb</Sound>
+	</AudioEvent>
+	<AudioEvent 
+		id="NOD_FlameTank_VoiceDie"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NUFlame_voidiea</Sound>
+		<Sound>NUFlame_voidieb</Sound>
+		<Sound>NUFlame_voidiec</Sound>
+		<Sound>NUFlame_voidied</Sound>
+		<Sound>NUFlame_voidiee</Sound>
+	</AudioEvent>
+	<AudioEvent 
+		id="NOD_FlameTank_VoiceMoveAttack"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NUFlame_VoiMovAtta</Sound>
+		<Sound>NUFlame_VoiMovAttb</Sound>
+		<Sound>NUFlame_VoiMovAttc</Sound>
+		<Sound>NUFlame_VoiMovAttd</Sound>
+		<Sound>NUFlame_VoiMovAtte</Sound>
+		<Sound>NUFlame_VoiMovAttf</Sound>
+	</AudioEvent>
+	<AudioEvent 
+		id="NOD_FlameTank_VoiceMove"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NUFlame_VoiMovea</Sound>
+		<Sound>NUFlame_VoiMoveb</Sound>
+		<Sound>NUFlame_VoiMovec</Sound>
+		<Sound>NUFlame_VoiMoved</Sound>
+		<Sound>NUFlame_VoiMovee</Sound>
+		<Sound>NUFlame_VoiMovef</Sound>
+	</AudioEvent>
+	<AudioEvent 
+		id="NOD_FlameTank_VoiceRetreat"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NUFlame_VoiRetreaa</Sound>
+		<Sound>NUFlame_VoiRetreab</Sound>
+	</AudioEvent>
+	<AudioEvent 
+		id="NOD_FlameTank_VoiceSelectBattleMS"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NUFlame_VoiSelBata</Sound>
+		<Sound>NUFlame_VoiSelBatb</Sound>
+		<Sound>NUFlame_VoiSelBatc</Sound>
+		<Sound>NUFlame_VoiSelBatd</Sound>
+		<Sound>NUFlame_VoiSelBate</Sound>
+		<Sound>NUFlame_VoiSelBatf</Sound>
+		<Sound>NUFlame_VoiSelBatg</Sound>
+	</AudioEvent>
+	<AudioEvent 
+		id="NOD_FlameTank_VoiceSelectMS"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NUFlame_VoiSelecta</Sound>
+		<Sound>NUFlame_VoiSelectb</Sound>
+		<Sound>NUFlame_VoiSelectc</Sound>
+		<Sound>NUFlame_VoiSelectd</Sound>
+		<Sound>NUFlame_VoiSelecte</Sound>
+		<Sound>NUFlame_VoiSelectf</Sound>
+		<Sound>NUFlame_VoiSelectg</Sound>
+		<Sound>NUFlame_VoiSelecth</Sound>
+		<Sound>NUFlame_VoiSelecti</Sound>
+		<Sound>NUFlame_VoiSelectj</Sound>
+	</AudioEvent>		
+	
+	<AudioEvent id="NOD_FlameTank_FlameWeaponLoop" 
+		inheritFrom="AudioEvent:BaseSoundEffect"
+		Volume = "50"
+		PerFileVolumeShift = "-5"
+		Limit = "3"
+		Control = "LOOP"
+		Type = "WORLD SHROUDED EVERYONE"
+		SubmixSlider = "SOUNDFX" >
+		<PerFilePitchShift Low = "-5" High = "5" />
+		<Attack>NUFlame_weaFlaml1a</Attack> 
+		<Attack>NUFlame_weaFlaml1b</Attack> 
+		<Attack>NUFlame_weaFlaml1c</Attack> 
+		<Attack>NUFlame_weaFlaml1d</Attack>
+		<Attack>NUFlame_weaFlaml1e</Attack> 
+		<Sound>NUFlame_weaFlaml2a</Sound> 
+		<Sound>NUFlame_weaFlaml2b</Sound> 
+		<Sound>NUFlame_weaFlaml2c</Sound> 
+		<Sound>NUFlame_weaFlaml2d</Sound>
+		<Sound>NUFlame_weaFlaml2e</Sound> 
+		<Sound>NUFlame_weaFlaml2f</Sound>
+		<Decay>NUFlame_weaFlaml3a</Decay> 
+		<Decay>NUFlame_weaFlaml3b</Decay> 
+		<Decay>NUFlame_weaFlaml3c</Decay> 
+		<Decay>NUFlame_weaFlaml3d</Decay>
+		<Decay>NUFlame_weaFlaml3e</Decay> 
+		<Decay>NUFlame_weaFlaml3f</Decay>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="NUFlame_idleLoop"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NUFlame_idleLoopa</Sound>
+		<Sound>NUFlame_idleLoopb</Sound>
+		<Sound>NUFlame_idleLoopc</Sound>
+		<Sound>NUFlame_idleLoopd</Sound>
+		<Sound>NUFlame_idleLoope</Sound>
+		<Sound>NUFlame_idleLoopf</Sound>
+		<Sound>NUFlame_idleLoopg</Sound>
+		<Sound>NUFlame_idleLooph</Sound>
+		<Sound>NUFlame_idleLoopi</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="NUFlame_moveLoop"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NUFlame_moveLoopa</Sound>
+		<Sound>NUFlame_moveLoopb</Sound>
+		<Sound>NUFlame_moveLoopc</Sound>
+		<Sound>NUFlame_moveLoopd</Sound>
+		<Sound>NUFlame_moveLoope</Sound>
+		<Sound>NUFlame_moveLoopf</Sound>
+		<Sound>NUFlame_moveLoopg</Sound>
+		<Sound>NUFlame_moveLooph</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="NUFlame_moveStar"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NUFlame_moveStara</Sound>
+		<Sound>NUFlame_moveStarb</Sound>
+		<Sound>NUFlame_moveStarc</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="NUFlame_sounSele"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NUFlame_sounSelea</Sound>
+		<Sound>NUFlame_sounSeleb</Sound>
+		<Sound>NUFlame_sounSelec</Sound>
+	</AudioEvent>
+	
+	<!--NU Vert -->
+	
+	<AudioEvent 
+		id="NuVerti_VoiCrash"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NuVerti_VoiCrasha</Sound>
+		<Sound>NuVerti_VoiCrashb</Sound>
+		<Sound>NuVerti_VoiCrashc</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="NUVerti_VoiDie"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NUVerti_VoiDiea</Sound>
+		<Sound>NUVerti_VoiDieb</Sound>
+		<Sound>NUVerti_VoiDiec</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="NuVerti_VoiMovAtt"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NuVerti_VoiMovAtta</Sound>
+		<Sound>NuVerti_VoiMovAttb</Sound>
+		<Sound>NuVerti_VoiMovAttc</Sound>
+		<Sound>NuVerti_VoiMovAttd</Sound>
+		<Sound>NuVerti_VoiMovAtte</Sound>
+		<Sound>NuVerti_VoiMovAttf</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="NuVerti_VoiMove"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NuVerti_VoiMovea</Sound>
+		<Sound>NuVerti_VoiMoveb</Sound>
+		<Sound>NuVerti_VoiMovec</Sound>
+		<Sound>NuVerti_VoiMoved</Sound>
+		<Sound>NuVerti_VoiMovee</Sound>
+		<Sound>NuVerti_VoiMovef</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="NuVerti_VoiRetrea"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NuVerti_VoiRetreaa</Sound>
+		<Sound>NuVerti_VoiRetreab</Sound>
+		<Sound>NuVerti_VoiRetreac</Sound>
+		<Sound>NuVerti_VoiRetread</Sound>
+	</AudioEvent>
+	
+		<AudioEvent 
+		id="NuVerti_VoiSelect"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NuVerti_VoiSelecta</Sound>
+		<Sound>NuVerti_VoiSelectb</Sound>
+		<Sound>NuVerti_VoiSelectc</Sound>
+		<Sound>NuVerti_VoiSelectd</Sound>
+		<Sound>NuVerti_VoiSelecte</Sound>
+		<Sound>NuVerti_VoiSelectf</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="NuVerti_VoiCreate"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>NuVerti_VoiCreatea</Sound>
+		<Sound>NuVerti_VoiCreateb</Sound>
+	</AudioEvent>
+	
+	<!--JU Archer -->
+	<AudioEvent 
+		id="JUArche_weapFire1"
+		inheritFrom="AudioEvent:BaseSoundEffect"
+		Volume = "100"
+		VolumeShift="-10"
+		Limit="1"
+		Type="WORLD EVERYONE"
+		SubmixSlider="SOUNDFX">
+		<!-- EP1 -->
+		<Sound>JUArche_weapFire1a</Sound>
+		<Sound>JUArche_weapFire1b</Sound>
+		<Sound>JUArche_weapFire1c</Sound>
+		<Sound>JUArche_weapFire1d</Sound>
+		<Sound>JUArche_weapFire1e</Sound>
+		<Sound>JUArche_weapFire1f</Sound>
+	</AudioEvent>	
+	<AudioEvent 
+		id="JUArche_weapImpa1"
+		inheritFrom="AudioEvent:BaseSoundEffect"
+		Volume = "100"
+		VolumeShift="-10"
+		Limit="1"
+		Type="WORLD EVERYONE"
+		SubmixSlider="SOUNDFX">
+		<!-- EP1 -->
+		<Sound>JUArche_weapImpa1a</Sound>
+		<Sound>JUArche_weapImpa1b</Sound>
+		<Sound>JUArche_weapImpa1c</Sound>
+		<Sound>JUArche_weapImpa1d</Sound>
+		<Sound>JUArche_weapImpa1e</Sound>
+	</AudioEvent>	
+	
+	<AudioEvent 
+		id="IUArche_voiAttack"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>IUArche_voiAttacka</Sound>
+		<Sound>IUArche_voiAttackb</Sound>
+		<Sound>IUArche_voiAttackc</Sound>
+		<Sound>IUArche_voiAttackd</Sound>
+		<Sound>IUArche_voiAttacke</Sound>
+		<Sound>IUArche_voiAttackf</Sound>
+	</AudioEvent>
+	
+	
+	<AudioEvent 
+		id="IUArche_voiAttSpec"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>IUArche_voiAttSpeca</Sound>
+		<Sound>IUArche_voiAttSpecb</Sound>
+		<Sound>IUArche_voiAttSpecc</Sound>
+		<Sound>IUArche_voiAttSpecd</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="IUArche_voiCreate"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>IUArche_voiCreatea</Sound>
+		<Sound>IUArche_voiCreateb</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="IUArche_voiDie"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>IUArche_voiDiea</Sound>
+		<Sound>IUArche_voiDieb</Sound>
+		<Sound>IUArche_voiDiec</Sound>
+		<Sound>IUArche_voiDied</Sound>
+		<Sound>IUArche_voiDiee</Sound>
+		<Sound>IUArche_voiDief</Sound>
+		<Sound>IUArche_voiDieg</Sound>
+		<Sound>IUArche_voiDieh</Sound>
+		<Sound>IUArche_voiDiei</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="IUArche_voiDieFire"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>IUArche_voiDieFirea</Sound>
+		<Sound>IUArche_voiDieFireb</Sound>
+		<Sound>IUArche_voiDieFirec</Sound>
+		<Sound>IUArche_voiDieFired</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="IUArche_voiDiePoison"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>IUArche_voiDiePoisona</Sound>
+		<Sound>IUArche_voiDiePoisonb</Sound>
+		<Sound>IUArche_voiDiePoisonc</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="IUArche_voiDieShock"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>IUArche_voiDieShocka</Sound>
+		<Sound>IUArche_voiDieShockb</Sound>
+		<Sound>IUArche_voiDieShockc</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="IUArche_voiDieYurikoFall"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>IUArche_voiDieYurikoFalla</Sound>
+		<Sound>IUArche_voiDieYurikoFallb</Sound>
+		<Sound>IUArche_voiDieYurikoFallc</Sound>
+		<Sound>IUArche_voiDieYurikoFalld</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="IUArche_voiDieYurikoUp"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>IUArche_voiDieYurikoUpa</Sound>
+		<Sound>IUArche_voiDieYurikoUpb</Sound>
+		<Sound>IUArche_voiDieYurikoUpc</Sound>
+		<Sound>IUArche_voiDieYurikoUpd</Sound>
+		<Sound>IUArche_voiDieYurikoUpe</Sound>
+		<Sound>IUArche_voiDieYurikoUpf</Sound>
+		<Sound>IUArche_voiDieYurikoUpg</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="IUArche_voiGarris"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>IUArche_voiGarrisa</Sound>
+		<Sound>IUArche_voiGarrisb</Sound>
+		<Sound>IUArche_voiGarrisc</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="IUArche_voiMove"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>IUArche_voiMovea</Sound>
+		<Sound>IUArche_voiMoveb</Sound>
+		<Sound>IUArche_voiMovec</Sound>
+		<Sound>IUArche_voiMoved</Sound>
+		<Sound>IUArche_voiMovee</Sound>
+		<Sound>IUArche_voiMovef</Sound>
+		<Sound>IUArche_voiMoveg</Sound>
+		<Sound>IUArche_voiMoveh</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="IUArche_voiMvAtt"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>IUArche_voiMvAtta</Sound>
+		<Sound>IUArche_voiMvAttb</Sound>
+		<Sound>IUArche_voiMvAttc</Sound>
+		<Sound>IUArche_voiMvAttd</Sound>
+		<Sound>IUArche_voiMvAtte</Sound>
+		<Sound>IUArche_voiMvAttf</Sound>
+		<Sound>IUArche_voiMvAttg</Sound>
+		<Sound>IUArche_voiMvAtth</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="IUArche_voiSelBat"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>IUArche_voiSelBata</Sound>
+		<Sound>IUArche_voiSelBatb</Sound>
+		<Sound>IUArche_voiSelBatc</Sound>
+		<Sound>IUArche_voiSelBatd</Sound>
+		<Sound>IUArche_voiSelBate</Sound>
+		<Sound>IUArche_voiSelBatf</Sound>
+		<Sound>IUArche_voiSelBatg</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="IUArche_voiSelect"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>IUArche_voiSelecta</Sound>
+		<Sound>IUArche_voiSelectb</Sound>
+		<Sound>IUArche_voiSelectc</Sound>
+		<Sound>IUArche_voiSelectd</Sound>
+		<Sound>IUArche_voiSelecte</Sound>
+		<Sound>IUArche_voiSelectf</Sound>
+		<Sound>IUArche_voiSelectg</Sound>
+		<Sound>IUArche_voiSelecth</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="IUArche_voiSelUnd"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>IUArche_voiSelUnda</Sound>
+		<Sound>IUArche_voiSelUndb</Sound>
+		<Sound>IUArche_voiSelUndc</Sound>
+		<Sound>IUArche_voiSelUndd</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="JUArche_footstep"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>JUArche_footstepa</Sound>
+		<Sound>JUArche_footstepb</Sound>
+		<Sound>JUArche_footstepc</Sound>
+		<Sound>JUArche_footstepd</Sound>
+		<Sound>JUArche_footstepe</Sound>
+		<Sound>JUArche_footstepf</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="JUArche_select"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>JUArche_selecta</Sound>
+		<Sound>JUArche_selectb</Sound>
+		<Sound>JUArche_selectc</Sound>
+		<Sound>JUArche_selectd</Sound>
+		<Sound>JUArche_selecte</Sound>
+		<Sound>JUArche_selectf</Sound>
+	</AudioEvent>
+	
+	<!-- end JU Archer (Finally)-->
+	<!-- Tanya -->
+	<AudioEvent 
+		id="Tanya_VoiceAttack"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>AUTanya_VoiAttacka</Sound>
+		<Sound>AUTanya_VoiAttackb</Sound>
+		<Sound>AUTanya_VoiAttackc</Sound>
+		<Sound>AUTanya_VoiAttackd</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="Tanya_VoiceMove"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>AUTanya_VoiMovea</Sound>
+		<Sound>AUTanya_VoiMoveb</Sound>
+		<Sound>AUTanya_VoiMovec</Sound>
+		<Sound>AUTanya_VoiMoved</Sound>
+		<Sound>AUTanya_VoiMovee</Sound>
+		<Sound>AUTanya_VoiMovef</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="Tanya_VoiceDie"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>AUTanya_voidiea</Sound>
+		<Sound>AUTanya_voidieb</Sound>
+		<Sound>AUTanya_voidiec</Sound>
+	</AudioEvent>
+	<AudioEvent
+		id="Tanya_VoiceCreate"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>AUTanya_VoiAttackb</Sound>
+	</AudioEvent>
+	<AudioEvent 
+		id="Tanya_VoiceSelectMS"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "110"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>AUTanya_VoiSelecta</Sound>
+		<Sound>AUTanya_VoiSelectb</Sound>
+		<Sound>AUTanya_VoiSelectc</Sound>
+		<Sound>AUTanya_VoiSelectd</Sound>
+		<Sound>AUTanya_VoiSelecte</Sound>
+	</AudioEvent>
+	
+	<AudioEvent 
+		id="Tanya_weapFire"
+		inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "105"
+		Priority = "HIGH"
+		Type = "WORLD PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<!-- EP1 -->
+		<Sound>AUTanya_weapFirea</Sound>
+		<Sound>AUTanya_weapFireb</Sound>
+	</AudioEvent>	
+	
+</AssetDeclaration>

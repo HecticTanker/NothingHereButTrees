@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xai="uri:ea.com:eala:asset:instance">
+
+	<Includes>
+		<Include type="instance" source="DATA:Neutral/Units/GenericCrateSpawner.xml" />
+		
+		<Include type="instance" source="DATA:Allied/Structures/AlliedConstructionYard.xml" />
+		<Include type="instance" source="DATA:Japan/Structures/JapanConstructionYard.xml" />
+		<Include type="instance" source="DATA:Soviet/Structures/SovietConstructionYard.xml" />
+		<Include type="instance" source="DATA:Soviet/Structures/SovietCrane.xml" />
+	</Includes>
+
+<!--
+	NOTE: Besides this Xml file you need some new script events and LUA functions to get these
+	things running which are located at the end of both files.
+	additional\data\Scripts
+	
+	COMPILATION:
+	I recommend you to use Bibber's Extra Files for RA3 to make sure everything gets properly
+	compiled and copied into the BIG file.
+	
+	http://bibber.bplaced.net/index.php?action=download&id=7
+-->
+
+<!--
+	CRATE SPAWNER OVERRIDE:
+	Note that this object is only present if the random crates rule (now NoSW) is checked,
+	otherwise it won't be spawned. It will immediately apply an attribute modifier onto every
+	ConYard on the map (if you start with something else which lacks this KindOf you have
+	to adjust the filter here). The ConYards then trigger a LUA event and upgrade them-
+	selves or in fact the whole player to indicate that the rule is active.
+-->
+	<GameObject
+		id="GenericCrateSpawner"
+		inheritFrom="GenericCrateSpawner">
+		<Behaviors>
+			<AttributeModifierPoolUpdate
+				id="ModuleTag_AttributeModifierPoolUpdate" />
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_CrateAttributeMod"
+				AttributeModifierName="AttrModofier_ConfigTriggerAura"
+				Range="99999"
+				RefreshDelay="999999s"
+				InitiallyActive="true">
+				<ObjectFilter
+					Rule="NONE"
+					Include="CONSTRUCTION_YARD" />
+			</AttributeModifierAuraUpdate>
+			
+			<!-- Note: comment that out if you still want the random crates -->
+			<!-- <SpawnCrateUpdate xai:joinAction="Remove" id="ModuleTag_SpawnCrateUpdate" /> -->
+		</Behaviors>
+	</GameObject>
+
+<!--
+	CONSTRCUTION YARD OVERRIDES:
+	Note that the CommandSet upgrades are important. We must get rid of the the forbidden
+	objects so they don't appear in construction menu or else the Skirmish AI will still
+	be able to build them. If you are using other starting buildings use the code below
+	to adjust them.
+-->
+	<GameObject
+		id="AlliedConstructionYard"
+		inheritFrom="AlliedConstructionYard">
+		<Behaviors>
+			<!--
+				NOTE: The Allied ConYArd is a special case as the Tech upgrade forces its CommandSet
+				to change. Since you have to check for two upgrades (Tech + ConfigTrigger) I mostly
+				do so via script events and LUA. This is because the RequiresAllTriggers attribute
+				for upgrade modules never worked for me.
+			-->
+			
+			<!-- Upgraded CS with NoSW rule unchecked -->
+			<CommandSetUpgrade
+				xai:joinAction="Replace" id="ModuleTag_CommandSetUpgrade"
+				CommandSet="AlliedConstructionYardCommandSetLevel2">
+				<TriggeredBy>Upgrade_AlliedTech2</TriggeredBy>
+				<ConflictsWith>Upgrade_ConfigObjectTrigger01</ConflictsWith>
+			</CommandSetUpgrade>
+			
+			<!-- Initial NoSW CS -->
+			<CommandSetUpgrade
+				id="ModuleTag_CommandSetUpgrade_NoSW"
+				CommandSet="AlliedConstructionYardCommandSet_NoSW">
+				<TriggeredBy>Upgrade_ConfigTrigger</TriggeredBy>
+			</CommandSetUpgrade>
+			<!-- Upgraded NoSW CS -->
+			<CommandSetUpgrade
+				id="ModuleTag_CommandSetUpgradeLevel2_NoSW"
+				CommandSet="AlliedConstructionYardCommandSetLevel2_NoSW">
+				<TriggeredBy>Upgrade_ConfigObjectTrigger01</TriggeredBy>
+			</CommandSetUpgrade>
+			<!-- LUA trigger (handled by AlliedConstructionYardFunctions) -->
+			<ModelConditionUpgrade
+				id="ModuleTag_LevelMC_NoSW"
+				AddConditionFlags="TIBERIUM_CRYSTAL_TYPE2">
+				<TriggeredBy>Upgrade_AlliedTech2</TriggeredBy>
+			</ModelConditionUpgrade>
+		</Behaviors>
+	</GameObject>
+
+	<GameObject
+		id="JapanConstructionYard"
+		inheritFrom="JapanConstructionYard">
+		<Behaviors>			
+			<LUAEventList
+				id="ModuleTag_LUAEventListForSuperweapons"
+				EventListName="GenericConfigFunctions" />
+			<!-- Initial NoSW CS -->
+			<CommandSetUpgrade
+				id="ModuleTag_CommandSetUpgrade_NoSW"
+				CommandSet="JapanConstructionYardCommandSet_NoSW">
+				<TriggeredBy>Upgrade_ConfigTrigger</TriggeredBy>
+			</CommandSetUpgrade>
+		</Behaviors>
+	</GameObject>
+	
+	<GameObject
+		id="SovietConstructionYard"
+		inheritFrom="SovietConstructionYard">
+		<Behaviors>			
+			<LUAEventList
+				id="ModuleTag_LUAEventListForSuperweapons"
+				EventListName="GenericConfigFunctions" />
+			<!-- Initial NoSW CS -->
+			<CommandSetUpgrade
+				id="ModuleTag_CommandSetUpgrade_NoSW"
+				CommandSet="SovietConstructionYardCommandSet_NoSW">
+				<TriggeredBy>Upgrade_ConfigTrigger</TriggeredBy>
+			</CommandSetUpgrade>
+		</Behaviors>
+	</GameObject>
+
+	<GameObject
+		id="SovietCrane"
+		inheritFrom="SovietCrane">
+		<Behaviors>			
+			<LUAEventList
+				id="ModuleTag_LUAEventListForSuperweapons"
+				EventListName="GenericConfigFunctions" />
+			<!-- Initial NoSW CS -->
+			<!-- Has to be Permanent="true" or else we run into an issue with CS upgrade and SpawnBehavior -->
+			<CommandSetUpgrade
+				id="ModuleTag_CommandSetUpgrade_NoSW"
+				CommandSet="SovietCraneCommandSet_NoSW"
+				Permanent="true">
+				<TriggeredBy>Upgrade_ConfigTrigger</TriggeredBy>
+			</CommandSetUpgrade>
+		</Behaviors>
+	</GameObject>
+
+<!-- COMMAND SET OVERRIDES -->
+	<LogicCommandSet
+		id="AlliedConstructionYardCommandSetBase_NoSW">
+		<Cmd>Command_ConstructAlliedPowerPlant</Cmd>
+		<Cmd>Command_ConstructAlliedBarracks</Cmd>
+		<Cmd>Command_ConstructAlliedRefinery</Cmd>
+		<Cmd>Command_ConstructAlliedWarFactory</Cmd>
+		<Cmd>Command_ConstructAlliedNavalYard</Cmd>
+		<Cmd>Command_ConstructAlliedAirfield</Cmd>
+		<Cmd>Command_ConstructAlliedTechStructure</Cmd>
+		<Cmd>Command_ConstructAlliedWall</Cmd>
+		<Cmd>Command_ConstructAlliedBaseDefense</Cmd>
+		<Cmd>Command_ConstructAlliedBaseDefenseAdvanced</Cmd>
+		<!--Cmd>Command_ConstructAlliedSuperWeapon</Cmd-->
+		<!--Cmd>Command_ConstructAlliedSuperWeaponAdvanced</Cmd-->		
+		<Cmd>Command_PackAlliedMCV</Cmd>
+	</LogicCommandSet>
+	<LogicCommandSet
+		id="AlliedConstructionYardCommandSet_NoSW"
+		inheritFrom="AlliedConstructionYardCommandSetBase_NoSW">
+		<Cmd>Command_PurchaseAlliedTech2</Cmd>
+	</LogicCommandSet>
+	<LogicCommandSet
+		id="AlliedConstructionYardCommandSetLevel2_NoSW"
+		inheritFrom="AlliedConstructionYardCommandSetBase_NoSW">
+		<Cmd>Command_PurchaseAlliedTech3</Cmd>
+	</LogicCommandSet>
+
+	<LogicCommandSet
+		id="SovietConstructionYardCommandSet_NoSW">
+		<Cmd>Command_ConstructSovietWall</Cmd>
+		<Cmd>Command_ConstructSovietPowerPlant</Cmd>
+		<Cmd>Command_ConstructSovietBarracks</Cmd>
+		<Cmd>Command_ConstructSovietRefinery</Cmd>
+		<Cmd>Command_ConstructSovietWarFactory</Cmd>
+		<Cmd>Command_ConstructSovietNavalYard</Cmd>
+		<Cmd>Command_ConstructSovietAirfield</Cmd>
+		<Cmd>Command_ConstructSovietPowerPlantAdvanced</Cmd>
+		<Cmd>Command_ConstructSovietTechStructure</Cmd>
+		<Cmd>Command_ConstructSovietBaseDefenseGround</Cmd>
+		<Cmd>Command_ConstructSovietBaseDefenseAir</Cmd>
+		<Cmd>Command_ConstructSovietBaseDefenseAdvanced</Cmd>		
+		<!--Cmd>Command_ConstructSovietSuperWeapon</Cmd-->
+		<!--Cmd>Command_ConstructSovietSuperWeaponAdvanced</Cmd-->
+		<Cmd>Command_ConstructSovietCrane</Cmd> 
+		<Cmd>Command_PackSovietMCV</Cmd>
+	</LogicCommandSet>
+	<LogicCommandSet
+		id="SovietCraneCommandSet_NoSW">
+		<Cmd>Command_ConstructSovietWall</Cmd>
+		<Cmd>Command_ConstructSovietPowerPlant</Cmd>
+		<Cmd>Command_ConstructSovietBarracks</Cmd>
+		<Cmd>Command_ConstructSovietRefinery</Cmd>
+		<Cmd>Command_ConstructSovietWarFactory</Cmd>
+		<Cmd>Command_ConstructSovietNavalYard</Cmd>
+		<Cmd>Command_ConstructSovietAirfield</Cmd>
+		<Cmd>Command_ConstructSovietPowerPlantAdvanced</Cmd>
+		<Cmd>Command_ConstructSovietTechStructure</Cmd>
+		<Cmd>Command_ConstructSovietBaseDefenseGround</Cmd>
+		<Cmd>Command_ConstructSovietBaseDefenseAir</Cmd>
+		<Cmd>Command_ConstructSovietBaseDefenseAdvanced</Cmd>
+		<!--Cmd>Command_ConstructSovietSuperWeapon</Cmd-->
+		<!--Cmd>Command_ConstructSovietSuperWeaponAdvanced</Cmd-->
+	</LogicCommandSet>
+
+	<LogicCommandSet
+		id="JapanConstructionYardCommandSet_NoSW">
+		<Cmd>Command_ConstructJapanWall</Cmd>
+		<Cmd>Command_ConstructJapanPowerPlantEgg</Cmd>
+		<Cmd>Command_ConstructJapanBarracksEgg</Cmd>
+		<Cmd>Command_ConstructJapanRefineryEgg</Cmd>
+		<Cmd>Command_ConstructJapanWarFactoryEgg</Cmd>
+		<Cmd>Command_ConstructJapanNavalYardEgg</Cmd>
+		<Cmd>Command_ConstructJapanTechStructureEgg</Cmd>
+		<Cmd>Command_ConstructJapanBaseDefenseGroundEgg</Cmd>	
+		<Cmd>Command_ConstructJapanBaseDefenseAirEgg</Cmd>		
+		<Cmd>Command_ConstructJapanBaseDefenseAdvancedEgg</Cmd>		
+		<!--Cmd>Command_ConstructJapanSuperWeaponEgg</Cmd-->
+		<!--Cmd>Command_ConstructJapanSuperWeaponAdvancedEgg</Cmd-->
+		<Cmd>Command_PackJapanMCV</Cmd>	
+	</LogicCommandSet>
+
+<!-- NEW HELPER ASSETS -->
+	<!-- Crate spawner aura that upgrades the ConYards -->
+	<AttributeModifier
+		id="AttrModofier_ConfigTriggerAura"
+		Category="NONE"
+		Duration="0s"
+		StackingLimit="1"
+		ModelConditionsSet="TIBERIUM_CRYSTAL_TYPE1"
+	/>
+
+	<!-- Needs to be player upgrade and is auto-granted right at the beginning -->
+	<UpgradeTemplate
+		id="Upgrade_ConfigTrigger"
+		Type="PLAYER"
+	/>
+
+	<!-- Needed if two or more upgrades must be checked (here: AlliedConstructionYard with Tech Level and NoSW) -->
+	<UpgradeTemplate
+		id="Upgrade_ConfigObjectTrigger01"
+		Type="OBJECT"
+	/>
+
+</AssetDeclaration>

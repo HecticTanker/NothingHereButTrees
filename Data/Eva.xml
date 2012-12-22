@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags/>
+  <Includes></Includes>
+<!-- 
+Eva Event Attributes
+<xs:attribute name="Priority" type="SageUnsignedInt" default="0" />					
+<xs:attribute name="TimeBetweenEvents" type="Time" default="0s" />
+<xs:attribute name="ExpirationTime" type="Time" default="2s"/>
+<xs:attribute name="AlwaysPlayFromHomeBase" type="SageBool" default="false" />
+<xs:attribute name="CountAsJumpToLocation" type="SageBool"  default="true"/>
+<xs:attribute name="QuietTime" type="Time" default="0s" />
+<xs:attribute name="TimeToWaitBeforePlaying" type="Time" default="0s" />
+<xs:attribute name="SuppressOn360" type="SageBool" default="false" />
+<xs:attribute name="SuppressOnPC" type="SageBool" default="false" />
+-->
+  <Defines>
+	<Define name="EVA_UNIT_CREATED_PRIORITY" value="5" />
+	<!-- Params for non-hero created event -->
+	<Define name="EVA_UNIT_CREATED_TIME_BETWEEN_EVENTS" value="10000ms" />
+	<!-- Params for non-hero created event -->
+	<Define name="EVA_UNIT_CREATED_EXPIRATION_TIME" value="10000ms" />
+	<!-- Params for non-hero created event -->
+
+	<Define name="EVA_HERO_CREATED_PRIORITY" value="6" />
+	<!-- Params for hero created event -->
+	<Define name="EVA_HERO_CREATED_TIME_BETWEEN_EVENTS" value="10000ms" />
+	<!-- Params for hero created event -->
+	<Define name="EVA_HERO_CREATED_EXPIRATION_TIME" value="10000ms" />
+	<!-- Params for hero created event -->
+
+	<Define name="EVA_HERO_HELP_ME_PRIORITY" value="6" />
+	<Define name="EVA_HERO_HELP_ME_TIME_BETWEEN_EVENTS" value="30000ms" />
+	<Define name="EVA_HERO_HELP_ME_EXPIRATION_TIME" value="10000ms" />
+
+	<Define name="EVA_BUILDING_COMPLETE_PRIORITY" value="7" />
+	<!-- Params for building finished construction event -->
+	<Define name="EVA_BUILDING_COMPLETE_TIME_BETWEEN_EVENTS" value="1000ms" />
+	<!-- Params for building finished construction event. Short because we want 2 buildings to announce twice -->
+	<Define name="EVA_BUILDING_COMPLETE_EXPIRATION_TIME" value="10000ms" />
+	<!-- Params for building finished construction event -->
+
+	<Define name="EVA_UPGRADE_COMPLETE_PRIORITY" value="7" />
+	<Define name="EVA_UPGRADE_COMPLETE_TIME_BETWEEN_EVENTS" value="1000ms" />
+	<Define name="EVA_UPGRADE_COMPLETE_EXPIRATION_TIME" value="10000ms" />
+
+	<Define name="EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" value="2000ms" />
+	<!-- How long to hold on to any of our under-attack events -->
+
+	<Define name="EVA_SUPERWEAPON_READY_PRIORITY" value="39" />
+	<Define name="EVA_ENEMY_SUPERWEAPON_FIRED_PRIORITY" value="40" />
+	<Define name="EVA_ALLIED_SUPERWEAPON_FIRED_PRIORITY" value="38" />
+	<Define name="EVA_OWN_SUPERWEAPON_FIRED_PRIORITY" value="6" />
+	<Define name="EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" value="10000ms" />
+	<Define name="EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" value="3000ms" />
+
+	<!-- Player Powers that are upgrades -->
+	<Define name="EVA_PLAYERPOWERUPGRADES_READY_PRIORITY" value="9" />
+	<Define name="EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" value="10000ms" />
+	<Define name="EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" value="3000ms" />
+
+	<!-- Timeouts for anything which is basically an immediate reaction to a player button press (basically, a fancy voice of a button 'click') -->
+	<Define name="EVA_GUI_PRIORITY" value="10" />
+	<Define name="EVA_GUI_TIME_BETWEEN_EVENTS" value="1000ms" />
+	<Define name="EVA_GUI_EXPIRATION_TIME" value="2000ms" />
+
+	<!-- Coop AI voice responses -->
+		 <!-- They need different priorities otherwise when you have multipled Coop-Commanders, a random commander will respond each time an order is given (I think) -->
+	<Define name="EVA_COOP_AI_PRIORITY" value="50" />
+	<Define name="ALLIED_GILES_COOP_AI_PRIORITY" value="54" />
+	<Define name="ALLIED_LISS_COOP_AI_PRIORITY" value="57" />
+	<Define name="ALLIED_WARREN_COOP_AI_PRIORITY" value="51" />
+	<Define name="EMPIRE_KENJI_COOP_AI_PRIORITY" value="52" />
+	<Define name="EMPIRE_NAOMI_COOP_AI_PRIORITY" value="58" />
+	<Define name="EMPIRE_SHINZO_COOP_AI_PRIORITY" value="55" />
+	<Define name="SOVIET_MOSKVIN_COOP_AI_PRIORITY" value="53" />
+	<Define name="SOVIET_OLEG_COOP_AI_PRIORITY" value="56" />
+	<Define name="SOVIET_ZHANA_COOP_AI_PRIORITY" value="59" />
+	<Define name="EVA_COOP_AI_TIME_BETWEEN_EVENTS" value="4s" />
+	<Define name="EVA_COOP_AI_EXPIRATION_TIME" value="3s" />
+
+	<!-- On Hold -->
+	<Define name="EVA_ONHOLD_TIME_BETWEEN_EVENTS" value="30s" />
+	<Define name="EVA_ONHOLD_EXPIRATION_TIME" value="2s" />
+  </Defines>
+
+  <!-- ===== CNC3 DEFINITIONS END ===== -->
+
+  <EvaSettings
+	id = "TheEvaSettings" 
+	EnemySightedMaxVoicePositionScanRange="2000" 
+	MaxTimeToKeepJumpToEvents="60000ms" 
+	MaxTimeBeforeResettingLastJumpTo="3000ms" 
+	MinDistanceBetweenJumpToEvents="400" 
+	/>
+
+  <EvaEvent
+	id = "BuildingManuallyPoweredDown"
+	Priority ="=$EVA_GUI_PRIORITY"
+	TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS"
+	ExpirationTime="=$EVA_GUI_EXPIRATION_TIME"
+	CountAsJumpToLocation ="false">
+  </EvaEvent>
+
+  <EvaEvent
+	id = "BuildingManuallyPoweredUp"
+	Priority ="=$EVA_GUI_PRIORITY"
+	TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS"
+	ExpirationTime="=$EVA_GUI_EXPIRATION_TIME"
+	CountAsJumpToLocation ="false">
+  </EvaEvent>
+
+  <EvaEvent
+	id = "BuildingRepaired"
+	Priority ="4"
+	TimeBetweenEvents="10000ms"
+	ExpirationTime="1000ms">
+	<SideSound Sound="Aeva_StructureRepa" Side="Allies"/>
+	<SideSound Sound="Seva_StructureRepa" Side="Soviet"/>
+	<SideSound Sound="Ieva_StructureRepa" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "BridgeRepaired"
+	Priority ="5"
+	TimeBetweenEvents="10000ms" 
+	ExpirationTime="1000ms">
+	<!-- TimeBetweenEvents = 30 seconds. Don't play more often than this -->
+	<!-- ExpirationTime = 1 second.  If Eva is busy, hold the event this long before giving up -->    
+	<SideSound Sound="Aeva_BridgeRepaired" Side="Allies"/>
+	<SideSound Sound="Seva_BridgeRepaired" Side="Soviet"/>
+	<SideSound Sound="Ieva_BridgeRepaired" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "LowPower"
+	Priority ="6"
+	TimeBetweenEvents="90000ms" 
+	ExpirationTime="6000ms"
+	AlwaysPlayFromHomeBase ="true"
+	CountAsJumpToLocation="false" >
+	<SideSound Sound="Aeva_LowPower" Side="Allies"/>
+	<SideSound Sound="Seva_LowPower" Side="Soviet"/>
+	<SideSound Sound="Ieva_LowPower" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "SilosNeeded"
+	Priority ="6"
+	TimeBetweenEvents="90000ms" 
+	ExpirationTime="1000ms" 
+	AlwaysPlayFromHomeBase ="true"
+	CountAsJumpToLocation="false" >
+  </EvaEvent>
+
+  <!-- When OUR building has been captured, I think -->
+  <EvaEvent
+	id = "BuildingStolen"
+	Priority ="6"
+	AlwaysPlayFromHomeBase ="true"
+	TimeBetweenEvents="10000ms"
+	ExpirationTime="1000ms">
+	<SideSound Sound="Aeva_OurBuildingCapt" Side="Allies"/>
+	<SideSound Sound="Seva_OurBuildingCapt" Side="Soviet"/>
+	<SideSound Sound="Ieva_OurBuildingCapt" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "CriticalStructureLost"
+	Priority = "10"
+	TimeBetweenEvents="30s"
+	ExpirationTime="1000ms">
+	<SideSound Sound="Aeva_CritStrucLost" Side="Allies"/>
+	<SideSound Sound="Seva_CritStrucLost" Side="Soviet"/>
+	<SideSound Sound="Ieva_CritStrucLost" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "EnemyBuildingInfiltrated"
+	Priority ="6"
+	AlwaysPlayFromHomeBase ="true"
+	TimeBetweenEvents="10000ms"
+	ExpirationTime="1000ms">
+	<SideSound Sound="Aeva_EnemyBuildingInfil" Side="Allies"/>
+	<SideSound Sound="Seva_EnemyBuildingInfil" Side="Soviet"/>
+	<SideSound Sound="Ieva_EnemyBuildingInfil" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "OurBuildingInfiltrated"
+	Priority ="8"
+	AlwaysPlayFromHomeBase ="true"
+	TimeBetweenEvents="10000ms"
+	ExpirationTime="1000ms">
+	<SideSound Sound="Aeva_OurBuildingInfil" Side="Allies"/>
+	<SideSound Sound="Seva_OurBuildingInfil" Side="Soviet"/>
+	<SideSound Sound="Ieva_OurBuildingInfil" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "BuildingConstructionStarted"
+	Priority ="=$EVA_GUI_PRIORITY"
+	CountAsJumpToLocation="false"
+	TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS"
+	ExpirationTime="=$EVA_GUI_EXPIRATION_TIME">
+	<SideSound Sound="Aeva_Building" Side="Allies"/>
+	<SideSound Sound="Seva_Building" Side="Soviet"/>
+	<SideSound Sound="Ieva_Building" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "BuildingConstructionComplete"
+	Priority ="=$EVA_GUI_PRIORITY"
+	TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS"
+	ExpirationTime="=$EVA_GUI_EXPIRATION_TIME">
+	<SideSound Sound="Aeva_ConComplete" Side="Allies"/>
+	<SideSound Sound="Seva_ConComplete" Side="Soviet"/>
+	<SideSound Sound="Ieva_ConComplete" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "EnemyBuildingCaptured"
+	Priority ="6"
+	TimeBetweenEvents="4000ms"
+	ExpirationTime="1000ms">
+	<SideSound Sound="Aeva_EnemyBuildingCapt" Side="Allies"/>
+	<SideSound Sound="Seva_EnemyBuildingCapt" Side="Soviet"/>
+	<SideSound Sound="Ieva_EnemyBuildingCapt" Side="Japan"/>
+  </EvaEvent>
+
+	<!-- for Neutral buildings without specific Eva events (like Neutral PowerPlant) -->
+  <EvaEvent
+	id = "BuildingCaptured"
+	Priority ="6"
+	CountAsJumpToLocation="false"
+	TimeBetweenEvents="4000ms"
+	ExpirationTime="1000ms">
+	<SideSound Sound="Aeva_BuildingCapt" Side="Allies"/>
+	<SideSound Sound="Seva_BuildingCapt" Side="Soviet"/>
+	<SideSound Sound="Ieva_BuildingCapt" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "AirportCaptured"
+	Priority ="6"
+	CountAsJumpToLocation="false"
+	TimeBetweenEvents="4000ms"
+	ExpirationTime="1000ms">
+	<SideSound Sound="Aeva_AirportCapt" Side="Allies"/>
+	<SideSound Sound="Seva_AirportCapt" Side="Soviet"/>
+	<SideSound Sound="Ieva_AirportCapt" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "DryDockCaptured"
+	Priority ="6"
+	CountAsJumpToLocation="false"
+	TimeBetweenEvents="4000ms"
+	ExpirationTime="1000ms">
+	<SideSound Sound="Aeva_DryDockCapt" Side="Allies"/>
+	<SideSound Sound="Seva_DryDockCapt" Side="Soviet"/>
+	<SideSound Sound="Ieva_DryDockCapt" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "FirebaseCaptured"
+	Priority ="6"
+	CountAsJumpToLocation="false"
+	TimeBetweenEvents="4000ms"
+	ExpirationTime="1000ms">
+	<SideSound Sound="Aeva_FirebaseCapt" Side="Allies"/>
+	<SideSound Sound="Seva_FirebaseCapt" Side="Soviet"/>
+	<SideSound Sound="Ieva_FirebaseCapt" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "GarageCaptured"
+	Priority ="6"
+	CountAsJumpToLocation="false"
+	TimeBetweenEvents="4000ms"
+	ExpirationTime="1000ms">
+	<SideSound Sound="Aeva_GarageCapt" Side="Allies"/>
+	<SideSound Sound="Seva_GarageCapt" Side="Soviet"/>
+	<SideSound Sound="Ieva_GarageCapt" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "HospitalCaptured"
+	Priority ="6"
+	CountAsJumpToLocation="false"
+	TimeBetweenEvents="4000ms"
+	ExpirationTime="1000ms">
+	<SideSound Sound="Aeva_HospitalCapt" Side="Allies"/>
+	<SideSound Sound="Seva_HospitalCapt" Side="Soviet"/>
+	<SideSound Sound="Ieva_HospitalCapt" Side="Soviet"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "ObservationPostCaptured"
+	Priority ="6"
+	CountAsJumpToLocation="false"
+	TimeBetweenEvents="4000ms"
+	ExpirationTime="1000ms">
+	<SideSound Sound="Aeva_ObservationPostCapt" Side="Allies"/>
+	<SideSound Sound="Seva_ObservationPostCapt" Side="Soviet"/>
+	<SideSound Sound="Ieva_ObservationPostCapt" Side="Soviet"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "OilDerrickCaptured"
+	Priority ="6"
+	CountAsJumpToLocation="false"
+	TimeBetweenEvents="4000ms"
+	ExpirationTime="1000ms">
+	<SideSound Sound="Aeva_OilDerrickCapt" Side="Allies"/>
+	<SideSound Sound="Seva_OilDerrickCapt" Side="Soviet"/>
+	<SideSound Sound="Ieva_OilDerrickCapt" Side="Soviet"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "VeteranAcademyCaptured"
+	Priority ="6"
+	CountAsJumpToLocation="false"
+	TimeBetweenEvents="4000ms"
+	ExpirationTime="1000ms">
+	<SideSound Sound="Aeva_VeteranAcademyCapt" Side="Allies"/>
+	<SideSound Sound="Seva_VeteranAcademyCapt" Side="Soviet"/>
+	<SideSound Sound="Ieva_VeteranAcademyCapt" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "EnemyCampSighted"
+	Priority ="7"
+	TimeBetweenEvents="30s"
+	ExpirationTime="1s">
+	<SideSound Sound="Aeva_EnemyBaseDet" Side="Allies"/>
+	<SideSound Sound="Seva_EnemyBaseDet" Side="Soviet"/>
+	<SideSound Sound="Ieva_EnemyBaseDet" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "EnemyBuildingDetected"
+	Priority ="6"
+	TimeBetweenEvents="30s"
+	ExpirationTime="1s"
+	CountAsJumpToLocation="false">
+	<SideSound Sound="Aeva_EnemyBuildingDet" Side="Allies"/>
+	<SideSound Sound="Seva_EnemyBuildingDet" Side="Soviet"/>
+	<SideSound Sound="Ieva_EnemyBuildingDet" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "ConstructionYardUnderAttack"
+	Priority ="50"
+	TimeBetweenEvents="10s"
+	ExpirationTime="5s">
+	<SideSound Sound="Aeva_ConYardUndAttack" Side="Allies"/>
+	<SideSound Sound="Seva_ConYardUndAttack" Side="Soviet"/>
+	<SideSound Sound="Ieva_ConYardUndAttack" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "CriticalStructureUnderAttack"
+	Priority ="10"
+	TimeBetweenEvents="15s"
+	ExpirationTime="5s">
+	<SideSound Sound="Aeva_CritStrucUnderAtt" Side="Allies"/>
+	<SideSound Sound="Seva_CritStrucUnderAtt" Side="Soviet"/>
+	<SideSound Sound="Ieva_CritStrucUnderAtt" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "AllyStructureUnderAttack"
+	Priority ="7"
+	TimeBetweenEvents="25s"
+	ExpirationTime="5s">
+	<SideSound Sound="Aeva_AllyUndAttack" Side="Allies"/>
+	<SideSound Sound="Seva_AllyUndAttack" Side="Soviet"/>
+	<SideSound Sound="Ieva_AllyUndAttack" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "StructureUnderAttack"
+	Priority ="10"
+	TimeBetweenEvents="15s"
+	ExpirationTime="5s">
+	<SideSound Sound="Aeva_BaseUndAttack" Side="Allies"/>
+	<SideSound Sound="Seva_BaseUndAttack" Side="Soviet"/>
+	<SideSound Sound="Ieva_BaseUndAttack" Side="Japan"/>
+  </EvaEvent>
+
+  <!-- UNIT EVENTS -->
+
+  <EvaEvent
+	id = "UnitConstructionStarted"
+	Priority ="=$EVA_GUI_PRIORITY"
+	TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS"
+	ExpirationTime="=$EVA_GUI_EXPIRATION_TIME"
+	CountAsJumpToLocation="false">
+	<SideSound Sound="Aeva_Training" Side="Allies"/>
+	<SideSound Sound="Seva_Training" Side="Soviet"/>
+	<SideSound Sound="Ieva_Training" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "UnitPromoted"
+	Priority ="3"
+	TimeBetweenEvents="30s"
+	ExpirationTime="1s">
+  </EvaEvent>
+
+	<!-- UNDER ATTACKS -->
+
+  <EvaEvent
+	id = "UnitInfected"
+	Priority ="6"
+	TimeBetweenEvents="5s"
+	ExpirationTime="2s"
+	CountAsJumpToLocation="true"
+	TimeToWaitBeforePlaying="0.5s"> 
+	<!-- this delay is calibrated so that it triggers at the same time as the 
+	UnderAttack EVA so that Nanocore/HarvesterUnderAttack will play and suppress 
+	this EVA, but other units will play the Infected EVA and suppress the UnderAttack EVAs -->
+	<SideSound Sound="Aeva_UnitInfected" Side="Allies"/>
+	<SideSound Sound="Seva_UnitInfected" Side="Soviet"/>
+	<SideSound Sound="Ieva_UnitInfected" Side="Japan"/>
+	<OtherEvaEventToBlock>UnitAmbushed</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>UnitUnderAttack</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>UnitUnderAttackFromShroudedUnit</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>GenericUnitBeingBurned</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>HarvesterUnderAttack</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>NanocoreUnderAttack</OtherEvaEventToBlock>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "UnitUnderAttack"
+	Priority ="7"
+	TimeBetweenEvents="30s"
+	ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME">
+	<SideSound Sound="Aeva_UnitUndAttack" Side="Allies"/>
+	<SideSound Sound="Seva_UnitUndAttack" Side="Soviet"/>
+	<SideSound Sound="Ieva_UnitUndAttack" Side="Japan"/>
+	<!-- Don't play both UnitUnderAttack and UnitUnderAttackFromShroudedUnit if we are being attacked from both a shrouded and non-shrouded unit -->
+	<OtherEvaEventToBlock>UnitAmbushed</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>UnitUnderAttackFromShroudedUnit</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>GenericUnitBeingBurned</OtherEvaEventToBlock>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "UnitUnderAttackFromShroudedUnit"
+	Priority ="8"
+	TimeBetweenEvents="30s"
+	ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME">
+	<SideSound Sound="Aeva_UnitUndAttack" Side="Allies"/>
+	<SideSound Sound="Seva_UnitUndAttack" Side="Soviet"/>
+	<SideSound Sound="Ieva_UnitUndAttack" Side="Japan"/>
+	<OtherEvaEventToBlock>UnitAmbushed</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>UnitUnderAttack</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>GenericUnitBeingBurned</OtherEvaEventToBlock>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "UnitAmbushed"
+	Priority ="5"
+	TimeBetweenEvents="30s"
+	ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME">
+	<SideSound Sound="Aeva_UnitUndAttack" Side="Allies"/>
+	<SideSound Sound="Seva_UnitUndAttack" Side="Soviet"/>
+	<SideSound Sound="Ieva_UnitUndAttack" Side="Japan"/>
+	<OtherEvaEventToBlock>UnitUnderAttack</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>UnitUnderAttackFromShroudedUnit</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>GenericUnitBeingBurned</OtherEvaEventToBlock>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "AllyUnitUnderAttack"
+	Priority ="4"
+	TimeBetweenEvents="120s"
+	ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME">
+	<SideSound Sound="Aeva_AllyUndAttack" Side="Allies"/>
+	<SideSound Sound="Seva_AllyUndAttack" Side="Soviet"/>
+	<SideSound Sound="Ieva_AllyUndAttack" Side="Japan"/>
+	<!-- Don't play both AllyUnitUnderAttack and AllyUnitUnderAttackFromShroudedUnit if they are being attacked from both a shrouded and non-shrouded unit -->
+	<!-- NOTE: need to implement AllyUnitUnderAttackFromShroudedUnit next! -->
+	<!-- <OtherEvaEventToBlock>UnitUnderAttackFromShroudedUnit</OtherEvaEventToBlock> -->
+  </EvaEvent>
+
+  <EvaEvent
+	id = "GenericUnitBeingBurned"
+	Priority ="3"
+	TimeBetweenEvents="30s"
+	ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME">
+	<SideSound Sound="Aeva_UnitUndAttack" Side="Allies"/>
+	<SideSound Sound="Seva_UnitUndAttack" Side="Soviet"/>
+	<SideSound Sound="Ieva_UnitUndAttack" Side="Japan"/>
+	<OtherEvaEventToBlock>UnitUnderAttack</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>UnitUnderAttackFromShroudedUnit</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>UnitAmbushed</OtherEvaEventToBlock>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "CriticalUnitUnderAttack"
+	Priority ="7"
+	TimeBetweenEvents="30000ms"
+	ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME">
+	<SideSound Sound="Aeva_CritUnitUnderAtt" Side="Allies"/>
+	<SideSound Sound="Seva_CritUnitUnderAtt" Side="Soviet"/>
+	<SideSound Sound="Ieva_CritUnitUnderAtt" Side="Japan"/>
+	<OtherEvaEventToBlock>UnitUnderAttack</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>UnitUnderAttackFromShroudedUnit</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>GenericUnitBeingBurned</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>UnitAmbushed</OtherEvaEventToBlock>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "HarvesterUnderAttack"
+	Priority ="7"
+	TimeBetweenEvents="15000ms"
+	ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME">
+	<SideSound Sound="Aeva_HarvUndAttack" Side="Allies"/>
+	<SideSound Sound="Seva_HarvUndAttack" Side="Soviet"/>
+	<SideSound Sound="Ieva_HarvUndAttack" Side="Japan"/>
+	<OtherEvaEventToBlock>UnitUnderAttack</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>UnitUnderAttackFromShroudedUnit</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>GenericUnitBeingBurned</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>UnitAmbushed</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>UnitInfected</OtherEvaEventToBlock>
+  </EvaEvent>
+
+</AssetDeclaration>

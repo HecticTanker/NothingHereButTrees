@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		
+		<!-- References -->
+		<Include type="reference" source ="DATA:global.xml" />
+		<Include type="reference" source ="DATA:Static.xml" />
+		<Include type="reference" source ="DATA:Audio.xml" />
+		
+		<!-- GlobalData & Includes -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/GlobalData/Armor.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/GlobalData/AttributeModifier.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/GlobalData/ExperienceLevels.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/GlobalData/Locomotor.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/GlobalData/LogicCommand.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/GlobalData/LogicCommandSet.xml" /> 
+		<Include type="all" source="DATA:RA3 Undecided/Data/GlobalData/MultiplayerColors.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/GlobalData/MultiplayerSettings.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/GlobalData/ObjectCreationLists.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/GlobalData/SpecialPowerTemplates.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/GlobalData/upgrade.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/GlobalData/Weapon.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Includes/SpecialPowerObjectFilters.xml" />
+		
+		<!-- UI -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/UI/ButtonStateDataCommon.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/UI/Mouse/UnitAbilityButtonTemplates.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/UI/PlayerTechStoreTemplates.xml" />	
+		
+		<!-- No SuperWeapon CheckBox Include -->
+		<Include type="all" source="NoSuperWeaponsRule.xml"/> 
+		
+		<!-- System Settings -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/System/CameraSettings.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/System/PlayerSpellBook.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/System/PlayerTechRanks.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/System/PlayerTechs.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/System/PlayerTechUpgradeBindings.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/System/PlayerTemplates.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/System/UnitAISettings.xml" />
+		
+		<!-- Neutral/BaseObjects -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/BaseObjects/BaseCivilianStructure.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/BaseObjects/BaseCivilianStructureLarge.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/BaseObjects/BaseCivilianStructureMedium.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/BaseObjects/BaseCivilianStructureSmall.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/BaseObjects/BaseEgg.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/BaseObjects/BaseTechStructure.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/BaseObjects/BaseVehicle.xml"/>
+		
+		<!-- Sound effects -->
+		<Include type="all" source="AUDIO:AudioAssets.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Eva.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/SoundEffects.xml"/>
+		
+		<!-- Portriat -->
+		<Include type="all" source="ART:Images/SampleUpdatedPackedImages.xml" />
+		
+		<!-- Visual Objects -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/FXListFile.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/FXParticleFile.xml"/>
+		
+		<!-- Allies -->		
+		<!-- Infantry -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedAntiVehicleInfantry.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedCommandoTech1.xml" />
+		<!--	
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedScoutInfantry.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedAntiInfantryInfantry.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedEngineer.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedInfiltrationInfantry.xml" />
+		-->
+	
+		<!-- Ground Vehicles -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedAntiInfantryVehicle.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedAntiAirVehicleTech1.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedAntiStructureVehicle.xml" />	
+		<!--	
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedAntiVehicleVehicleTech1.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedAntiVehicleVehicleTech3.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedMCV.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedMiner.xml" />
+		-->
+	
+		<!-- Air Vehicles -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedGunshipAircraft.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedSupportAircraft.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedAttackDrone.xml" />
+		<!--	
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedBomberAircraft.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedFighterAircraft.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedAntiGroundAircraft.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedAttackDrone_Leeched.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedSupersonicBomber.xml" />
+		-->
+		
+		<!-- Navy Ships -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedAntiNavyShipTech1.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedAntiStructureShip.xml" />	
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedAntiStructureShip2.xml" />	
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedAntiAirShip.xml" />
+		<!--
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedAntiNavalScout.xml" />
+		-->
+		
+		<!-- Repair drones -->
+		<Include type="all"	source="DATA:RA3 Undecided/Data/Allied/Units/AlliedInfantryRepairDrone.xml" />
+		<Include type="all"	source="DATA:RA3 Undecided/Data/Allied/Units/AlliedAircraftCarrierRepairDrone.xml" />
+		<!--
+			<Include type="all"	source="DATA:RA3 Undecided/Data/Allied/Units/AlliedWarFactoryRepairDrone.xml" />
+			<Include type="all"	source="DATA:RA3 Undecided/Data/Allied/Units/AlliedAirfieldRepairDrone.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Units/AlliedNavalYardRepairDrone.xml"/>
+		-->
+		
+		<!-- Structures -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Structures/AlliedPowerPlant.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Structures/AlliedTechStructure.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Structures/AlliedBarracks.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Structures/AlliedBaseDefense.xml" />
+		<!--
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Structures/AlliedRefinery.xml" />
+		    <Include type="all" source="DATA:RA3 Undecided/Data/Allied/Structures/AlliedOutpost.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Structures/AlliedNavalYard.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Structures/AlliedAirfield.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Structures/AlliedBaseDefenseAdvanced.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Structures/AlliedConstructionYard.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Structures/AlliedPowerPlantTurbine.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Structures/AlliedSuperWeapon.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Structures/AlliedSuperWeaponAdvanced.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Structures/AlliedWarFactory.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Structures/AlliedWallPiece.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Structures/AlliedWallSegmentPiece.xml" />
+		-->
+		
+		<!-- Props -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Props/AlliedTimeBombLvl2.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Props/AlliedTimeBombLvl3.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Props/AlliedGunshipAircraft_Collapse.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Props/AlliedGunshipAircraft_Dying.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Props/AlliedGunshipAircraftWeaponProjectile.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Props/AlliedGunshipFireLight.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Props/FXAlliedGunshipProtonSW.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Props/FXAlliedGunshipProton01.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Props/FXAlliedGunshipProton02.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Props/FXAlliedGunshipProton03.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Props/FXAlliedGunshipProton04.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Props/FXAlliedGunshipProton05.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Props/FXAlliedGunshipProton06.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Props/FXAlliedGunshipProtonCore.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Props/FXAlliedGunshipProtonDist.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/Allied/Props/FXAlliedGunshipProtonFlash.xml"/>
+		
+		<!-- Soviets -->
+		<!-- Infantry -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietHeavySupportInfantry.xml" />
+		<!--
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietAntiInfantryInfantry.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietAntiVehicleInfantry.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietCommandoTech1.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietEngineer.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietScoutInfantry.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietHeavyAntiVehicleInfantry.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietRepairDrone.xml" />
+		-->	
+	
+		<!-- Ground Vehicles -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietAntiVehicleVehicleTech1.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietAntiVehicleVehicleTech2.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietAntiVehicleVehicleTech3.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietScoutVehicle.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietTransport.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietFlameTank.xml" />
+		<!--	
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietAntiStructureVehicle.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietAntiInfantryVehicle.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietMiner.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietMCV.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietSurveyor.xml" />
+		-->	
+		
+		<!-- Air Vehicles -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietAntiGroundAircraftTech2.xml" /> <!-- Screamer -->
+		<!--	
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietAntiGroundAircraft.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietBomberAircraft.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietFighterAircraft.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/Soviet_BombingRun.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietSupportBomber.xml" />
+		-->	
+		
+		<!-- Navy Vehicles -->
+		<!--	
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietAntiStructureShip.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietAntiNavyShipTech1.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietAntiNavyShipTech2.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Units/SovietAntiAirShip.xml" />
+		-->
+		
+		<!-- Structures -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietAirfield.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietWarFactory.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietNavalYard.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietCrane.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietPowerPlantAdvanced.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietBunker.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietBarracks.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietBaseDefenseAir.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietBaseDefenseGround.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietTechStructure.xml" />
+		<!--	
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietConstructionYard.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietPowerPlant.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietRefinery.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietSuperWeapon.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietSuperWeaponAdvanced.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietBaseDefenseAdvanced.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietOutpost.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietWallPiece.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Structures/SovietWallSegmentPiece.xml" />
+		-->	
+		<!-- Visuals -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/FXParticleSystems/Sov_Apoc_TB_End.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/FXParticleSystems/Sov_Apoc_TB_End02.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/FXParticleSystems/Sov_Apoc_TB_End03.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/FXParticleSystems/Sov_Apoc_TB_EndDust.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/FXParticleSystems/Sov_Apoc_TB_EndGeo.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/FXParticleSystems/Sov_Apoc_TB_Glow.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/FXParticleSystems/Sov_Apoc_TB_Glow02.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/FXParticleSystems/Sov_Apoc_TB_Grind.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/FXParticleSystems/Sov_Apoc_TB_Light.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/FXParticleSystems/Sov_Apoc_TB_Spark.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/FXParticleSystems/Sov_Leech_Glow.xml"/>
+		<Include type="all" source="DATA:RA3 Undecided/Data/FXParticleSystems/Sov_Leech_Glow02.xml"/>
+		
+		<!-- Drones -->
+		<Include type="all"	source="DATA:RA3 Undecided/Data/Soviet/Units/SovietInfantryRepairDrone.xml" />
+		
+		<!--Props-->
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Props/FlameProjectile.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Props/IrradiatedTargetDamageDealer.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Props/MagneticSatelliteEffect.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Props/SovietAntiGroundAircraftTech2MissileProjectile.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Props/SovietAntiStructureShipV4RocketProjectile.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Props/SovietFlameTank_Collapse.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Props/SovietScreamerBits.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Props/VertigoBomber_Collapse.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Soviet/Props/VertigoBomber_Dying.xml" />
+		
+		<!-- Japanese -->
+		<!-- Infantry -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanCommandoTech1.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanEngineer.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanArcherInfantry.xml" /> 
+		<!--
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanAntiInfantryInfantry.xml" />	
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanAntiVehicleInfantry.xml" />	
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanInfiltrationInfantry.xml" />	
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanScoutInfantry.xml" />	
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanAntiVehicleInfantryTech3.xml" />
+		-->	
+		
+		<!-- Ground Vehicles -->		
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanAntiVehicleVehicleTech1.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanLightTransportVehicle.xml" />	
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanAntiInfantryVehicle.xml" />	
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanAntiVehicleVehicleTech3.xml" />	
+		<!--
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanAntiStructureVehicle.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanAntiAirVehicleTech1.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanMCV.xml" />	
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanMiner.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanTransportVehicle2.xml" />
+		-->	
+		
+		<!-- Navy Ships -->
+		<!--
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanAntiAirShip.xml" />	
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanNavyScoutShip.xml" />	
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanAntiStructureShip.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanAntiVehicleShip.xml" />
+		-->	
+		
+		<!-- Repair drones -->
+		<Include type="all"	source="DATA:RA3 Undecided/Data/Japan/Units/JapanInfantryRepairDrone.xml" />
+		<!--
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanWarFactoryRepairDrone.xml"/>
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Units/JapanNavalYardRepairDrone.xml"/>
+		-->
+		
+		<!-- Structures -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Structures/JapanBarracks.xml" />		
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Structures/JapanPowerPlant.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Structures/JapanWarFactory.xml" />	
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Structures/JapanBaseDefenseAir.xml" />	
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Structures/JapanBaseDefenseGround.xml" /> 
+		<!--
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Structures/JapanTechStructure.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Structures/JapanBaseDefenseAdvanced.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Structures/JapanSuperWeapon.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Structures/JapanRefinery.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Structures/JapanNavalYard.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Structures/JapanConstructionYard.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Structures/JapanPowerPlantTurbine.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Structures/JapanWallPiece.xml" />
+			<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Structures/JapanWallSegmentPiece.xml" />
+		-->	
+	
+		<!-- Props -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Props/NanoSwarmHiveEffect.xml" />
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Props/ArrowProjectile.xml" />
+		
+		<!-- Eggs -->
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Eggs/JapanBarracksEgg.xml" />	
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Eggs/JapanNavalYardEgg.xml" />	
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Eggs/JapanPowerPlantEgg.xml" />	
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Eggs/JapanRefineryEgg.xml" />	
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Eggs/JapanSuperWeaponEgg.xml" />		
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Eggs/JapanWarFactoryEgg.xml" />		
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Eggs/JapanBaseDefenseAirEgg.xml" />	
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Eggs/JapanBaseDefenseGroundEgg.xml" />	
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Eggs/JapanBaseDefenseAdvancedEgg.xml" />	
+		<Include type="all" source="DATA:RA3 Undecided/Data/Japan/Eggs/JapanTechStructureEgg.xml" />	
+	</Includes>
+</AssetDeclaration>

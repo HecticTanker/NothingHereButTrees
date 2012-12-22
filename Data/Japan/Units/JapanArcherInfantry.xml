@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		<Include type="all" source="ART:JUArcherInfantry_AIDLE.w3x" />
+		<Include type="all" source="ART:JUArcherInfantry_ABTA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_AIDA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_ATKA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_ATKB.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_ATKC.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_SATKA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_SPCA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_SRLDA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_SIDLE.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_BATA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_BIDA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_BIFA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_BIFB.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_CDTA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_CDTB.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_CWRA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_CWRB.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_DTBA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_FLYA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_DTBB.w3x" />
+		<Include type="all" source="ART:JUArcherInfantry_GTPA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_LNDA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_MCNA.w3x" />
+		<Include type="all" source="ART:JUArcherInfantry_MCNB.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_MCNC.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_MCNC.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_MCND.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_RLDA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_RUNA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_RUNB.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_RUNDA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_SDTBA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_SDVA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_SGTA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_SIDA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_SKL.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_SKN.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_SKN_L.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_SMVA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_SWMA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_SWMB.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_SWMC.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantry_WAIDA.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantryChargeFX.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantryChargeFX_2.w3x" />
+		<Include type="all"	source="ART:JUArcherInfantryRagdoll.w3x" />
+		<Include type="all"	source="ART:NPSkeleton_SKN.w3x" />
+		<Include type="all"	source="ART:NPSkeleton_DIEA.w3x" />
+		<Include type="all"	source="ART:NPRadiation.w3x" />
+		<Include type="all"	source="ART:NPRadiation_DIEA.w3x" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseInfantry.xml" />
+	</Includes>
+	<!-- A.K.A. Archer Maiden-->
+	<GameObject
+		id="JapanArcherInfantry"
+		inheritFrom="BaseInfantry"
+		SelectPortrait="Portrait_ArcherMaiden"
+		ButtonImage="Portrait_ArcherMaiden"
+		Side="Allies"
+		SubGroupPriority="420" 
+		EditorSorting="UNIT"	
+		BuildTime="5"
+		CommandSet="JapanArcherInfantryCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS INFANTRY SCORE"
+		ThreatLevel="10"
+		WeaponCategory="MISSILE"
+		VoicePriority="100"
+		EditorName="JapanArcherInfantry"
+		Description="Desc:JapanArcherInfantry"
+		TypeDescription="Type:JapanArcherInfantry"
+		UnitTypeIcon="JavelinIcon"
+		HealthBoxHeightOffset="30">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:JapanArcherInfantry</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="400"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="AlliedAntiVehicleInfantryArmor"
+			DamageFX="InfantryDamageFX" />
+		<LocomotorSet
+			Locomotor="TestReactiveLocomotorHUMAN"
+			Condition="NORMAL"
+			Speed="50" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="JUArcherInfantry_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="ARROW" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="ARROW" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="ARROW" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="ARROW" />
+					<WeaponFireFXBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="ARROW" />
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="ARROW" />
+          
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INSIDE_GARRISON">
+					<Model Name="" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_1">
+					<Model Name="NPSkeleton_SKN" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_5">
+					<Model Name="NPRadiation" />
+						<ParticleSysBone
+							BoneName="None"
+							FXParticleSystemTemplate="RadiationPuddle"
+							FollowBone="true" />
+					    <ParticleSysBone
+							BoneName="None"
+							FXParticleSystemTemplate="RadiationSplash"
+							FollowBone="true" />
+					    <ParticleSysBone
+							BoneName="None"
+							FXParticleSystemTemplate="RadiationLightSmall"
+							FollowBone="true" />          
+				</ModelConditionState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_bored"
+					AllowRepeatInRandomPick="true"
+					Flags="RESTART_ANIM_WHEN_COMPLETE">
+					<Animation
+						AnimationName="JUArcherInfantry_BIDA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"
+						AnimationPriority="100"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+					<Animation
+						AnimationName="JUArcherInfantry_BIFA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"
+						AnimationPriority="10"/>
+					<Animation
+						AnimationName="JUArcherInfantry_BIFB"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"
+						AnimationPriority="10"/>
+					<Script>
+						Prev = CurDrawablePrevAnimationState();
+						if Prev == "STATE_Suppressed" then
+						CurDrawableSetTransitionAnimState("TRANS_fromSuppressed")
+						elseif Prev == "STATE_Parachuting" then
+						CurDrawableSetTransitionAnimState("TRANS_fromParachuting")
+						end
+					</Script>
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FRONTCRUSHED">
+					<Animation
+						AnimationName="JUArcherInfantry_CDTA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BACKCRUSHED">
+					<Animation
+						AnimationName="JUArcherInfantry_CDTB"
+						AnimationMode="ONCE" />
+				</AnimationState>
+			
+				<!-- meta impact anims -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STUNNED_FLAILING"
+					StateName="STATE_stunned_flailing">
+					<Animation
+						AnimationName="JUArcherInfantry_FLYA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING SPLATTED">
+					<Animation
+						AnimationName="JUArcherInfantry_LNDA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STUNNED_STANDING_UP">
+					<Animation
+						AnimationName="JUArcherInfantry_GTPA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STUNNED">
+					<Animation
+						AnimationName="JUArcherInfantry_LNDA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING OVER_WATER"
+					StateName="STATE_OverWater">
+					<Animation
+						AnimationName="JUArcherInfantry_SWMB"
+						AnimationMode="LOOP" />
+						<ParticleSysBone
+							BoneName="None"
+							FXParticleSystemTemplate="InfantryWaterWake"
+							FollowBone="false" />          
+						<Script>
+							Prev = CurDrawablePrevAnimationState()
+							if Prev ~= "STATE_OverWater" and Prev ~= "TRANS_ToWater"  then
+							CurDrawableSetTransitionAnimState("TRANS_ToWater")
+							end
+						</Script>
+					</AnimationState>
+					
+				<!-- parachuting anims -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="LAUNCHED"
+					StateName="STATE_ParachuteLaunch">
+					<Animation
+						AnimationName="JUArcherInfantry_MCNA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PARACHUTING"
+					StateName="STATE_Parachuting">
+					<Animation
+						AnimationName="JUArcherInfantry_MCNC"
+						AnimationMode="LOOP" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_ParachuteLaunch" then
+						CurDrawableSetTransitionAnimState("TRANS_toParachuting")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_toParachuting" >
+					<Animation
+						AnimationName="JUArcherInfantry_MCNB"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_fromParachuting" >
+					<Animation
+						AnimationName="JUArcherInfantry_MCND"
+						AnimationMode="ONCE" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SUPPRESSED DYING"
+					StateName="STATE_Suppressed">
+					<Animation
+						AnimationName="AUAntiVehicleInfantry_SDIA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				<!-- radiation death -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_5 OVER_WATER">
+					<Animation
+						AnimationName="NPRadiation_DIEA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				<!-- radiation death -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_5">
+					<Animation
+						AnimationName="NPRadiation_DIEA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+
+				<!-- sword death -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_4">
+					<Animation
+						AnimationName="JUArcherInfantry_DTBA"
+						AnimationMode="ONCE" />
+						<Animation
+						AnimationName="JUArcherInfantry_DTBB"
+						AnimationMode="ONCE" />
+				</AnimationState>
+
+				<!-- fire death -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_3">
+					<Animation
+						AnimationName="JUArcherInfantry_DTBA"
+						AnimationMode="ONCE" />
+						<Animation
+						AnimationName="JUArcherInfantry_DTBB"
+						AnimationMode="ONCE" />
+					<ParticleSysBone
+						BoneName="HIPS"
+						FXParticleSystemTemplate="InfantryFireDeath"
+						FollowBone="true" />
+				</AnimationState>
+
+
+				<!-- prism/laser death -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_2">
+					<Animation
+						AnimationName="JUArcherInfantry_DTBA"
+						AnimationMode="ONCE" />
+						<Animation
+						AnimationName="JUArcherInfantry_DTBB"
+						AnimationMode="ONCE" />
+				</AnimationState>
+
+				<!-- tesla death -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_1">
+					<Animation
+						AnimationName="NPSkeleton_DIEA"
+						AnimationMode="ONCE" />
+						<ParticleSysBone
+						BoneName="HIPS"
+						FXParticleSystemTemplate="Soviet_TeslaDeath_Spark"
+						FollowBone="true" />
+				</AnimationState>
+				
+				<!-- dying when running -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING_WASMOVING">
+					<Animation
+						AnimationName="JUArcherInfantry_RUNDA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+
+				<!-- default death -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Animation
+						AnimationName="JUArcherInfantry_DTBA"
+						AnimationMode="ONCE" />
+						<Animation
+						AnimationName="JUArcherInfantry_DTBB"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="AFFECTED_BY_EMP">
+					<Animation
+						AnimationName="AUAntiVehicleInfantry_CWRY"
+						AnimationMode="LOOP" />
+					<Animation
+						AnimationName="AUAntiVehicleInfantry_CWRZ"
+						AnimationMode="LOOP" />
+					<ParticleSysBone
+							BoneName="NONE"
+							FXParticleSystemTemplate="Allied_DogStun01"
+							FollowBone="true" />
+					<ParticleSysBone
+							BoneName="NONE"
+							FXParticleSystemTemplate="Allied_DogStunGlows01"
+							FollowBone="true" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SUPPRESSED MOVING"
+					StateName="STATE_Suppressed"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="JUArcherInfantry_SMVA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SUPPRESSED USING_WEAPON_A"
+					StateName="STATE_Suppressed">
+					<Animation
+						AnimationName="AUAntiVehicleInfantry_SATA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SUPPRESSED"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_Suppressed">
+					<Animation
+						AnimationName="JUArcherInfantry_SIDA"
+						AnimationMode="ONCE"
+						AnimationPriority="5" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev ~= "STATE_Suppressed" and Prev ~= "TRANS_toSuppressed" then
+						CurDrawableSetTransitionAnimState("TRANS_toSuppressed")
+						end
+					</Script>
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING"
+					StateName="STATE_Run"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="JUArcherInfantry_RUNA"
+						AnimationMode="LOOP"
+						AnimationBlendTime="10"
+						Distance="40" />
+					<Animation
+						AnimationName="JUArcherInfantry_RUNB"
+						AnimationMode="LOOP"
+						AnimationBlendTime="10"
+						Distance="40" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_OverWater" or Prev == "TRANS_ToWater" then
+						CurDrawableSetTransitionAnimState("TRANS_FromWater")
+						end
+					</Script>
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_OR_PREATTACK_A"
+					FrameForPristineBonePositions="1">
+					<Animation
+						AnimationName="JUArcherInfantry_ATKA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"/>
+					<Animation
+						AnimationName="JUAntiVehicleInfantry_ATKB"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"/>
+					<Animation
+						AnimationName="JUAntiVehicleInfantry_ATKC"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"/>
+					<Animation
+						AnimationName="JUArcherInfantry_SATKA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"/>	
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="ATTACKING"
+					Flags="RESTART_ANIM_WHEN_COMPLETE" 
+					StateName="STATE_SelectedPose">
+					<Animation
+						AnimationName="JUArcherInfantry_AIDA"
+						AnimationBlendTime="10"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_toSuppressed">
+					<Animation
+						AnimationName="JUArcherInfantry_SDVA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_fromSuppressed"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="JUArcherInfantry_SGTA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_boredToAttention">
+					<Animation
+						AnimationName="JUArcherInfantry_BATA"
+						AnimationMode="ONCE" 
+						AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_attentionToBored">
+					<Animation
+						AnimationName="JUArcherInfantry_ABTA"
+						AnimationMode="ONCE" 
+						AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="ENGAGED OVER_WATER">
+					<Animation
+						AnimationName="JUArcherInfantry_WAIDA"
+						AnimationMode="LOOP" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="SmallShipWakeIdle"
+						FollowBone="false" />          
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_OverWater">
+					<Animation
+						AnimationName="JUArcherInfantry_WAIDA"
+						AnimationMode="LOOP" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="SmallShipWakeIdle"
+						FollowBone="false" />          
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_ToWater">
+					<Animation
+						AnimationName="JUArcherInfantry_SWMA"
+						AnimationMode="ONCE" />
+					<Script>
+						CurDrawablePlaySound("SOV_Commando_WaterSplash")
+					</Script>
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_FromWater">
+					<Animation
+						AnimationName="JUArcherInfantry_SWMC"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+			</ScriptedModelDraw>
+
+			<!-- include parachute draw module. -->
+			<xi:include
+				href="DATA:Includes/ParachuteDrawJapan.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:ParachuteDraws/child::*)" />
+			
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="JapanArcherInfantryArrow"/>
+				</WeaponSlotHardpoint>
+				<WeaponSlotHardpoint
+					ID="2">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="JapanArcherInfantryArrow_Aircraft"/>
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			
+			<AimWeapon
+				id="ModuleTag_AimWeapon" />
+			<Physics
+				id="ModuleTag_Physics" />
+			<SlowDeath
+				id="ModuleTag_Death"
+				SinkDelay="3s"
+				SinkRate="2.4"
+				DestructionDelay="4.5s">
+				<DieMuxData
+					DeathTypes="ALL" 
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED STABBED IRRADIATED"/>
+				<Sound
+					Type="INITIAL"
+					List="IUArche_voiDie" />
+			</SlowDeath>
+
+			<SlowDeath
+				id="ModuleTag_TeslaDeath"
+				DeathFlags="DEATH_1"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="ELECTROCUTED"
+					DeathTypesForbidden="LASERED BURNED STABBED IRRADIATED"/>
+				<Sound Type="INITIAL" List="IUArche_voiDieShock" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_LaserDeath"
+				DeathFlags="DEATH_2"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="LASERED"
+					DeathTypesForbidden="ELECTROCUTED BURNED STABBED IRRADIATED"/>
+				<Sound Type="INITIAL" List="IUArche_voiDie" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_FireDeath"
+				DeathFlags="DEATH_3"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="BURNED"
+					DeathTypesForbidden="ELECTROCUTED LASERED STABBED IRRADIATED"/>
+                <Sound Type="INITIAL" List="IUArche_voiDieFire" />
+            </SlowDeath>
+            
+            <SlowDeath
+				id="ModuleTag_SwordDeath"
+				DeathFlags="DEATH_4"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="STABBED"
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED IRRADIATED"/>
+				<Sound Type="INITIAL" List="IUArche_voiDie" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_RadiationDeath"
+				DeathFlags="DEATH_5"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="IRRADIATED"
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED STABBED"/>
+				<Sound Type="INITIAL" List="IUArche_voiDiePoison" />
+			</SlowDeath>
+						
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+
+			<!-- Allied Parachute Behaviors -->
+			<ModelConditionUpgrade
+				id="ModuleTag_JapanFaction"
+				AddConditionFlags="USER_8">
+				<TriggeredBy>Upgrade_AlliesFaction</TriggeredBy>
+			</ModelConditionUpgrade>
+			<ModelConditionUpgrade
+				id="ModuleTag_SovietFaction"
+				AddConditionFlags="USER_9">
+				<TriggeredBy>Upgrade_SovietFaction</TriggeredBy>
+			</ModelConditionUpgrade>		
+
+			<LUAEventList
+				id="ModuleTag_LUAEventList"
+				EventListName="AlliedAntiVehicleInfantryFunctions" />
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+                    RotateToTargetWhenAiming="true">
+					<ObjectVisionRange
+						id="ObjectVisionRange_Aircraft"
+						Range="180">
+						<Filter
+							Rule="ANY"
+							Include="INFANTRY VEHICLE AIRCRAFT"
+							StatusBitFlags="AIRBORNE_TARGET"/>
+					</ObjectVisionRange>	
+				</UnitAITargetChooserData>	
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="100" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceDieFall">
+				<ModelConditionSound Sound="ALL_Javelin_VoiceDieYurikoFall" RequiredFlags="IMPENDING_DOOM" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceUp">
+				<ModelConditionSound Sound="ALL_Javelin_VoiceDieYurikoUp" RequiredFlags="STUNNED_FLAILING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<AnimationSoundClientBehavior
+				id="ModuleTag_ASCB">
+				<Sound Sound="SOV_Bear_ParachuteOpen" Animation="JUArcherInfantry_MCNB" Frame="3" />
+				
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUArcherInfantry_CDTA" Frame="6" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUArcherInfantry_CDTB" Frame="7" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUArcherInfantry_DTBA" Frame="55" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUArcherInfantry_DTBB" Frame="33" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUArcherInfantry_DTBA" Frame="102" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUArcherInfantry_DTBB" Frame="50" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUArcherInfantry_DTBA" Frame="74" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUArcherInfantry_DTBB" Frame="82" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUArcherInfantry_DTBA" Frame="80" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUArcherInfantry_DTBB" Frame="38" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUArcherInfantry_LNDA" Frame="5" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUArcherInfantry_MCND" Frame="4" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUArcherInfantry_RUNDA" Frame="37" />
+			</AnimationSoundClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="7.0"
+				Height="13.0"
+				ContactPointGeneration="SQUAD_MEMBER"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="IUArche_voiAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="IUArche_voiCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="IUArche_voiGarris" AudioType="voiceGarrison" />
+			<AudioEntry Sound="IUArche_voiMvAtt" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="IUArche_voiMove" AudioType="voiceMove" />
+			<AudioEntry Sound="IUArche_voiSelBat" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="IUArche_voiSelUnd" AudioType="voiceSelectUnderFire" />
+			<AudioEntry Sound="IUArche_voiSelect" AudioType="voiceSelect" />
+		</AudioArrayVoice>
+		<ShadowInfo
+			Type="DECAL"
+			SizeX="14"
+			SizeY="14"
+			Texture="ShadowI" />
+		<VisionInfo
+			VisionRange="175"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+	</GameObject>
+	
+</AssetDeclaration>

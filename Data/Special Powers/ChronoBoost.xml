@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+
+	<!-- Things that aren't Located here but relate to ChronoBoost -->
+	<!--
+		LogicCommandSet - PlayerSpellBook
+		<Cmd>Command_ChronoBoostSelect</Cmd>
+	-->
+	
+	<!-- ChronoBoost Special Power -->
+	<SpecialPowerTemplate
+		id="SpecialPowerChronoBoostSelect"
+		RadiusCursorRadius="250"
+		ReloadTime="120s"
+		EvaEventToPlayWhenSelectingTarget="SelectSpecialPowerTarget"
+		Flags="-NEEDS_OBJECT_FILTER"
+		RequiredPlayerTech="PlayerTech_Allied_ChronoBoost"
+		TargetType="LOCATION" 		
+		Flags="IS_PLAYER_POWER WATER_OK NEEDS_OBJECT_FILTER NOT_IN_NANOSWARM FOGGED_SHROUDED_CELLS_OK">
+		<ObjectFilter
+			Rule="ANY"
+			Relationship="ALLIES"
+			Include="INFANTRY VEHICLE STRUCTURE"
+			Exclude="ORE_NODE TIME_BOMB PROJECTILE"
+			StatusBitFlagsInclude="AIRBORNE_TARGET UNDER_IRON_CURTAIN IN_NANOHIVE"
+			StatusBitFlagsExclude="NOT_IN_WORLD">
+		</ObjectFilter>
+		<GameDependency id="Allied_ChronoBoost_GameDependency">
+			<RequiredObject>AlliedConstructionYard</RequiredObject>
+		</GameDependency>
+	</SpecialPowerTemplate>
+	
+	<!-- ChronoBoost Logic Command-->
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_ChronoBoostSelect">
+		<SpecialPower>SpecialPowerChronoBoostSelect</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="PLAYER_AOE_BUFF"
+			Manager="SKIRMISH_AI"
+			TargetObjectInclude="CAN_ATTACK"
+			TargetObjectExclude="AIRCRAFT"
+			MinTargetsHit="3"
+			SearchRadius="150">
+			<!-- Using a dummy weapon because Chrono Rift doesn't actually have a weapon but we want to hook it up this way -->
+			<SpecialPowerWeapon Weapon="AlliedCryoSatelliteLvl1"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	
+	<!-- ChronoBoost ButtonData -->
+	<ButtonSingleStateData
+		id="ButtonStatePlayerPowerChronoBoost">
+		<State
+			Image="Button_PlayerPower_ChronoBoost"
+			Title="NAME:PlayerPowerChronoBoost"
+			TypeDescription="TYPE:PlayerPowerChronoBoost"
+			Description="DESC:PlayerPowerChronoBoost" />
+	</ButtonSingleStateData>
+	
+	<!-- ChronoBoost Attribute Modifier -->
+	<AttributeModifier
+		id="AttributeModifier_ChronoBoost"
+		Category="NONE"
+		Duration="10s">
+		<Modifier Type="SPEED" Value="125%"/>
+		<Modifier Type="RATE_OF_FIRE" Value="125%"/>
+	</AttributeModifier>
+	
+	<!-- ChronoBoost Player Tech -->
+	<PlayerTech
+		id="PlayerTech_Allied_ChronoBoost"
+		TechPointsRequired="1">
+		<TechDependency>PlayerTech_Allied</TechDependency>
+	</PlayerTech>
+</AssetDeclaration>

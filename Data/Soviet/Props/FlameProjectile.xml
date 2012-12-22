@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?> <AssetDeclaration xmlns="uri:ea.com:eala:asset"> 
+   <Tags />  
+   
+	<Includes>  
+		<Include  type="all" source="DATA:GlobalData/GlobalDefines.xml" />  
+        <Include source="art:fxfiregrid.xml" type="instance"/>  
+        <Include source="art:fxdistortionfractal01.xml" type="instance"/>  
+        <Include source="art:fxdustanim.xml" type="instance"/>  
+        <Include type="all" source="ART:EXRocket.w3x" />  
+        <Include type="all" source="ART:exhellmis.xml" />  
+    </Includes>  
+	
+   <GameObject  
+        id="FlameThrowerProjectile"  
+        Side="Allies"  
+        EditorSorting="SYSTEM"  
+        KindOf="PROJECTILE SMALL_MISSILE DEFLECT_BY_SPECIAL_POWER NO_COLLIDE HIDE_IF_FOGGED">  
+        <ArmorSet  
+            Armor="NoArmor" />  
+        <Draws>  
+            <ScriptedModelDraw  
+                id="ModuleTag_ScriptedModelDraw">  
+                <ModelConditionState  
+                    ParseCondStateType="PARSE_DEFAULT">  
+                    <Model  
+                        Name="" />    
+                </ModelConditionState>  
+            </ScriptedModelDraw>  
+        </Draws>  
+        <Behaviors>  
+			<FXListBehavior  
+				id="ModuleTag_FXLists">  
+			    <DieMuxData  
+					DeathTypes="ALL" />  
+			    <Event  
+					Index="onDeath"  
+					FX="" />  
+			</FXListBehavior>  
+		    <DestroyDie  
+				id="ModuleTag_Die">  
+				<DieMuxData  
+					DeathTypes="ALL" />  
+			</DestroyDie>  
+			<BezierProjectile  
+				id="ModuleTag_BezierProjectileBehavior"  
+				Flags="PING_PONG_SIDEWAYS_DRIFT DETONATE_CALLS_KILL ORIENT_TO_FLIGHT_PATH"  
+				FirstHeightMin="1"  
+				FirstHeightMax="1"  
+				SecondHeightMin="2"  
+				SecondHeightMax="2"  
+				FirstPercentIndent="33"  
+				SecondPercentIndent="44"  
+				GroundHitFX=""  
+				SidewaysDrift="0"  
+				FlightPathAdjustDistPerSecond="5.0"  />  
+        </Behaviors>  
+        <Body>  
+            <ActiveBody  
+                id="ModuleTag_ActiveBody"  
+                MaxHealth="100.0" />  
+        </Body>  
+        <Geometry  
+            IsSmall="true">  
+            <Shape  
+                Type="SPHERE"  
+                MajorRadius="0.8"></Shape>  
+        </Geometry>  
+        <VisionInfo  
+			VisionRange="0" />  
+    </GameObject>  
+	
+</AssetDeclaration>  

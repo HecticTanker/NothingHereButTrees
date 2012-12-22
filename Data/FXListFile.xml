@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+	<!-- Allied Gunship AKA Harbinger -->
+	<FXList id="FX_AlliedGunshipProtonHit">
+		<NuggetList>
+			<Sound Value="ALL_Gunship_ColliderCannonExploMS" />
+			<ParticleSystem	Particle="FXAlliedGunshipProton01"/>
+			<ParticleSystem	Particle="FXAlliedGunshipProton02"/>
+			<ParticleSystem	Particle="FXAlliedGunshipProton03"/>
+			<ParticleSystem	Particle="FXAlliedGunshipProton04"/>
+			<ParticleSystem	Particle="FXAlliedGunshipProton05"/>
+			<ParticleSystem	Particle="FXAlliedGunshipProton06"/>
+			<ParticleSystem	Particle="FXAlliedGunshipProtonFlash"/>
+			<ParticleSystem	Particle="FXAlliedGunshipProtonCore"/>
+			<ParticleSystem	Particle="FXAlliedGunshipProtonDist"/>
+			<ParticleSystem	Particle="FXAlliedGunshipProtonSW"/>
+			<!-- Water FX -->
+			<ParticleSystem
+				Particle="SovietV4RocketExplosionWake"
+				OnlyIfOnWater ="true">
+			</ParticleSystem>
+			<ParticleSystem
+				Particle="SovietV4RocketExplosionWaterMist"
+				OnlyIfOnWater ="true">
+			</ParticleSystem>
+		</NuggetList>
+	</FXList>
+	<FXList id="FX_Allied_Gunship_Fire">
+		<NuggetList>
+			<ParticleSystem	Particle="AlliedGunshipFireLight"/>
+		</NuggetList>
+	</FXList>
+	
+	<!-- Japan Archer Infantry AKA Archer Maiden -->
+	<FXList id="Arrow_Projectile_Hit">
+		<NuggetList>
+			<ParticleSystem	Particle="FXJapanAutoCannonHit"/>
+			<Sound Value="JUArche_weapImpa1" />
+		</NuggetList>
+	</FXList>
+	
+	<!-- Flame Tank DeathWeapon -->
+	<FXList id="FX_NODBombHit">
+		<NuggetList>
+			<ParticleSystem
+				Particle="XPBombHit_Add">
+			</ParticleSystem>
+			<ParticleSystem
+				Particle="XPBombHit_Fire">
+			</ParticleSystem>
+			<ParticleSystem
+				Particle="XPBombHit_Flash">
+			</ParticleSystem>
+			<ParticleSystem
+				Particle="XPBombHit_Trail">
+			</ParticleSystem>
+			<ParticleSystem
+				Particle="NODFlameTankPilotDistortion">
+			</ParticleSystem>
+			<Sound 
+				Value="RA3VehicleExplosionMediumNoDelay" 
+				StopIfPlayed="true">
+				<SourceObjectFilter
+					Rule="ANY">
+						<IncludeThing>NODExplosiveCharge</IncludeThing>
+				</SourceObjectFilter>
+			</Sound>
+			<Sound 
+				Value="RA3VehicleExplosionMediumNoDelay"> 
+			</Sound>
+		</NuggetList>
+	</FXList>
+	
+	<!-- ShrinkRay -->
+	<FXList id="FX_ShrinkRay">
+		<NuggetList>
+    	<Sound Value="Unshrink" />
+      <ParticleSystem
+		Particle="Allied_ShrinkRayGlow"
+		OrientToObject = "true" >
+        <Offset x="0.0" y="3.0" z="0.0" />
+      </ParticleSystem>
+      <ParticleSystem
+		Particle="Allied_ShrinkRayGlow02"
+		OrientToObject = "true" >
+        <Offset x="0.0" y="3.0" z="0.0" />
+      </ParticleSystem>
+		</NuggetList>
+	</FXList>
+</AssetDeclaration>

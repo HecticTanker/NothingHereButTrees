@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<!-- Referenced Files-->
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="instance" source="DATA:GlobalData/Armor.xml" />
+	  
+		<Include type="all"	source="ART:AUGunship_SKN.w3x" />
+		<Include type="all"	source="ART:AUGunship_FP.w3x" />
+		<Include type="all"	source="ART:AUGunship_D.xml" />    
+	<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />		
+	</Includes>
+	
+	<GameObject
+		id="AlliedGunshipAircraft"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_AlliedHarbingerGunship"
+		ButtonImage="Portrait_AlliedHarbingerGunship"
+		Side="Allies"
+		SubGroupPriority="730" 
+		EditorSorting="UNIT"
+		BuildTime="30"
+		CommandSet="AlliedGunshipAircraftCommandSet"
+		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE SCORE AIRCRAFT VEHICLE LINE_OF_SIGHT_IGNORES_BUILDINGS T3_UNIT CAN_BE_FAVORITE_UNIT LIMITED_PRODUCTION_AIRCRAFT"
+		RadarPriority="UNIT"
+		ThreatLevel="10"
+		IsTrainable="true"
+		ProductionQueueType="AIRCRAFT"
+		UnitCategory="AIRCRAFT"
+		WeaponCategory="GUN"
+		VoicePriority="148"
+		EditorName="AlliedGunshipAircraft"
+		Description="Desc:AlliedGunshipAircraft"
+		TypeDescription="Type:AlliedGunshipAircraft"
+		HealthBoxHeightOffset="30"
+		UnitIntro="Soviet_Mig_UnitIntro">
+		<DisplayName xai:joinAction="Replace">Name:AlliedGunshipAircraft</DisplayName>
+		<GameDependency>
+			<NeededUpgrade>Upgrade_AlliedTech3</NeededUpgrade>
+			<RequiredObject>AlliedTechStructure</RequiredObject>
+		</GameDependency>		
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="2800"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="AlliedGunshipAircraftArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			id="AlliedGunshipAircraftLocomotor"
+			Locomotor="AlliedGunshipAircraftLocomotor"
+			Condition="NORMAL"
+			Speed="120" />
+		<LocomotorSet
+			Locomotor="BasicHelicopterTaxiLocomotor"
+			Condition="TAXIING"
+			Speed="30" />
+		<!-- Need ConquerMetricsOverrideDefendingAntiMask or else the TAXIING locomotor will make the AI try to build anti-ground units against this -->
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+			ConquerMetricsOverrideDefendingAntiMask="ANTI_AIRBORNE_VEHICLE" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				OkToChangeModelColor="true" 
+				InitialRecoilSpeed="1.0"
+				MaxRecoilDistance="1.0"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="1.5"
+				ExtraPublicBone="FXGun_BL FXGun_BR FXGun_FL FXGun_FR FXGun_FRONT">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AUGunship_SKN" />
+					<ParticleSysBone
+						BoneName="FXCon_R"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FXCon_L"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" /> 
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXGun_FRONT" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXGun_FRONT" />
+					
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXGun_FR" />
+					<WeaponFireFXBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXGun_FR" />
+					<WeaponRecoilBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXMuzzle_FR"/>
+					<WeaponMuzzleFlash
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXMuzzle_FR" />
+
+					<WeaponLaunchBone
+						WeaponSlotID="3"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXGun_FL" />
+					<WeaponFireFXBone
+						WeaponSlotID="3"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXGun_FL" />
+					<WeaponRecoilBone
+						WeaponSlotID="3"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXMuzzle_FL"/>
+					<WeaponMuzzleFlash
+						WeaponSlotID="3"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXMuzzle_FL" />
+
+					<WeaponLaunchBone
+						WeaponSlotID="4"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXGun_BR" />
+					<WeaponFireFXBone
+						WeaponSlotID="4"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXGun_BR" />
+					<WeaponRecoilBone
+						WeaponSlotID="4"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXMuzzle_BR"/>
+					<WeaponMuzzleFlash
+						WeaponSlotID="4"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXMuzzle_BR" />
+
+					<WeaponLaunchBone
+						WeaponSlotID="5"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXGun_BL" />
+					<WeaponFireFXBone
+						WeaponSlotID="5"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXGun_BL" />
+					<WeaponRecoilBone
+						WeaponSlotID="5"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXMuzzle_BL"/>
+					<WeaponMuzzleFlash
+						WeaponSlotID="5"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXMuzzle_BL" />
+
+					<!-- front -->
+					<Turret
+						TurretNameKey="Turret_FRONT"
+						TurretPitch="Turret_Pitch_FRONT"
+						TurretID="1" />
+
+					<!-- Front -->
+					<Turret
+						TurretNameKey="Turret_FR"
+						TurretPitch="Turret_Pitch_FR"
+						TurretID="2" />
+					<Turret
+						TurretNameKey="Turret_FL"
+						TurretPitch="Turret_Pitch_FL"
+						TurretID="3" />
+
+					<!-- back -->
+					<Turret
+						TurretNameKey="Turret_BR"
+						TurretPitch="Turret_Pitch_BR"
+						TurretID="4" />
+					<Turret
+						TurretNameKey="Turret_BL"
+						TurretPitch="Turret_Pitch_BL"
+						TurretID="5" />
+				</ModelConditionState>
+				
+	            <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+	                <Model
+						Name="AUGunship_FP" />				
+	            </ModelConditionState>					
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="AUGunship_SKN" />
+					<ParticleSysBone
+						BoneName="FXCon_R"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FXCon_L"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" /> 
+					<ParticleSysBone
+						BoneName="FXDamage01"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FXDamage02"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+				</ModelConditionState>
+				<ModelConditionState
+						ParseCondStateType="PARSE_NORMAL"
+						RetainSubObjects="true"
+						ConditionsYes="REALLYDAMAGED">
+					    <Model
+							Name="AUGunship_SKN" />
+							<ParticleSysBone
+								BoneName="FXCon_R"
+								FXParticleSystemTemplate="FireHawkConTrail"
+								FollowBone="true" />
+							<ParticleSysBone
+								BoneName="FXCon_L"
+								FXParticleSystemTemplate="FireHawkConTrail"
+								FollowBone="true" /> 
+							<Texture
+								Original="AUGunship"
+								New="AUGunship_D" />		
+							<ParticleSysBone
+								BoneName="FXDamage01"
+								FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+								FollowBone="true"/>
+							<ParticleSysBone
+								BoneName="FXDamage02"
+								FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+								FollowBone="true"/>
+							<ParticleSysBone
+								BoneName="FXDamage01"
+								FXParticleSystemTemplate="AlliedVehicleDamageFire"
+								FollowBone="true"/>
+							<ParticleSysBone
+								BoneName="FXDamage02"
+								FXParticleSystemTemplate="AlliedVehicleDamageFire"
+								FollowBone="true"/>
+				</ModelConditionState>    
+			</ScriptedModelDraw>
+    </Draws>
+		<Behaviors>
+
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+            <!-- front -->
+				<WeaponSlotTurret
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedGunshipAircraftWeapon"
+						ForbiddenObjectStatus="WEAPON_UPGRADED_01"/>
+					<TurretSettings
+						TurretTurnRate="360"
+						TurretPitchRate="20"
+						AllowsPitch="true"
+						MinimumPitch="-45d"
+						PitchHeight="90%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="90.0"
+						NaturalTurretAngle="0d"
+						RecenterWhenOutOfTurnRange="false"
+						ComeToHaltJiggle="1d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true"
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+					</TurretSettings>
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedGunshipAircraftWeapon_AirPower"
+						ObjectStatus="WEAPON_UPGRADED_01"/>
+				</WeaponSlotTurret>		
+            <!-- Front right -->
+            <WeaponSlotTurret
+                ID="2">
+				<Weapon
+					Ordering="PRIMARY_WEAPON"
+					Template="AlliedGunshipAircraftWeapon"
+					ForbiddenObjectStatus="WEAPON_UPGRADED_01" />
+				<TurretSettings
+					TurretTurnRate="180"
+					TurretPitchRate="180"
+					AllowsPitch="true"
+					MinimumPitch="-45d"
+					PitchHeight="90%"
+					MinIdleScanTime="1.0s"
+					MaxIdleScanTime="5.0s"
+					MinIdleScanAngle="0.0"
+					MaxIdleScanAngle="90.0"
+					MaxDeflectionAntiClockwise="45d"
+					MaxDeflectionClockwise="45d"
+					NaturalTurretAngle="270d"
+					RecenterWhenOutOfTurnRange="false"
+					ComeToHaltJiggle="1d">
+					<TurretAITargetChooserData
+						CanAcquireDynamicIfAssignedOutOfRange="true"
+						IdleScanDelay="=$MEDIUM_IDLE_SCAN_DELAY" />
+				</TurretSettings>
+			    <Weapon
+					Ordering="PRIMARY_WEAPON"
+					Template="AlliedGunshipAircraftWeapon_AirPower"
+					ObjectStatus="WEAPON_UPGRADED_01" />
+            </WeaponSlotTurret>
+            <!-- Front Left -->	
+            <WeaponSlotTurret
+                ID="3">
+                <Weapon
+					Ordering="PRIMARY_WEAPON"
+					Template="AlliedGunshipAircraftWeapon"
+					ForbiddenObjectStatus="WEAPON_UPGRADED_01" />
+                <TurretSettings
+					TurretTurnRate="180"
+					TurretPitchRate="180"
+					AllowsPitch="true"
+					MinimumPitch="-45d"
+					PitchHeight="90%"
+					MinIdleScanTime="1.0s"
+					MaxIdleScanTime="5.0s"
+					MinIdleScanAngle="0.0"
+					MaxIdleScanAngle="90.0"
+					MaxDeflectionAntiClockwise="45d"
+					MaxDeflectionClockwise="45d"
+					NaturalTurretAngle="90d"
+					RecenterWhenOutOfTurnRange="false"
+					ComeToHaltJiggle="1d">
+                <TurretAITargetChooserData
+                    CanAcquireDynamicIfAssignedOutOfRange="true"
+                    IdleScanDelay="=$MEDIUM_IDLE_SCAN_DELAY"/>
+                </TurretSettings>
+			    <Weapon
+					Ordering="PRIMARY_WEAPON"
+					Template="AlliedGunshipAircraftWeapon_AirPower"
+					ObjectStatus="WEAPON_UPGRADED_01" />
+            </WeaponSlotTurret>
+            <!-- Back Right -->				
+            <WeaponSlotTurret
+                ID="4">
+                <Weapon
+					Ordering="PRIMARY_WEAPON"
+					Template="AlliedGunshipAircraftWeapon"
+					ForbiddenObjectStatus="WEAPON_UPGRADED_01" />
+				<TurretSettings
+					TurretTurnRate="180"
+					TurretPitchRate="180"
+					AllowsPitch="true"
+					MinimumPitch="-45d"
+					PitchHeight="90%"
+					MinIdleScanTime="1.0s"
+					MaxIdleScanTime="5.0s"
+					MinIdleScanAngle="0.0"
+					MaxIdleScanAngle="90.0"
+					MaxDeflectionAntiClockwise="45d"
+					MaxDeflectionClockwise="45d"
+					NaturalTurretAngle="270d"
+					RecenterWhenOutOfTurnRange="false"
+					ComeToHaltJiggle="1d">
+				<TurretAITargetChooserData
+				  CanAcquireDynamicIfAssignedOutOfRange="true"
+				  IdleScanDelay="=$MEDIUM_IDLE_SCAN_DELAY" />
+				</TurretSettings>
+				<Weapon
+					Ordering="PRIMARY_WEAPON"
+					Template="AlliedGunshipAircraftWeapon_AirPower"
+					ObjectStatus="WEAPON_UPGRADED_01" />
+            </WeaponSlotTurret>
+            <!-- Back Left -->				
+            <WeaponSlotTurret
+                ID="5">
+                <Weapon
+					Ordering="PRIMARY_WEAPON"
+					Template="AlliedGunshipAircraftWeapon"
+					ForbiddenObjectStatus="WEAPON_UPGRADED_01" />
+				<TurretSettings
+					TurretTurnRate="180"
+					TurretPitchRate="180"
+					AllowsPitch="true"
+					MinimumPitch="-45d"
+					PitchHeight="90%"
+					MinIdleScanTime="1.0s"
+					MaxIdleScanTime="5.0s"
+					MinIdleScanAngle="0.0"
+					MaxIdleScanAngle="90.0"
+					MaxDeflectionAntiClockwise="45d"
+					MaxDeflectionClockwise="45d"
+					NaturalTurretAngle="90d"
+					RecenterWhenOutOfTurnRange="false"
+					ComeToHaltJiggle="1d">
+					<TurretAITargetChooserData
+						CanAcquireDynamicIfAssignedOutOfRange="true"
+						IdleScanDelay="=$MEDIUM_IDLE_SCAN_DELAY"/>
+				</TurretSettings>
+			    <Weapon
+					Ordering="PRIMARY_WEAPON"
+					Template="AlliedGunshipAircraftWeapon_AirPower"
+					ObjectStatus="WEAPON_UPGRADED_01" />
+            </WeaponSlotTurret>  
+		</WeaponSetUpdate>
+			<Physics
+				id="ModuleTag_Physics"/>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="AUGunshipAircraft_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					ExemptStatus="PARKED_AT_AIRFIELD"/>
+			</CreateObjectDie>			
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDieAtAirfield"
+				CreationList="AUGunshipAircraft_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					RequiredStatus="PARKED_AT_AIRFIELD"/>
+			</CreateObjectDie>
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_ALL_CenturyBomberDie" />
+			</FXListBehavior>
+			<ReturnToProducerSpecialPower
+				id="ModuleTag_ReturnToProducerSpecialPower"
+				SpecialPowerTemplate="SpecialPowerReturnToProducer"
+				AttributeModifier="AttributeModifier_ReturnToBase"
+				AttributeModifierAffectsSelf="true"
+				SetModelCondition="USER_1"
+				SetModelConditionTime="30s"/>
+			<SubObjectsUpgrade
+				id="ModuleTag_AlliedAirPower_subobject">
+				<TriggeredBy>Upgrade_AlliedAirPower</TriggeredBy>
+				<Nugget
+					ShowSubObjects="Upgrade_01"
+					Upgrade="Upgrade_AlliedAirPower">
+				</Nugget>
+				<!-- <CustomAnimAndDuration AnimState="USER_2 "/> -->
+			</SubObjectsUpgrade>
+			<StatusBitsUpgrade
+				id="ModuleTag_UpgradeWeapon"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_AlliedAirPower</TriggeredBy>
+			</StatusBitsUpgrade>
+			<xi:include
+				href="DATA:Includes/AlliedHighTechnologyUpgrade.xml" />
+			<xi:include
+				href="DATA:Includes/AlliedAirPowerUpgrade.xml" />
+			
+		</Behaviors>
+		<AI><!--ParkingOffset="200.0" -->
+			<JetAIUpdate
+				id="ModuleTag_JetAIUpdate"
+				AutoAcquireEnemiesWhenIdle="YES"
+				KeepsParkingSpaceWhenAirborne="true"
+				ReturnToBaseWhenVictimDead="true"
+				OutOfAmmoDamagePerSecond="1.5"
+				CirclesForAttack="true"	
+				StateMachine="JetAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="true"
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+					CheckVisionRange="true"/>
+			</JetAIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="950" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_VoiceAttackSecondary">
+				<Override RequiredFlags="WEAPONSET_TOGGLE_1">
+					<AudioArrayVoice>
+						<AudioEntry Sound="ALL_HarbingerGunship_VoiceAttackSpecial" AudioType="voiceAttack" />
+					</AudioArrayVoice>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+		</ClientBehaviors>
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="0"
+			CrushableLevel="30" />	  
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="16.0"
+				MinorRadius="30.0"
+				Height="8.0"
+				ContactPointGeneration="VEHICLE">
+			</Shape>
+		</Geometry>		
+		<AudioArrayVoice>
+			<AudioEntry Sound="ALL_HarbingerGunship_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="ALL_HarbingerGunship_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="ALL_HarbingerGunship_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="ALL_HarbingerGunship_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="ALL_HarbingerGunship_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="ALL_HarbingerGunship_VoiceSelect" AudioType="voiceSelect" />
+			<AudioEntry Sound="ALL_HarbingerGunship_VoiceSelectBattle" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="ALL_HarbingerGunship_VoiceSelectUnderFire" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="500" />
+	</GameObject>
+
+	<!-- Allied Gunship Weapon Toggle Special Ability -->
+
+	
+</AssetDeclaration>
