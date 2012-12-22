@@ -3,7 +3,7 @@
 	<Tags></Tags>
 	<Includes>
 		
-		<!-- References testing!!! now you merge!!! -->
+		<!-- References testing!!! now you merge!!! on new branch now stop weining -->
 		<Include type="reference" source ="DATA:global.xml" />
 		<Include type="reference" source ="DATA:Static.xml" />
 		<Include type="reference" source ="DATA:Audio.xml" />
