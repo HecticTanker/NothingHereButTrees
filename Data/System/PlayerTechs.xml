@@ -1,49 +1,6 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <AssetDeclaration xmlns="uri:ea.com:eala:asset">
-
-	<!-- Faction-specific Techs -->
-	<PlayerTech
-		id="PlayerTech_Allied"/>
-
-	<PlayerTech
-		id="PlayerTech_Soviet"/>
-
-	<PlayerTech
-		id="PlayerTech_Japan"/>
-
-
-	<!-- Rank-specific Techs -->
-	<PlayerTech
-		id="PlayerTech_Generic_Rank_1"/>
-
-	<PlayerTech
-		id="PlayerTech_Generic_Rank_2"/>
-
-	<PlayerTech
-		id="PlayerTech_Generic_Rank_3"/>
-
-	<PlayerTech
-		id="PlayerTech_Generic_Rank_4"/>
-
-	<PlayerTech
-		id="PlayerTech_Generic_Rank_5"/>
-
-	<PlayerTech
-		id="PlayerTech_Generic_Rank_6"/>
-
-	<PlayerTech
-		id="PlayerTech_Generic_Rank_7"/>
-
-	<PlayerTech
-		id="PlayerTech_Generic_Rank_8"/>
-
-	<PlayerTech
-		id="PlayerTech_Generic_Rank_9"/>
-
-	<PlayerTech
-		id="PlayerTech_Generic_Rank_10"/>
-
-
+	<!-- File obsolete. To be Removed Once everything is transfered over. -->
 	<!-- Production Bonus Techs -->
 	<PlayerTech
 		id="PlayerTech_ProductionBonus_Allies"
@@ -66,12 +23,6 @@
 	
 	
 	<!-- Alled Upgrade Techs -->
-	<PlayerTech
-		id="PlayerTech_Allied_HighTechnology"
-		TechPointsRequired="1">
-		<TechDependency>PlayerTech_Allied</TechDependency>
-	</PlayerTech>
-	
 	<PlayerTech
 		id="PlayerTech_Allied_AirPower"
 		TechPointsRequired="1">
@@ -111,91 +62,6 @@
 		TechPointsRequired="1">
 		<TechDependency>PlayerTech_Japan</TechDependency>
 		<TechDependency>PlayerTech_Generic_Rank_3</TechDependency>
-	</PlayerTech>
-	
-	
-	
-	<!-- Allied Precision Strike -->
-	<PlayerTech
-		id="PlayerTech_Allied_PrecisionStrike"
-		TechPointsRequired="1">
-		<TechDependency>PlayerTech_Allied</TechDependency>
-		<TechDependency>PlayerTech_Generic_Rank_3</TechDependency>
-	</PlayerTech>
-
-	<!-- Allied Satellite Sweep -->
-	<PlayerTech
-		id="PlayerTech_Allied_SatelliteSweep"
-		TechPointsRequired="1">
-		<TechDependency>PlayerTech_Allied</TechDependency>
-	</PlayerTech>
-
-	<!-- Allied Cryo Satellte -->
-	<PlayerTech
-		id="PlayerTech_Allied_CryoSatellite_Rank1"
-		TechPointsRequired="1">
-		<TechDependency>PlayerTech_Allied</TechDependency>
-		<TechDependency>PlayerTech_Generic_Rank_3</TechDependency>
-	</PlayerTech>
-	<PlayerTech
-		id="PlayerTech_Allied_CryoSatellite_Rank2"
-		TechPointsRequired="1">
-		<TechDependency>PlayerTech_Allied_CryoSatellite_Rank1</TechDependency>
-		<TechDependency>PlayerTech_Generic_Rank_3</TechDependency>
-	</PlayerTech>
-	<PlayerTech
-		id="PlayerTech_Allied_CryoSatellite_Rank3"
-		TechPointsRequired="1">
-		<TechDependency>PlayerTech_Allied_CryoSatellite_Rank2</TechDependency>
-		<TechDependency>PlayerTech_Generic_Rank_3</TechDependency>
-	</PlayerTech>
-
-	<!-- Allied Chrono Swap -->
-	<PlayerTech
-		id="PlayerTech_Allied_ChronoSwap"
-		TechPointsRequired="1">
-		<TechDependency>PlayerTech_Allied</TechDependency>
-		<TechDependency>PlayerTech_Generic_Rank_3</TechDependency>
-	</PlayerTech>
-
-	<!-- Allied Time Bomb -->
-	<PlayerTech
-		id="PlayerTech_Allied_TimeBomb_Rank1"
-		TechPointsRequired="1">
-		<TechDependency>PlayerTech_Allied_PrecisionStrike</TechDependency>
-		<TechDependency>PlayerTech_Generic_Rank_3</TechDependency>
-	</PlayerTech>
-	<PlayerTech
-		id="PlayerTech_Allied_TimeBomb_Rank2"
-		TechPointsRequired="1">
-		<TechDependency>PlayerTech_Allied_TimeBomb_Rank1</TechDependency>
-		<TechDependency>PlayerTech_Generic_Rank_3</TechDependency>
-	</PlayerTech>
-	<PlayerTech
-		id="PlayerTech_Allied_TimeBomb_Rank3"
-		TechPointsRequired="1">
-		<TechDependency>PlayerTech_Allied_TimeBomb_Rank2</TechDependency>
-		<TechDependency>PlayerTech_Generic_Rank_5</TechDependency>
-	</PlayerTech>
-
-	<!-- Allied ChronoRift -->
-	<PlayerTech
-		id="PlayerTech_Allied_ChronoRift_Rank1"
-		TechPointsRequired="1">
-		<TechDependency>PlayerTech_Allied_ChronoSwap</TechDependency>
-		<TechDependency>PlayerTech_Generic_Rank_3</TechDependency>
-	</PlayerTech>
-	<PlayerTech
-		id="PlayerTech_Allied_ChronoRift_Rank2"
-		TechPointsRequired="1">
-		<TechDependency>PlayerTech_Allied_ChronoRift_Rank1</TechDependency>
-		<TechDependency>PlayerTech_Generic_Rank_3</TechDependency>
-	</PlayerTech>
-	<PlayerTech
-		id="PlayerTech_Allied_ChronoRift_Rank3"
-		TechPointsRequired="1">
-		<TechDependency>PlayerTech_Allied_ChronoRift_Rank2</TechDependency>
-		<TechDependency>PlayerTech_Generic_Rank_5</TechDependency>
 	</PlayerTech>
 
 	<!-- Soviet Production kickbacks -->

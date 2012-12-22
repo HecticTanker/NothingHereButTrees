@@ -850,18 +850,6 @@
 		</AISpecialPowerInfo>
 	</LogicCommand>
 
-
-	<LogicCommand
-		Options="NEED_TARGET_POS"
-		Type="SPECIAL_POWER"
-		id="Command_SatelliteSweep">
-		<SpecialPower>SpecialPowerSatelliteSweep</SpecialPower>
-		<AISpecialPowerInfo 
-		    Heuristic="PLAYER_AOE_SHROUD_CLEAR" 
-		    Manager="SKIRMISH_AI">
-		</AISpecialPowerInfo>
-	</LogicCommand>
-
 	<LogicCommand
 		Options="NEED_TARGET_POS"
 		Type="SPECIAL_POWER"

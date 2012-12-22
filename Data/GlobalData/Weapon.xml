@@ -52,41 +52,7 @@
 		</Nuggets>
 	</WeaponTemplate>
 		
-	<WeaponTemplate
-		id="AlliedTimeBomb_Level1"
-		ClipSize="1"
-		WeaponSpeed="500"
-		FireFX="FX_TimeBombExplosionLvl1"
-		RadiusDamageAffects="ENEMIES NEUTRALS ALLIES"
-		AcceptableAimDelta="180d"
-		CanFireWhileMoving="true"
-		Flags="NOT_ATTRACTED_BY_MAGNETS"
-		RequiredAntiMask="ANTI_GROUND ANTI_STRUCTURE ANTI_WATER ANTI_SUBMERGED">
-		<Nuggets>
-			<DamageNugget
-				id="ModuleTag_DamageNugget"
-				Damage="750.0"
-				DamageTaperOff="300"
-				Radius="150"
-				DamageType="EXPLOSIVE"
-				DamageFXType="ALLIED_BOMBLVL1"
-				DeathType="NORMAL"
-				RadiusAffectsBridges="true">
-				<DamageScalarDetails Scalar= "50%">
-					<Filter
-						Rule="NONE">
-						<IncludeThing>SovietMiner</IncludeThing>
-						<IncludeThing>AlliedMiner</IncludeThing>
-						<IncludeThing>JapanMiner</IncludeThing>
-					</Filter>		
-				</DamageScalarDetails>
-			</DamageNugget>
-		<MetaImpactNugget
-			ShockWaveAmount="80.0"
-			ShockWaveRadius="125.0"
-			ShockWaveZMult="1.50" />
-		</Nuggets>
-	</WeaponTemplate>
+	
 
 	<WeaponTemplate
 		id="AlliedTimeBomb_Level2"

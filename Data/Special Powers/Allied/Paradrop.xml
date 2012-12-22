@@ -1,0 +1,79 @@
+<!-- Allied Paradrop -->
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+	
+	<!-- The tech allowing you to use the SpecialPower -->
+	<PlayerTech
+		id="PlayerTech_Allied_Paradrop"
+		TechPointsRequired="1">
+		<TechDependency>PlayerTech_Allied</TechDependency>
+		<TechDependency>PlayerTech_Allied_SatelliteSweep</TechDependency>
+		<TechDependency>PlayerTech_Generic_Rank_2</TechDependency>
+	</PlayerTech>
+	
+	<!-- Button allowing the tech to be purchased. -->
+	<PurchasePlayerTechButtonTemplate
+		id="Purchase_PlayerTech_Allied_Paradrop"
+		PlayerTech="PlayerTech_Allied_Paradrop"
+		StateData="ButtonStatePlayerPowerParadrop"/>	
+		
+	<!-- The SpecialPower -->
+	<SpecialPowerTemplate
+		id="SpecialPowerParadrop"
+		ReloadTime="300s"
+		TargetType="LOCATION"
+		EvaEventToPlayWhenSelectingTarget="SelectSpecialPowerTargetArea"
+		RadiusCursorRadius="100"
+		Flags="IS_PLAYER_POWER PATHABLE_ONLY NOT_CLIFF_CELL NO_FORBIDDEN_OBJECTS"
+		RequiredPlayerTech="PlayerTech_Allied_Paradrop"
+		WaypointModeTerminal="false" >
+		<ForbiddenObjectFilter
+			Rule="ANY"
+			Include="STRUCTURE CRUSHABLE_OBSTACLE AIRCRAFT"
+			Exclude="BRIDGE_ENDCAP BRIDGE_SEGMENT">
+			<ExcludeThing>NanoSwarmHiveEffect</ExcludeThing>
+		</ForbiddenObjectFilter>
+		<GameDependency id="Allied_Paradrop_GameDependency">
+			<RequiredObject>AlliedConstructionYard</RequiredObject>
+		</GameDependency>		
+	</SpecialPowerTemplate>
+		
+	<!-- Button allowing the SpecialPower to be used. -->
+	<ButtonSingleStateData
+		id="ButtonStatePlayerPowerParadrop">
+		<State
+			Image="Button_PlayerPower_Paradrop"
+			Title="NAME:PlayerPowerParadrop"
+			TypeDescription="TYPE:PlayerPowerParadrop"
+			Description="DESC:PlayerPowerParadrop" />
+	</ButtonSingleStateData>
+	
+	<!-- The logic behind the button that allows you to use the SpecialPower -->
+	<LogicCommand id="Command_Paradrop" Type="SPECIAL_POWER" Options="NEED_TARGET_POS">
+		<SpecialPower>SpecialPowerParadrop</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="PLAYER_AOE_BUFF"
+			Manager="SKIRMISH_AI"
+			TargetObjectInclude="CAN_ATTACK"
+			MinTargetsHit="1"
+			MinEnemiesNearby="5">
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	
+	<!-- Player power button that links the SpecialPower, The Radius Icon, and the ButtonStateData -->
+	<PlayerPowerButtonTemplate id="ButtonCampaignPlayerPoweParadrop" SpecialPower="SpecialPowerParadrop">
+		<Data>
+			<TargetedPower RadiusCursor="Target_Allied_Paradrop" StateData="ButtonStateCampaignPlayerPowerParadrop"/>
+		</Data>
+	</PlayerPowerButtonTemplate>
+	
+	<!-- Another Button YAY! -->
+	<JoypadCommandBarButtonTemplate id="ButtonCampaignPlayerPoweParadrop">
+		<Data>
+			<PlayerTargetedPower
+				StateData="ButtonStateCampaignPlayerPowerParadrop"
+				SpecialPower="SpecialPowerParadrop"
+				RadiusCursor="Target_Allied_Paradrop"/>
+		</Data>
+	</JoypadCommandBarButtonTemplate>
+</AssetDeclaration>

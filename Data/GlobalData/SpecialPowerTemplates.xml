@@ -230,35 +230,6 @@
 	</SpecialPowerTemplate>
 	
 	<SpecialPowerTemplate
-		id="SpecialPowerTimeBombLvl1"
-		ReloadTime="120s"
-		TargetType="LOCATION"
-		RadiusCursorRadius="20"
-		Flags="IS_PLAYER_POWER WATER_OK PATHABLE_ONLY NOT_IN_NANOSWARM FOGGED_SHROUDED_CELLS_OK"
-		EvaEventToPlayWhenSelectingTarget="SelectLocation"
-		RequiredPlayerTech="PlayerTech_Allied_TimeBomb_Rank1">
-		<GameDependency
-			id="Allied_TimeBombLvl1_GameDependency">
-			<RequiredObject>AlliedConstructionYard</RequiredObject>
-		</GameDependency>
-		<ForbiddenPlayerTech>PlayerTech_Allied_TimeBomb_Rank2</ForbiddenPlayerTech>
-		<ForbiddenPlayerTech>PlayerTech_Allied_TimeBomb_Rank3</ForbiddenPlayerTech>
-	</SpecialPowerTemplate>
-	<SpecialPowerTemplate
-		id="SpecialPowerTimeBombLvl2"
-		ReloadTime="240s"
-		TargetType="LOCATION"
-		RadiusCursorRadius="25"
-		Flags="IS_PLAYER_POWER WATER_OK PATHABLE_ONLY NOT_IN_NANOSWARM FOGGED_SHROUDED_CELLS_OK"
-		EvaEventToPlayWhenSelectingTarget="SelectLocation"
-		RequiredPlayerTech="PlayerTech_Allied_TimeBomb_Rank2">
-		<GameDependency
-			id="Allied_TimeBombLvl2_GameDependency">
-			<RequiredObject>AlliedConstructionYard</RequiredObject>
-		</GameDependency>
-		<ForbiddenPlayerTech>PlayerTech_Allied_TimeBomb_Rank3</ForbiddenPlayerTech>		
-	</SpecialPowerTemplate>
-	<SpecialPowerTemplate
 		id="SpecialPowerTimeBombLvl3"
 		ReloadTime="360s"
 		TargetType="LOCATION"
@@ -333,23 +304,6 @@
 			<RequiredObject>AlliedConstructionYard</RequiredObject>
 		</GameDependency>
 	</SpecialPowerTemplate>
-
-	<SpecialPowerTemplate
-		id="SpecialPowerSatelliteSweep"
-		ReloadTime="120s"
-		TargetType="LOCATION"
-		InitiateAtLocationSound="ALL_SurveillanceSweep_CursorIn"
-		NumTargets="2" 
-		RadiusCursorRadius="150"
-		Flags="IS_PLAYER_POWER WATER_OK FOGGED_SHROUDED_CELLS_OK"
-		EvaEventToPlayWhenSelectingTarget="SelectLocation"
-		RequiredPlayerTech="PlayerTech_Allied_SatelliteSweep">
-		<GameDependency
-			id="Allied_SatelliteSweep_GameDependency">
-			<RequiredObject>AlliedConstructionYard</RequiredObject>
-		</GameDependency>
-	</SpecialPowerTemplate>
-	<!-- InitiateSound="ALL_SurveillanceSweep_CursorOut" -->
 
 	
 	<SpecialPowerTemplate

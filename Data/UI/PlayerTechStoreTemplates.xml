@@ -45,71 +45,11 @@
 		PlayerTech="PlayerTech_Allied_PrecisionStrike"
 		StateData="ButtonStatePlayerPowerPrecisionStrike"/>
 		
-	<!-- Allied High Technology -->
-	<PurchasePlayerTechButtonTemplate
-		id="Purchase_PlayerTech_Allied_HighTechnology"
-		PlayerTech="PlayerTech_Allied_HighTechnology"
-		StateData="ButtonStatePlayerPowerHighTechnology"/>	
-		
 	<!-- Allied Air Power -->
 	<PurchasePlayerTechButtonTemplate
 		id="Purchase_PlayerTech_Allied_AirPower"
 		PlayerTech="PlayerTech_Allied_AirPower"
 		StateData="ButtonStatePlayerPowerAirPower"/>		
-
-	<!-- Allied Satellite Sweep -->
-	<PurchasePlayerTechButtonTemplate
-		id="Purchase_PlayerTech_Allied_SatelliteSweep"
-		PlayerTech="PlayerTech_Allied_SatelliteSweep"
-		StateData="ButtonStatePlayerPowerSatelliteSweep"/>
-
-	<!-- Allied Cryo Satellte -->
-	<PurchasePlayerTechButtonTemplate
-		id="Purchase_PlayerTech_Allied_CryoSatellite_Rank1"
-		PlayerTech="PlayerTech_Allied_CryoSatellite_Rank1"
-		StateData="ButtonStatePlayerPowerCryoSatelliteLvl1"/>
-	<PurchasePlayerTechButtonTemplate
-		id="Purchase_PlayerTech_Allied_CryoSatellite_Rank2"
-		PlayerTech="PlayerTech_Allied_CryoSatellite_Rank2"
-		StateData="ButtonStatePlayerPowerCryoSatelliteLvl2"/>
-	<PurchasePlayerTechButtonTemplate
-		id="Purchase_PlayerTech_Allied_CryoSatellite_Rank3"
-		PlayerTech="PlayerTech_Allied_CryoSatellite_Rank3"
-		StateData="ButtonStatePlayerPowerCryoSatelliteLvl3"/>
-
-	<!-- Allied Chrono Swap -->
-	<PurchasePlayerTechButtonTemplate
-		id="Purchase_PlayerTech_Allied_ChronoSwap"
-		PlayerTech="PlayerTech_Allied_ChronoSwap"
-		StateData="ButtonStatePlayerPowerChronoSwap"/>
-
-	<!-- Allied Time Bomb -->
-	<PurchasePlayerTechButtonTemplate
-		id="Purchase_PlayerTech_Allied_TimeBomb_Rank1"
-		PlayerTech="PlayerTech_Allied_TimeBomb_Rank1"
-		StateData="ButtonStatePlayerPowerTimeBombLvl1"/>
-	<PurchasePlayerTechButtonTemplate
-		id="Purchase_PlayerTech_Allied_TimeBomb_Rank2"
-		PlayerTech="PlayerTech_Allied_TimeBomb_Rank2"
-		StateData="ButtonStatePlayerPowerTimeBombLvl2"/>
-	<PurchasePlayerTechButtonTemplate
-		id="Purchase_PlayerTech_Allied_TimeBomb_Rank3"
-		PlayerTech="PlayerTech_Allied_TimeBomb_Rank3"
-		StateData="ButtonStatePlayerPowerTimeBombLvl3"/>
-
-	<!-- Allied ChronoRift -->
-	<PurchasePlayerTechButtonTemplate
-		id="Purchase_PlayerTech_Allied_ChronoRift_Rank1"
-		PlayerTech="PlayerTech_Allied_ChronoRift_Rank1"
-		StateData="ButtonStatePlayerPowerChronoRiftLvl1"/>
-	<PurchasePlayerTechButtonTemplate
-		id="Purchase_PlayerTech_Allied_ChronoRift_Rank2"
-		PlayerTech="PlayerTech_Allied_ChronoRift_Rank2"
-		StateData="ButtonStatePlayerPowerChronoRiftLvl2"/>
-	<PurchasePlayerTechButtonTemplate
-		id="Purchase_PlayerTech_Allied_ChronoRift_Rank3"
-		PlayerTech="PlayerTech_Allied_ChronoRift_Rank3"
-		StateData="ButtonStatePlayerPowerChronoRiftLvl3"/>
 
 	<!-- Soviet Magnetic Singularity -->
 	<PurchasePlayerTechButtonTemplate

@@ -1024,6 +1024,7 @@
 	<LogicCommandSet
 		id="PlayerSpellBookCommandSet">
 		<!-- Allies Powers -->
+		<Cmd>Command_ChronoBoostSelect</Cmd>
 		<Cmd>Command_SelectObjectsForChrono</Cmd>
 		<Cmd>Command_SpawnObjectsForChrono</Cmd>		
 		<Cmd>Command_ChronoSwapSelect</Cmd>
@@ -1033,9 +1034,9 @@
 		<Cmd>Command_ChronoRiftSelectLvl1</Cmd>
 		<Cmd>Command_ChronoRiftSelectLvl2</Cmd>
 		<Cmd>Command_ChronoRiftSelectLvl3</Cmd>
-		<Cmd>Command_TimeBombLvl1</Cmd>
-		<Cmd>Command_TimeBombLvl2</Cmd>
-		<Cmd>Command_TimeBombLvl3</Cmd>
+		<Cmd>Command_TimeBomb</Cmd>
+		<Cmd>Command_Paradrop</Cmd>
+		<Cmd>Command_LNitrogenShells</Cmd>
 		<Cmd>Command_HighTechnology</Cmd>
 		<Cmd>Command_AirPower</Cmd>
 		<Cmd>Command_CryoSatelliteLvl1</Cmd>

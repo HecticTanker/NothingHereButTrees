@@ -1,0 +1,40 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch SpecialPowers
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   ../../GlobalData/LogicCommand.xml
+#	modified:   ../../GlobalData/LogicCommandSet.xml
+#	modified:   ../../GlobalData/ObjectCreationLists.xml
+#	modified:   ../../GlobalData/SpecialPowerTemplates.xml
+#	modified:   ../../GlobalData/Weapon.xml
+#	new file:   AdvancedCloaks.xml
+#	new file:   AlliedTechs.xml
+#	new file:   ChillBeam.xml
+#	new file:   ChronoBomb.xml
+#	renamed:    ../ChronoBoost.xml -> ChronoBoost.xml
+#	new file:   ChronoRift.xml
+#	new file:   ChronoSwap.xml
+#	new file:   CloakedDeath.xml
+#	new file:   CombinedTech.xml
+#	new file:   CryoSatellite.xml
+#	new file:   CryonicShields.xml
+#	new file:   CryonicUnits.xml
+#	new file:   LNitrogenShells.xml
+#	new file:   Paradrop.xml
+#	new file:   SatelliteSweep.xml
+#	new file:   TimeBomb.xml
+#	new file:   ../Techs.xml
+#	modified:   ../../System/PlayerSpellBook.xml
+#	modified:   ../../System/PlayerTechs.xml
+#	modified:   ../../UI/ButtonStateDataCommon.xml
+#	modified:   ../../UI/PlayerTechStoreTemplates.xml
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	../Japanese/
+#	../Soviet/
+

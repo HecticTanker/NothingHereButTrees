@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+	<!-- Player Tech Ranks -->
+	<PlayerTechRank
+		id="PlayerTechRank_Rank1"
+		ExperiencePointsToNextRank="200">
+		<TechGranted>PlayerTech_Generic_Rank_1</TechGranted>
+	</PlayerTechRank>
+
+	<PlayerTechRank
+		id="PlayerTechRank_Rank2"
+		ExperiencePointsToNextRank="300"
+		TechPointsGranted="1">
+		<TechGranted>PlayerTech_Generic_Rank_2</TechGranted>
+	</PlayerTechRank>
+
+	<PlayerTechRank
+		id="PlayerTechRank_Rank3"
+		ExperiencePointsToNextRank="400"
+		TechPointsGranted="1">
+		<TechGranted>PlayerTech_Generic_Rank_3</TechGranted>
+	</PlayerTechRank>
+
+	<PlayerTechRank
+		id="PlayerTechRank_Rank4"
+		ExperiencePointsToNextRank="500"
+		TechPointsGranted="1">
+		<TechGranted>PlayerTech_Generic_Rank_4</TechGranted>
+	</PlayerTechRank>
+
+	<PlayerTechRank
+		id="PlayerTechRank_Rank5"
+		TechPointsGranted="1">
+		<TechGranted>PlayerTech_Generic_Rank_5</TechGranted>
+	</PlayerTechRank>
+
+	<!-- Faction-specific Techs -->
+	<PlayerTech id="PlayerTech_Allied"/>
+	<PlayerTech id="PlayerTech_Soviet"/>
+	<PlayerTech id="PlayerTech_Japan"/>
+	
+	<!-- Rank-specific Techs -->
+	<!-- 
+		Thinking of making this limited to 5 Ranks 
+		 Making a Player Choose either 1 Tech Tree or half/half or two 
+		 Now that the Abilities aren't scattered between 3 points I honestly don't think it matters 
+	 -->
+	<PlayerTech id="PlayerTech_Generic_Rank_1"/>
+	<PlayerTech id="PlayerTech_Generic_Rank_2"/>
+	<PlayerTech id="PlayerTech_Generic_Rank_3"/>
+	<PlayerTech id="PlayerTech_Generic_Rank_4"/>
+	<PlayerTech id="PlayerTech_Generic_Rank_5"/>
+	
+	<!-- Includes for Special Powers -->
+	<!-- Doing it here so the Mod.xml isn't such a clutter -->
+	
+	<!-- Allied Special Powers -->
+	<Include type="all" source="DATA:RA3 Undecided/Data/SpecialPowers/Allied/AdvancedCloaks.xml" />
+	<Include type="all" source="DATA:RA3 Undecided/Data/SpecialPowers/Allied/ChillBeam.xml" />
+	<Include type="all" source="DATA:RA3 Undecided/Data/SpecialPowers/Allied/ChronoBomb.xml" />
+	<Include type="all" source="DATA:RA3 Undecided/Data/SpecialPowers/Allied/ChronoBoost.xml" />
+	<Include type="all" source="DATA:RA3 Undecided/Data/SpecialPowers/Allied/ChronoRift.xml" />
+	<Include type="all" source="DATA:RA3 Undecided/Data/SpecialPowers/Allied/ChronoSwap.xml" />
+	<Include type="all" source="DATA:RA3 Undecided/Data/SpecialPowers/Allied/CloakedDeath.xml" />
+	<Include type="all" source="DATA:RA3 Undecided/Data/SpecialPowers/Allied/CombinedTech.xml" />
+	<Include type="all" source="DATA:RA3 Undecided/Data/SpecialPowers/Allied/CryonicShields.xml" />
+	<Include type="all" source="DATA:RA3 Undecided/Data/SpecialPowers/Allied/CryonicUnits.xml" />
+	<Include type="all" source="DATA:RA3 Undecided/Data/SpecialPowers/Allied/CryoSatellite.xml" />
+	<Include type="all" source="DATA:RA3 Undecided/Data/SpecialPowers/Allied/LNitrogenShells.xml" />
+	<Include type="all" source="DATA:RA3 Undecided/Data/SpecialPowers/Allied/Paradrop.xml" />
+	<Include type="all" source="DATA:RA3 Undecided/Data/SpecialPowers/Allied/SatelliteSweep.xml" />
+	<Include type="all" source="DATA:RA3 Undecided/Data/SpecialPowers/Allied/TimeBomb.xml" />
+	
+	<!-- Japanese Special Powers -->
+	<Include type="all" source="DATA:RA3 Undecided/Data/SpecialPowers/Japan/.xml" />
+	
+	<!-- Soviet Special Powers -->
+	<Include type="all" source="DATA:RA3 Undecided/Data/SpecialPowers/Soviet/.xml" />
+	
+</AssetDeclaration>

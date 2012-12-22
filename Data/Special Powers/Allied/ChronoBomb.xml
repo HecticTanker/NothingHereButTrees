@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+	<!-- Allied ChronoBomb Tech -->
+	<PlayerTech
+		id="PlayerTech_Allied_ChronoBomb"
+		TechPointsRequired="1">
+		<TechDependency>PlayerTech_Allied</TechDependency>
+		<TechDependency>PlayerTech_Allied_CloakedBomb</TechDependency>
+		<TechDependency>PlayerTech_Generic_Rank_5</TechDependency>
+	</PlayerTech>
+	
+	<!-- Button allowing the tech to be purchased. -->
+	<PurchasePlayerTechButtonTemplate
+		id="Purchase_PlayerTech_Allied_ChronoBomb"
+		PlayerTech="PlayerTech_Allied_ChronoBomb"
+		StateData="ButtonStatePlayerPowerChronoBomb"/>	
+		
+	<!-- Button allowing the tech to be used. -->
+	<ButtonSingleStateData
+		id="ButtonStatePlayerPowerChronoBomb">
+		<State
+			Image="Button_PlayerPower_ChronoBomb"
+			Title="NAME:PlayerPowerChronoBomb"
+			TypeDescription="TYPE:PlayerPowerChronoBomb"
+			Description="DESC:PlayerPowerChronoBomb" />
+	</ButtonSingleStateData>
+</AssetDeclaration>

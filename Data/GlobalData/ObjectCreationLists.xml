@@ -876,9 +876,7 @@
 			<CreateObject>JapanAntiVehicleInfantry</CreateObject>
 		</CreateObject>
 	</ObjectCreationList>
-
-
-
+	
 	<ObjectCreationList
 		id="OCL_SovietTerrorDroneEggs">
 		<CreateObject
@@ -907,15 +905,6 @@
 			<CreateObject>NanoSwarmHiveEffect</CreateObject>
 		</CreateObject>
 	</ObjectCreationList>
-
-  <ObjectCreationList
-		id="OCL_AlliedSweepReveal">
-    <CreateObject
-			Disposition="ON_GROUND_ALIGNED RELATIVE_ANGLE USE_WATER_SURFACE"
-			Options="CREATE_AT_TARGET">
-      <CreateObject>AlliedSatelliteSweepRevealObject</CreateObject>
-    </CreateObject>
-  </ObjectCreationList>
   
 	<ObjectCreationList
 		id="OCLParticleCannon">
@@ -923,45 +912,6 @@
 			Disposition="ON_GROUND_ALIGNED RELATIVE_ANGLE USE_WATER_SURFACE"
 			Options="IGNORE_ALL_OBJECTS CREATE_AT_TARGET">
 			<CreateObject>AlliedSuperWeaponAdvancedEffectShroudRevealer</CreateObject>
-		</CreateObject>
-	</ObjectCreationList>
-
-	<ObjectCreationList
-		id="OCL_TimeBombLvl1Seed">
-    <CreateObject
-			Options="IGNORE_ALL_OBJECTS CREATE_AT_TARGET"
-			Disposition="ON_GROUND_ALIGNED ABSOLUTE_ANGLE USE_WATER_SURFACE"
-			DispositionIntensity="50"
-			DispositionAngle="0d"
-			Count="1">
-      <CreateObject>AlliedTimeBombLvl1Seed</CreateObject>
-    </CreateObject>
-  </ObjectCreationList>  
-
-	<ObjectCreationList
-		id="OCL_TimeBombLvl1">
-		<CreateObject
-			Options="IGNORE_ALL_OBJECTS CREATE_AT_TARGET"
-			Disposition="ON_GROUND_ALIGNED ABSOLUTE_ANGLE USE_WATER_SURFACE"
-			DispositionIntensity="50"
-			DispositionAngle="-45d"
-			Count="1">
-			<CreateObject>AlliedTimeBombLvl1</CreateObject>
-		</CreateObject>
-	</ObjectCreationList>
-
-	<ObjectCreationList
-		id="OCL_TimeBombLvl1_Die">
-		<CreateObject
-			Options="IGNORE_ALL_OBJECTS"
-			Disposition="LIKE_EXISTING INHERIT_VELOCITY"
-			Count="1"
-			VelocityScale="20.0"
-			MinForceMagnitude="1.0"
-			MaxForceMagnitude="2.0"
-			MinForcePitch="90d"
-			MaxForcePitch="75d">
-			<CreateObject>AlliedTimeBombLvl1_Collapse</CreateObject>
 		</CreateObject>
 	</ObjectCreationList>
 	
@@ -1134,18 +1084,6 @@
 			CruiseHeight="500.0"
 			AttackHeight="100.0"
 			LeaveRoll="100d"/>
-	</ObjectCreationList>
-
-	<ObjectCreationList
-		id="OCL_SatelliteSweep">
-		<CreateObject
-			Options="IGNORE_ALL_OBJECTS ISSUE_MOVE_AFTER_CREATION MOVE_USES_STRAFE_UPDATE ORIENT_TOWARD_MOVE_DESTINATION MOVE_TARGET_USES_DISPOSITION_OFFSET DONT_SET_PRODUCER CREATE_AT_TARGET"
-			Disposition="ON_GROUND_ALIGNED"
-			DispositionIntensity="50"
-			DispositionAngle="72d"
-			Count="1">
-			<CreateObject>AlliedSatelliteSweepShroudRevealer</CreateObject>
-		</CreateObject>
 	</ObjectCreationList>
 	
 	<ObjectCreationList

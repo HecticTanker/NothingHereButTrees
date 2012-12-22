@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+	<!-- Allied Cryo Satellte -->
+	<PlayerTech
+		id="PlayerTech_Allied_CryoSatellite"
+		TechPointsRequired="1">
+		<TechDependency>PlayerTech_Allied</TechDependency>
+		<TechDependency>PlayerTech_Allied_ChillBeam</TechDependency>
+		<TechDependency>PlayerTech_Generic_Rank_2</TechDependency>
+	</PlayerTech>
+	
+	<!-- Button allowing the tech to be purchased. -->
+	<PurchasePlayerTechButtonTemplate
+		id="Purchase_PlayerTech_Allied_CryoSatellite"
+		PlayerTech="PlayerTech_Allied_CryoSatellite"
+		StateData="ButtonStatePlayerPowerCryoSatellite"/>	
+		
+	<!-- Button allowing the tech to be used. -->
+	<ButtonSingleStateData
+		id="ButtonStatePlayerPowerCryoSatellite">
+		<State
+			Image="Button_PlayerPower_CryoSatellite"
+			Title="NAME:PlayerPowerCryoSatellite"
+			TypeDescription="TYPE:PlayerPowerCryoSatellite"
+			Description="DESC:PlayerPowerCryoSatellite" />
+	</ButtonSingleStateData>
+</AssetDeclaration>

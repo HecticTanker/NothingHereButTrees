@@ -1,0 +1,338 @@
+<!-- Allied Time Bomb -->
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<!-- Technology needed for Special Power -->
+	<PlayerTech id="PlayerTech_Allied_TimeBomb" TechPointsRequired="1">
+		<TechDependency>PlayerTech_Allied_ChronoRift</TechDependency>
+		<TechDependency>PlayerTech_Generic_Rank_4</TechDependency>
+	</PlayerTech>
+	
+	<!-- Button allowing the tech to be purchased. -->
+	<PurchasePlayerTechButtonTemplate
+		id="Purchase_PlayerTech_Allied_TimeBomb"
+		PlayerTech="PlayerTech_Allied_TimeBomb"
+		StateData="ButtonStatePlayerPowerTimeBomb"/>
+		
+	<!-- The Special Power -->
+	<SpecialPowerTemplate
+		id="SpecialPowerTimeBomb"
+		ReloadTime="120s"
+		TargetType="LOCATION"
+		RadiusCursorRadius="20"
+		Flags="IS_PLAYER_POWER WATER_OK PATHABLE_ONLY NOT_IN_NANOSWARM FOGGED_SHROUDED_CELLS_OK"
+		EvaEventToPlayWhenSelectingTarget="SelectLocation"
+		RequiredPlayerTech="PlayerTech_Allied_TimeBomb">
+		<GameDependency id="Allied_TimeBomb_GameDependency">
+			<RequiredObject>AlliedConstructionYard</RequiredObject>
+		</GameDependency>
+	</SpecialPowerTemplate>
+	
+	<!-- Button allowing the special power to be used. -->
+	<ButtonSingleStateData id="ButtonStatePlayerPowerTimeBomb">
+		<State
+			Image="Button_PlayerPower_TimeBomb"
+			Title="NAME:PlayerPowerTimeBomb"
+			TypeDescription="TYPE:PlayerPowerTimeBomb"
+			Description="DESC:PlayerPowerTimeBomb" />
+	</ButtonSingleStateData>
+	
+	<!-- Logic behind the button allowing you to use the special power-->
+	<LogicCommand id="Command_TimeBomb" Type="SPECIAL_POWER" Options="NEED_TARGET_POS">
+		<SpecialPower>SpecialPowerTimeBomb</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="PLAYER_AOE_ATTACK"
+			Manager="SKIRMISH_AI"
+			TargetObjectExclude="AIRCRAFT TRANSFORMER"
+			MaxTargetSpeed="0.0"
+			MinKillValue="500">
+			<SpecialPowerWeapon Weapon="AlliedTimeBomb"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	
+	<!-- Player power button that links the SpecialPower, The Radius Icon, and the ButtonStateData -->
+	<PlayerPowerButtonTemplate id="ButtonPlayerPowerTimeBomb" SpecialPower="SpecialPowerTimeBomb">
+		<Data>
+			<TargetedPower RadiusCursor="Target_Allied_Timebomb3" StateData="ButtonStatePlayerPowerTimeBomb"/>
+		</Data>
+	</PlayerPowerButtonTemplate>
+	
+	<!-- What the SpecialPower creates when used. -->
+	<ObjectCreationList id="OCL_TimeBombSeed">
+		<CreateObject
+			Options="IGNORE_ALL_OBJECTS CREATE_AT_TARGET"
+			Disposition="ON_GROUND_ALIGNED ABSOLUTE_ANGLE USE_WATER_SURFACE"
+			DispositionIntensity="50"
+			DispositionAngle="0d"
+			Count="1">
+			<CreateObject>AlliedTimeBombLvl1Seed</CreateObject>
+		</CreateObject>
+	</ObjectCreationList>  
+	<ObjectCreationList id="OCL_TimeBomb">
+		<CreateObject
+			Options="IGNORE_ALL_OBJECTS CREATE_AT_TARGET"
+			Disposition="ON_GROUND_ALIGNED ABSOLUTE_ANGLE USE_WATER_SURFACE"
+			DispositionIntensity="50"
+			DispositionAngle="-45d"
+			Count="1">
+			<CreateObject>AlliedTimeBombLvl1</CreateObject>
+		</CreateObject>
+	</ObjectCreationList>
+	<ObjectCreationList id="OCL_TimeBomb_Die">
+		<CreateObject
+			Options="IGNORE_ALL_OBJECTS"
+			Disposition="LIKE_EXISTING INHERIT_VELOCITY"
+			Count="1"
+			VelocityScale="20.0"
+			MinForceMagnitude="1.0"
+			MaxForceMagnitude="2.0"
+			MinForcePitch="90d"
+			MaxForcePitch="75d">
+			<CreateObject>AlliedTimeBombLvl1_Collapse</CreateObject>
+		</CreateObject>
+	</ObjectCreationList>
+	
+	<!-- Weapon for the SpecialPower -->
+	<WeaponTemplate
+		id="AlliedTimeBomb"
+		ClipSize="1"
+		WeaponSpeed="500"
+		FireFX="FX_TimeBombExplosionLvl1"
+		RadiusDamageAffects="ENEMIES NEUTRALS ALLIES"
+		AcceptableAimDelta="180d"
+		CanFireWhileMoving="true"
+		Flags="NOT_ATTRACTED_BY_MAGNETS"
+		RequiredAntiMask="ANTI_GROUND ANTI_STRUCTURE ANTI_WATER ANTI_SUBMERGED">
+		<Nuggets>
+			<DamageNugget
+				id="ModuleTag_DamageNugget"
+				Damage="750.0"
+				DamageTaperOff="300"
+				Radius="150"
+				DamageType="EXPLOSIVE"
+				DamageFXType="ALLIED_BOMBLVL1"
+				DeathType="NORMAL"
+				RadiusAffectsBridges="true">
+				<DamageScalarDetails Scalar= "50%">
+					<Filter
+						Rule="NONE">
+						<IncludeThing>SovietMiner</IncludeThing>
+						<IncludeThing>AlliedMiner</IncludeThing>
+						<IncludeThing>JapanMiner</IncludeThing>
+					</Filter>		
+				</DamageScalarDetails>
+			</DamageNugget>
+		<MetaImpactNugget
+			ShockWaveAmount="80.0"
+			ShockWaveRadius="125.0"
+			ShockWaveZMult="1.50" />
+		</Nuggets>
+	</WeaponTemplate>
+	
+	<!-- The TimeBomb -->
+	<Includes>
+		<Include type="all"	source="ART:AlliedTimeBombLvl1.w3x" />
+		<Include type="instance" source="DATA:BaseObjects/BaseTimeBombEffect.xml" />
+	</Includes>
+	<GameObject
+		id="AlliedTimeBomb"
+		inheritFrom="BaseTimeBombEffect"
+		Side="Allies"
+		EditorSorting="SYSTEM"		
+		EditorName="AlliedTimeBomb"		
+		Description="Desc:AlliedTimeBomb"
+		TypeDescription="Type:AlliedTimeBomb"
+		SelectPortrait="Portrait_AlliedTimeBomb"
+		ButtonImage="Button_AlliedTimeBomb">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:AlliedTimeBomb</DisplayName>
+		<DisplayName>AlliedTimeBomb</DisplayName>
+		<ArmorSet Armor="AlliedTimeBombArmor" />
+		<Draws>
+			<TruckDraw
+				id="ModuleTag_Draw"
+				LeftFrontTireBone="Bone_Tire_LF"
+				RightFrontTireBone="Bone_Tire_RF"
+				MidLeftRearTireBone="Bone_Tire_LM"
+				MidRightRearTireBone="Bone_Tire_RM"
+				LeftRearTireBone="Bone_Tire_LR"
+				RightRearTireBone="Bone_Tire_RR"
+				TireRotationMultiplier="0.1"
+				OkToChangeModelColor="true">
+				<ModelConditionState ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="AlliedTimeBombLvl1" />
+				</ModelConditionState>
+				<ModelConditionState ParseCondStateType="PARSE_NORMAL" ConditionsYes="FROZEN">
+				  <Model Name="AlliedTimeBombLvl1" />
+				  <ParticleSysBone BoneName="None" FXParticleSystemTemplate="AlliedCryoFrozenMistLarge" FollowBone="true"/>
+				  <Material ShaderName="ObjectsFrozen.fx" TechniqueName="Default">
+					<Constants>
+					  <Texture Name="DiffuseTexture">
+						<Value>AlliedTimeBomb</Value>
+					  </Texture>
+					  <Texture Name="NormalMap">
+						<Value>AlliedTimeBomb_NRM</Value>
+					  </Texture>
+					  <Texture Name="SpecMap">
+						<Value>AlliedTimeBomb_SPM</Value>
+					  </Texture>
+					  <Float Name="EnvMult">
+						<Value>1.000000</Value>
+					  </Float>
+					  <Bool Name="AlphaTestEnable">
+						<Value>false</Value>
+					  </Bool>
+					</Constants>
+				  </Material>
+				</ModelConditionState>
+				<AnimationState ParseCondStateType="PARSE_DEFAULT"> </AnimationState>
+			</TruckDraw>
+		</Draws>
+		<Behaviors>
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="7.0s"
+				MaxLifetime="7.0s" 
+				CountdownSound="ALL_TimeBombBeep1" 
+				CountdownCompleteSound="ALL_TimeBombBeep2"
+				NumberOfCountdownSoundPlays="5" 
+				TimeBeforeDeathThatCountdownCompletes="960ms" 
+				TimeBetweenCountdownSounds="1s"/>			
+			<CreateObjectDie id="ModuleTag_CreateObjectDie" CreationList="OCL_TimeBomb_Die">
+				<DieMuxData DeathTypes="ALL" />
+			</CreateObjectDie>
+			<FireWeaponWhenDead id="ModuleTag_FinalWeapon" InitiallyActive="true" DeathWeapon="AlliedTimeBomb">
+				<DieMuxData DeathTypes="ALL" />
+			</FireWeaponWhenDead>
+			<DestroyObjectsUpdate id="ModuleTag_DestroyObjectsUpdate" Radius="500">
+				<ObjectFilter Rule="NONE" Include="CIVILIAN_UNIT"/>
+			</DestroyObjectsUpdate>
+			<DestroyDie id="ModuleTag_Die">
+				<DieMuxData DeathTypes="ALL" />
+			</DestroyDie>
+		</Behaviors>
+		<Body>
+			<ActiveBody id="ModuleTag_Body" MaxHealth="500.0" />
+		</Body>
+		<Geometry IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="15.0"
+				Height="30.0"></Shape>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="ALL_Timebomb_AmbientLoop" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<ShadowInfo Type="NONE" />
+		<CrusherInfo id="id_CrusherInfo" CrushableLevel="0" />
+		<VisionInfo VisionRange="200" ShroudClearingRange="300" />	
+	</GameObject>
+	
+	<!-- The TimeBomb Collapse Object -->
+	<Includes>
+		<Include type="all" source="ART:AlliedTimeBombLvl1_COL.w3x" />
+		<Include type="instance" source="DATA:BaseObjects/BaseCollapsingObject.xml" />
+	</Includes>
+	<GameObject id="AlliedTimeBomb_Collapse" inheritFrom="BaseCollapsingObject" EditorName="AlliedTimeBomb_Collapse">
+		<Draws>
+			<DynamicsDraw 
+			id="ModuleTag_Draw" 
+			Collision="NONINTERCOLLIDING"
+			FlingPerturbation="20"
+			Explodiness="10">
+				<ModelConditionState ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="AlliedTimeBombLvl1_COL" />
+					<xi:include
+						href="DATA:Includes/VehicleCollapseParticles/AlliedVehicleCollapseParticles.xml"
+						xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:AlliedVehicleCollapseParticles/child::*)" />
+				</ModelConditionState>
+				<BoneVolumes>
+					<BoneVolume BoneName="Bone_D_01" Mass="1790" Spinniness="5.0" ContactTag="DEBRIS" >
+						<Box  HalfSizeX="4.867" HalfSizeY="5.347" HalfSizeZ="3.441" >
+							<Translation x="-0.021" y="-7.007" z="10.792" />
+							<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+						</Box>
+					</BoneVolume>
+					<BoneVolume BoneName="Bone_D_02" Mass="1678" Spinniness="5.0" ContactTag="DEBRIS" >
+						<Box  HalfSizeX="5.856" HalfSizeY="2.049" HalfSizeZ="6.995" >
+							<Translation x="-0.021" y="-15.458" z="10.371" />
+							<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+						</Box>
+					</BoneVolume>
+					<BoneVolume BoneName="Bone_D_03" Mass="1618" Spinniness="5.0" ContactTag="DEBRIS" >
+						<Box  HalfSizeX="5.856" HalfSizeY="1.976" HalfSizeZ="6.995" >
+							<Translation x="-0.021" y="15.61" z="10.371" />
+							<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+						</Box>
+					</BoneVolume>
+					<BoneVolume BoneName="Bone_D_04" Mass="613" Spinniness="5.0" ContactTag="DEBRIS" >
+						<Box  HalfSizeX="4.867" HalfSizeY="4.425" HalfSizeZ="1.425" >
+							<Translation x="-0.021" y="-8.503" z="4.162" />
+							<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+						</Box>
+					</BoneVolume>
+					<BoneVolume BoneName="Bone_D_05" Mass="769" Spinniness="5.0" ContactTag="DEBRIS" >
+						<Box  HalfSizeX="4.867" HalfSizeY="3.14" HalfSizeZ="2.519" >
+							<Translation x="-0.021" y="2.728" z="12.679" />
+							<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+						</Box>
+					</BoneVolume>
+					<BoneVolume BoneName="Bone_D_06" Mass="845" Spinniness="5.0" ContactTag="DEBRIS" >
+						<Box  HalfSizeX="4.867" HalfSizeY="3.703" HalfSizeZ="2.347" >
+							<Translation x="-0.021" y="0.061" z="4.508" />
+							<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+						</Box>
+					</BoneVolume>
+					<BoneVolume BoneName="Bone_D_07" Mass="1318" Spinniness="5.0" ContactTag="DEBRIS" >
+						<Box  HalfSizeX="4.867" HalfSizeY="3.935" HalfSizeZ="3.441" >
+							<Translation x="-0.021" y="8.84" z="6.202" />
+							<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+						</Box>
+					</BoneVolume>
+					<BoneVolume BoneName="Bone_D_08" Mass="475" Spinniness="5.0" ContactTag="DEBRIS" >
+						<Box  HalfSizeX="4.867" HalfSizeY="3.429" HalfSizeZ="1.425" >
+							<Translation x="-0.021" y="9.782" z="13.493" />
+							<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+						</Box>
+					</BoneVolume>
+					<BoneVolume BoneName="Bone_D_09" Mass="153" Spinniness="5.0" ContactTag="DEBRIS" >
+						<Box  HalfSizeX="4.325" HalfSizeY="3.213" HalfSizeZ="0.552" >
+							<Translation x="-0.021" y="-9.694" z="16.234" />
+							<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+						</Box>
+					</BoneVolume>
+					<BoneVolume BoneName="Bone_D_10" Mass="153" Spinniness="5.0" ContactTag="DEBRIS" >
+						<Box  HalfSizeX="4.325" HalfSizeY="3.213" HalfSizeZ="0.552" >
+							<Translation x="-0.021" y="9.556" z="16.234" />
+							<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+						</Box>
+					</BoneVolume>
+					<BoneVolume BoneName="Bone_D_11" Mass="191" Spinniness="5.0" ContactTag="DEBRIS" >
+						<Box  HalfSizeX="5.16" HalfSizeY="3.361" HalfSizeZ="0.552" >
+							<Translation x="-0.021" y="-0.025" z="16.234" />
+							<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+						</Box>
+					</BoneVolume>
+				</BoneVolumes>
+				<Lifetime Delay="6s" FadeTime="6s" />
+			</DynamicsDraw>
+		</Draws>
+	<Behaviors/>
+	<AudioArraySound>
+		<AudioEntry Sound="ALL_TimeBomb_ExplodeMS" AudioType="soundAmbient" />
+	</AudioArraySound>
+</GameObject>
+
+	<!-- The TimeBomb Seed (Placer?) -->
+	<Includes>
+		<Include type="instance" source="DATA:BaseObjects/BaseTimeBombSeed.xml" />
+	</Includes>
+	<GameObject id="AlliedTimeBombSeed" inheritFrom="BaseTimeBombSeed">
+		<Behaviors>
+			<CreateObjectDie id="ModuleTag_CreateObjectDie" CreationList="OCL_TimeBomb">
+				<DieMuxData DeathTypes="ALL" />
+			</CreateObjectDie>
+		</Behaviors>
+	</GameObject>
+	
+</AssetDeclaration>

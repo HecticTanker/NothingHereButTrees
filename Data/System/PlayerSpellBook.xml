@@ -12,25 +12,75 @@
 		RadarPriority="NOT_ON_RADAR"
 		CommandSet="PlayerSpellBookCommandSet" 
 		EditorName="PlayerSpellBook">
-		<ArmorSet
-			Armor="NoArmor" />
+		<ArmorSet Armor="NoArmor" />
 		<Draws>
 			<ScriptedModelDraw
 				id="ModuleTag_Draw"
 				OkToChangeModelColor="true">
 				<ModelConditionState
 					ParseCondStateType="PARSE_DEFAULT">
-					<Model
-						Name="" />
+					<Model Name="" />
 				</ModelConditionState>
 			</ScriptedModelDraw>
 		</Draws>
 		<Behaviors>
 			<!--Hack?-->
-			<RadarBehavior
-				id="ModuleTag_RadarBehavior" />
+			<RadarBehavior id="ModuleTag_RadarBehavior" />
 				
 			<!-- Allied powers -->
+			
+			<!-- Paradrop -->
+			<PlayerPowerManager
+				id="ModuleTag_PlayerPowerManager_Paradrop"
+				SpecialPowerTemplate="SpecialPowerParadrop"/>
+			<OCLSpecialPower
+				id="ModuleTag_Paradrop"
+				SpecialPowerTemplate="SpecialPowerParadrop"
+				UpdateModuleStartsAttack="false"
+				AvailableAtStart="true"
+				OCL="OCL_ParaDropLvl1"
+				DestinationOCL="OCL_PrecisionStrikeBeacon"
+				CreateLocation="CREATE_AT_OFFSET_FROM_TARGET_ALONG_SECONDARY_OBJECT_VECTOR_AND_MOVE_TO_TARGET"
+				CreateLocationOffset="1000.0">
+				<NearestSecondaryObjectFilter Relationship="SAME_PLAYER">
+					<IncludeThing>AlliedConstructionYard</IncludeThing>
+				</NearestSecondaryObjectFilter>
+			</OCLSpecialPower>
+			
+			<!-- Satellite Sweep -->
+			<PlayerPowerManager
+				id="ModuleTag_PlayerPowerManager_SatelliteSweep"
+				SpecialPowerTemplate="SpecialPowerSatelliteSweep"/>
+			<OCLSpecialPower
+				id="ModuleTag_SatelliteSweep"
+				SpecialPowerTemplate="SpecialPowerSatelliteSweep"
+				UpdateModuleStartsAttack="false"
+				AvailableAtStart="true"
+				OCL="OCL_SatelliteSweep"
+				CreateLocation="CREATE_AT_EDGE_ALONG_PATH_LINE"
+				CanAffectObjectFilter="GenericNoObjectSpecialPowerObjectFilter"/>
+				
+			<!-- Timebomb -->
+			<PlayerPowerManager
+				id="ModuleTag_PlayerPowerManager_TimeBombLvl1"
+				SpecialPowerTemplate="SpecialPowerTimeBombLvl1"/>
+			<OCLSpecialPower
+				id="ModuleTag_TimeBombLvl1"
+				SpecialPowerTemplate="SpecialPowerTimeBombLvl1"
+				UpdateModuleStartsAttack="false"
+				AvailableAtStart="true"
+				OCL="OCL_TimeBombLvl1Seed"
+				CreateLocation="CREATE_AT_LOCATION"/>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			
 			<PlayerPowerManager
 				id="ModuleTag_PlayerPowerManager_ParticleCannon"
 				SpecialPowerTemplate="SpecialPowerParticleCannon"
@@ -227,19 +277,7 @@
 			</OCLSpecialPower>
 
 			<!-- SATELLITE SWEEP aka SURVEILLANCE SWEEP -->
-			<PlayerPowerManager
-				id="ModuleTag_PlayerPowerManager_SatelliteSweep"
-				SpecialPowerTemplate="SpecialPowerSatelliteSweep"
-			/>
-			<OCLSpecialPower
-				id="ModuleTag_SatelliteSweep"
-				SpecialPowerTemplate="SpecialPowerSatelliteSweep"
-				UpdateModuleStartsAttack="false"
-				AvailableAtStart="true"
-				OCL="OCL_SatelliteSweep"
-				CreateLocation="CREATE_AT_EDGE_ALONG_PATH_LINE"
-				CanAffectObjectFilter="GenericNoObjectSpecialPowerObjectFilter"
-			/>
+			
 
 			<!-- HIGH TECHNOLOGY -->
 			<PlayerPowerManager
@@ -268,47 +306,7 @@
 				<Upgrade>Upgrade_AlliedAirPower</Upgrade>
 			</PlayerUpgradeSpecialPower>
 
-			<!-- TIME BOMBS -->
-			<PlayerPowerManager
-				id="ModuleTag_PlayerPowerManager_TimeBombLvl1"
-				SpecialPowerTemplate="SpecialPowerTimeBombLvl1"
-			/>
-			<OCLSpecialPower
-				id="ModuleTag_TimeBombLvl1"
-				SpecialPowerTemplate="SpecialPowerTimeBombLvl1"
-				UpdateModuleStartsAttack="false"
-				AvailableAtStart="true"
-				OCL="OCL_TimeBombLvl1Seed"
-				CreateLocation="CREATE_AT_LOCATION"
-			/>
-			<PlayerPowerManager
-				id="ModuleTag_PlayerPowerManager_TimeBombLvl2"
-				SpecialPowerTemplate="SpecialPowerTimeBombLvl2"
-			/>
-			<OCLSpecialPower
-				id="ModuleTag_TimeBombLvl2"
-				SpecialPowerTemplate="SpecialPowerTimeBombLvl2"
-				UpdateModuleStartsAttack="false"
-				AvailableAtStart="true"
-				OCL="OCL_TimeBombLvl2Seed"
-				CreateLocation="CREATE_AT_LOCATION"
-				LeechRechargePercentPlayerTechTrigger="PlayerTech_Allied_TimeBomb_Rank2"
-				LeechRechargePercentFromSpecialPower="SpecialPowerTimeBombLvl1"
-			/>
-			<PlayerPowerManager
-				id="ModuleTag_PlayerPowerManager_TimeBombLvl3"
-				SpecialPowerTemplate="SpecialPowerTimeBombLvl3"
-			/>
-			<OCLSpecialPower
-				id="ModuleTag_TimeBombLvl3"
-				SpecialPowerTemplate="SpecialPowerTimeBombLvl3"
-				UpdateModuleStartsAttack="false"
-				AvailableAtStart="true"
-				OCL="OCL_TimeBombLvl3Seed"
-				CreateLocation="CREATE_AT_LOCATION"
-				LeechRechargePercentPlayerTechTrigger="PlayerTech_Allied_TimeBomb_Rank3"
-				LeechRechargePercentFromSpecialPower="SpecialPowerTimeBombLvl2"
-			/>
+	
 
 			<!-- CRYO SATELLITE -->
 			<PlayerPowerManager
@@ -893,8 +891,7 @@
 			</AIUpdate>
 		</AI>
 		<Body>
-			<PropBody
-				id="ModuleTag_Body" />
+			<PropBody id="ModuleTag_Body" />
 		</Body>
 		<Geometry IsSmall="true">
 			<Shape

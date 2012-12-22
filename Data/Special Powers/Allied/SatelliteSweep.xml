@@ -1,0 +1,87 @@
+<!-- Allied Satellite Sweep -->
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+
+	<!-- Tech for the special power -->
+	<PlayerTech
+		id="PlayerTech_Allied_SatelliteSweep"
+		TechPointsRequired="1">
+		<TechDependency>PlayerTech_Allied</TechDependency>
+	</PlayerTech>
+	
+	<!-- Button allowing the tech to be purchased. -->
+	<PurchasePlayerTechButtonTemplate
+		id="Purchase_PlayerTech_Allied_SatelliteSweep"
+		PlayerTech="PlayerTech_Allied_SatelliteSweep"
+		StateData="ButtonStatePlayerPowerSatelliteSweep"/>
+		
+	<!-- The SpecialPower -->
+	<SpecialPowerTemplate
+		id="SpecialPowerSatelliteSweep"
+		ReloadTime="120s"
+		TargetType="LOCATION"
+		InitiateAtLocationSound="ALL_SurveillanceSweep_CursorIn"
+		NumTargets="2" 
+		RadiusCursorRadius="150"
+		Flags="IS_PLAYER_POWER WATER_OK FOGGED_SHROUDED_CELLS_OK"
+		EvaEventToPlayWhenSelectingTarget="SelectLocation"
+		RequiredPlayerTech="PlayerTech_Allied_SatelliteSweep">
+		<GameDependency id="Allied_SatelliteSweep_GameDependency">
+			<RequiredObject>AlliedConstructionYard</RequiredObject>
+		</GameDependency>
+	</SpecialPowerTemplate>
+		
+	<!-- Button allowing the tech to be used. -->
+	<ButtonSingleStateData
+		id="ButtonStatePlayerPowerSatelliteSweep">
+		<State
+			Image="Button_PlayerPower_SatelliteSweep"
+			Title="NAME:PlayerPowerSatellite"
+			TypeDescription="TYPE:PlayerPowerSatelliteSweep"
+			Description="DESC:PlayerPowerSatelliteSweep" />
+	</ButtonSingleStateData>
+	
+	<!-- Logic behind the button allowing you to use the SpecialPower -->
+	<LogicCommand id="Command_SatelliteSweep" Type="SPECIAL_POWER" Options="NEED_TARGET_POS">
+		<SpecialPower>SpecialPowerSatelliteSweep</SpecialPower>
+		<AISpecialPowerInfo 
+		    Heuristic="PLAYER_AOE_SHROUD_CLEAR" 
+		    Manager="SKIRMISH_AI">
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	
+	<!-- Player power button that links the SpecialPower, The Radius Icon, and the ButtonStateData -->
+	<PlayerPowerButtonTemplate
+		id="ButtonPlayerPowerSatelliteSweep"
+		SpecialPower="SpecialPowerSatelliteSweep">
+		<Data>
+			<MultipleTargetsTargetedPower
+				StateData="ButtonStatePlayerPowerSatelliteSweep"
+				RadiusCursor="Target_Allied_SurveillanceSweep_1"
+				TargetMarkerTemplate="PlayerPowerTargetMarker"
+				TargetMarkerFXList="FX_ALL_SurveillanceSweepCursor1" 
+				TargetCount="2">
+				<AdditionalRadiusCursor>Target_Allied_SurveillanceSweep_1</AdditionalRadiusCursor>
+				<AdditionalRadiusCursor>Target_Allied_SurveillanceSweep_2</AdditionalRadiusCursor>
+			</MultipleTargetsTargetedPower>
+		</Data>
+	</PlayerPowerButtonTemplate>
+	
+	<!-- Objects created by the SpecialPower -->
+	<ObjectCreationList id="OCL_SatelliteSweep">
+		<CreateObject
+			Options="IGNORE_ALL_OBJECTS ISSUE_MOVE_AFTER_CREATION MOVE_USES_STRAFE_UPDATE ORIENT_TOWARD_MOVE_DESTINATION MOVE_TARGET_USES_DISPOSITION_OFFSET DONT_SET_PRODUCER CREATE_AT_TARGET"
+			Disposition="ON_GROUND_ALIGNED"
+			DispositionIntensity="50"
+			DispositionAngle="72d"
+			Count="1">
+			<CreateObject>AlliedSatelliteSweepShroudRevealer</CreateObject>
+		</CreateObject>
+	</ObjectCreationList>
+	<ObjectCreationList id="OCL_AlliedSweepReveal">
+		<CreateObject Disposition="ON_GROUND_ALIGNED RELATIVE_ANGLE USE_WATER_SURFACE" Options="CREATE_AT_TARGET">
+			<CreateObject>AlliedSatelliteSweepRevealObject</CreateObject>
+		</CreateObject>
+	</ObjectCreationList>
+
+</AssetDeclaration>

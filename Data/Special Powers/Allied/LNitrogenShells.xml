@@ -1,0 +1,64 @@
+<!-- Allied Liquid Nitrogen Shells Tech -->
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+
+	<!-- The tech allowing you to use the SpecialPower -->
+	<PlayerTech
+		id="PlayerTech_Allied_LNitrogenShells"
+		TechPointsRequired="1">
+		<TechDependency>PlayerTech_Allied</TechDependency>
+		<TechDependency>PlayerTech_Allied_CryonicUnits</TechDependency>
+		<TechDependency>PlayerTech_Generic_Rank_4</TechDependency>
+	</PlayerTech>
+	
+	<!-- Button allowing the tech to be purchased. -->
+	<PurchasePlayerTechButtonTemplate
+		id="Purchase_PlayerTech_Allied_LNitrogenShells"
+		PlayerTech="PlayerTech_Allied_LNitrogenShells"
+		StateData="ButtonStatePlayerPowerLNitrogenShells"/>
+		
+	<!-- The SpecialPower -->
+	<SpecialPowerTemplate
+		id="SpecialPowerLNitrogenShells"
+		Flags="IS_PLAYER_POWER"
+		TargetType="NONE"
+		ReloadTime="0s"
+		RequiredPlayerTech="PlayerTech_Allied_LNitrogenShells">
+		<GameDependency id="Allied_LNitrogenShells_GameDependency">
+			<RequiredObject>AlliedConstructionYard</RequiredObject>
+		</GameDependency>
+	</SpecialPowerTemplate>
+		
+	<!-- Button allowing the tech to be used. -->
+	<ButtonSingleStateData
+		id="ButtonStatePlayerPowerLNitrogenShells">
+		<State
+			Image="Button_PlayerPower_LNitrogenShells"
+			Title="NAME:PlayerPowerLNitrogenShells"
+			TypeDescription="TYPE:PlayerPowerLNitrogenShells"
+			Description="DESC:PlayerPowerLNitrogenShells" />
+	</ButtonSingleStateData>
+	
+	<!-- Logic behind the button that lets you use the SpecialPower -->
+	<LogicCommand id="Command_LNitrogenShells" Type="PLAYER_UPGRADE">
+		<SpecialPower>SpecialPowerLNitrogenShells</SpecialPower>
+	</LogicCommand>
+	
+	<!-- Player power button -->
+	<PlayerPowerButtonTemplate id="ButtonPlayerPowerLNitrogenShells" SpecialPower="SpecialPowerLNitrogenShells">
+		<Data>
+			<Power StateData="ButtonStatePlayerPowerLNitrogenShells"/>
+		</Data>
+	</PlayerPowerButtonTemplate>
+	
+	<!-- Attribute Modifier for those Affected by the Liquid Nitrogen Shells -->
+	<AttributeModifier
+		id="AttributeMod_LNitrogenShells"
+		Category="NONE"
+		Duration="1.1s">
+		<Modifier Type="SPEED" Value="80%"/>
+		<Modifier Type="RATE_OF_FIRE" Value="90%"/>
+	</AttributeModifier>
+
+	
+</AssetDeclaration>

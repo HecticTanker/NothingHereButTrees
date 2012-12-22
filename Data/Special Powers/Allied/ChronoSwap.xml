@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+
+	<!-- Allied Chrono Swap -->
+	<PlayerTech
+		id="PlayerTech_Allied_ChronoSwap"
+		TechPointsRequired="1">
+		<TechDependency>PlayerTech_Allied</TechDependency>
+		<TechDependency>PlayerTech_Allied_ChronoBoost</TechDependency>
+		<TechDependency>PlayerTech_Generic_Rank_2</TechDependency>
+	</PlayerTech>
+	
+	<!-- Button allowing the tech to be purchased. -->
+	<PurchasePlayerTechButtonTemplate
+		id="Purchase_PlayerTech_Allied_ChronoSwap"
+		PlayerTech="PlayerTech_Allied_ChronoSwap"
+		StateData="ButtonStatePlayerPowerChronoSwap"/>
+		
+	<!-- Button allowing the tech to be used. -->
+	<ButtonSingleStateData
+		id="ButtonStatePlayerPowerChronoSwap">
+		<State
+			Image="Button_PlayerPower_ChronoSwap"
+			Title="NAME:PlayerPowerChronoSwap"
+			TypeDescription="TYPE:PlayerPowerChronoSwap"
+			Description="DESC:PlayerPowerChronoSwap" />
+	</ButtonSingleStateData>
+
+</AssetDeclaration>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+
+	<!--
+		Here is a list of the Allied Tech Trees and their file Locations.
+	-->
+	
+	<PlayerTechUpgradeBinding id="PlayerTechUpgradeBinding_Allied">
+		<Binding TechDependency="PlayerTech_Allied_CombinedTech" UpgradeToGrant="Upgrade_Allied_CombinedTech"/>
+		<Binding TechDependency="PlayerTech_Allied_AdvancedCloaks" UpgradeToGrant="Upgrade_Allied_AdvancedCloaks"/>
+		<Binding TechDependency="PlayerTech_Allied_ChillBeam" UpgradeToGrant="Upgrade_Allied_ChillBeam"/>
+		<Binding TechDependency="PlayerTech_Allied_CryonicUnits" UpgradeToGrant="Upgrade_Allied_CryonicUnits"/>
+		<Binding TechDependency="PlayerTech_Allied_LNitrogenShells" UpgradeToGrant="Upgrade_Allied_LNitrogenShells"/>
+		<Binding TechDependency="PlayerTech_Allied_CryonicShields" UpgradeToGrant="Upgrade_Allied_CryonicShields"/>
+	</PlayerTechUpgradeBinding>
+
+	<!-- Chrono/Time Tech Tree -->
+		<!-- ChronoBoost Player Tech -->
+		<!--
+			Rank: 1
+			Located in: Data/Special Powers/Allied/ChronoBoost.xml
+		-->
+		<!-- Chronoswap Player Tech -->
+		<!--
+			Rank: 2
+			Located in: Data/Special Powers/Allied/ChronoSwap.xml
+		-->
+		<!-- Time Bomb Player Tech -->
+		<!--
+			Rank: 3
+			Located in: Data/Special Powers/Allied/TimeBomb.xml
+		-->
+		<!-- ChronoRift Player Tech -->
+		<!--
+			Rank: 4
+			Located in: Data/Special Powers/Allied/ChronoRift.xml
+		-->
+		<!-- ChronoBomb Player Tech -->
+		<!--
+			Rank: 5
+			Located in: Data/Special Powers/Allied/ChronoBomb.xml
+		-->
+	<!-- End Chrono/Time Tech Tree -->
+	
+	
+	
+	<!-- Surprise Tech Tree -->
+		<!-- Satellite Sweep Player Tech -->
+		<!--
+			Rank: 1
+			Located in: Data/Special Powers/Allied/SatelliteSweep.xml
+		-->
+		<!-- Paradrop Player Tech -->
+		<!--
+			Rank: 2
+			Located in: Data/Special Powers/Allied/Paradrop.xml
+		-->
+		<!-- Combined Technology Player Tech -->
+		<!--
+			Rank: 3
+			Located in: Data/Special Powers/Allied/CombinedTech.xml
+		-->
+		<!-- Cloaked Death (Cloaked Bomb) Player Tech -->
+		<!--
+			Rank: 4
+			Located in: Data/Special Powers/Allied/CloakedDeath.xml
+		-->
+		<!-- Advanced Cloak Technology Player Tech -->
+		<!--
+			Rank: 5
+			Located in: Data/Special Powers/Allied/AdvancedCloaks.xml
+		-->
+	<!-- End Surprise Tech Tree -->
+	
+	
+	
+	<!-- Cryonics Tech Tree -->
+		<!-- Chill Beam Technology Player Tech -->
+		<!--
+			Rank: 1
+			Located in: Data/Special Powers/Allied/ChillBeam.xml
+		-->
+		<!-- CryoSatellite Player Tech -->
+		<!--
+			Rank: 2
+			Located in: Data/Special Powers/Allied/CryoSatellite.xml
+		-->
+		<!-- Cryonic Units Player Tech -->
+		<!--
+			Rank: 3
+			Located in: Data/Special Powers/Allied/CryonicUnits.xml
+		-->
+		<!-- Liquid-Nitrogen Shells Player Tech -->
+		<!--
+			Rank: 4
+			Located in: Data/Special Powers/Allied/LNitrogenShells.xml
+		-->
+		<!-- Cryonic Shields Player Tech -->
+		<!--
+			Rank: 5
+			Located in: Data/Special Powers/Allied/CryonicShields.xml
+		-->
+	<!-- End Surprise Tech Tree -->
+</AssetDeclaration>

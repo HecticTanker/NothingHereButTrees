@@ -106,56 +106,6 @@
 			Title="NAME:AbilityAlliedBaseDefenseEvacuate"
 			Description="DESC:AbilityAlliedBaseDefenseEvacuate" />
 	</ButtonSingleStateData>
-	
-	<ButtonSingleStateData
-			id="ButtonStatePlayerPowerTimeBombLvl1">
-		<State
-			Image="Button_PlayerPower_TimeBomb1"
-			Title="NAME:PlayerPowerTimeBombLvl1"
-			TypeDescription="TYPE:PlayerPowerTimeBombLvl1"
-			Description="DESC:PlayerPowerTimeBombLvl1" />
-	</ButtonSingleStateData>
-	<ButtonSingleStateData
-			id="ButtonStatePlayerPowerTimeBombLvl2">
-		<State
-			Image="Button_PlayerPower_TimeBomb2"
-			Title="NAME:PlayerPowerTimeBombLvl2"
-			TypeDescription="TYPE:PlayerPowerTimeBombLvl2"
-			Description="DESC:PlayerPowerTimeBombLvl2" />
-	</ButtonSingleStateData>
-	<ButtonSingleStateData
-			id="ButtonStatePlayerPowerTimeBombLvl3">
-		<State
-			Image="Button_PlayerPower_TimeBomb3"
-			Title="NAME:PlayerPowerTimeBombLvl3"
-			TypeDescription="TYPE:PlayerPowerTimeBombLvl3"
-			Description="DESC:PlayerPowerTimeBombLvl3" />
-	</ButtonSingleStateData>
-
-	<ButtonSingleStateData
-		id="ButtonStatePlayerPowerCryoSatelliteLvl1">
-		<State
-			Image="Button_PlayerPower_CryoSatellite1"
-			Title="NAME:PlayerPowerCryoSatelliteLvl1"
-			TypeDescription="TYPE:PlayerPowerCryoSatelliteLvl1"
-			Description="DESC:PlayerPowerCryoSatelliteLvl1" />
-	</ButtonSingleStateData>
-	<ButtonSingleStateData
-		id="ButtonStatePlayerPowerCryoSatelliteLvl2">
-		<State
-			Image="Button_PlayerPower_CryoSatellite2"
-			Title="NAME:PlayerPowerCryoSatelliteLvl2"
-			TypeDescription="TYPE:PlayerPowerCryoSatelliteLvl2"
-			Description="DESC:PlayerPowerCryoSatelliteLvl2" />
-	</ButtonSingleStateData>
-	<ButtonSingleStateData
-		id="ButtonStatePlayerPowerCryoSatelliteLvl3">
-		<State
-			Image="Button_PlayerPower_CryoSatellite3"
-			Title="NAME:PlayerPowerCryoSatelliteLvl3"
-			TypeDescription="TYPE:PlayerPowerCryoSatelliteLvl3"
-			Description="DESC:PlayerPowerCryoSatelliteLvl3" />
-	</ButtonSingleStateData>
 	<ButtonSingleStateData
 		id="ButtonStatePlayerPowerPrecisionStrike">
 		<State
@@ -163,15 +113,6 @@
 			Title="NAME:PlayerPowerPrecisionStrike"
 			TypeDescription="TYPE:PlayerPowerPrecisionStrike"
 			Description="DESC:PlayerPowerPrecisionStrike" />
-	</ButtonSingleStateData>
-
-	<ButtonSingleStateData
-		id="ButtonStatePlayerPowerSatelliteSweep">
-		<State
-			Image="Button_PlayerPower_SatelliteSweep"
-			Title="NAME:PlayerPowerSatellite"
-			TypeDescription="TYPE:PlayerPowerSatelliteSweep"
-			Description="DESC:PlayerPowerSatelliteSweep" />
 	</ButtonSingleStateData>
 
 	<ButtonSingleStateData
@@ -183,14 +124,7 @@
 			Description="DESC:PlayerPowerAlliedFreeTrade" />
 	</ButtonSingleStateData>
 
-	<ButtonSingleStateData
-		id="ButtonStatePlayerPowerHighTechnology">
-		<State
-			Image="Button_PlayerPower_HighTechnology"
-			Title="NAME:PlayerPowerHighTechnology"
-			TypeDescription="TYPE:PlayerPowerHighTechnology"
-			Description="DESC:PlayerPowerHighTechnology" />
-	</ButtonSingleStateData>
+	
 	
 	<ButtonSingleStateData
 		id="ButtonStatePlayerPowerAirPower">
@@ -210,39 +144,7 @@
 			Description="DESC:PlayerPowerParticleCannon" />
 	</ButtonSingleStateData>
 	
-	<ButtonSingleStateData
-		id="ButtonStatePlayerPowerChronoSwap">
-		<State
-			Image="Button_PlayerPower_ChronoSwap"
-			Title="NAME:PlayerPowerChronoSwap"
-			TypeDescription="TYPE:PlayerPowerChronoSwap"
-			Description="DESC:PlayerPowerChronoSwap" />
-	</ButtonSingleStateData>
-
-	<ButtonSingleStateData
-		id="ButtonStatePlayerPowerChronoRiftLvl1">
-		<State
-			Image="Button_PlayerPower_ChronoRift1"
-			Title="NAME:PlayerPowerChronoRiftLvl1"
-			TypeDescription="TYPE:PlayerPowerChronoRiftLvl1"
-			Description="DESC:PlayerPowerChronoRiftLvl1" />
-	</ButtonSingleStateData>
-	<ButtonSingleStateData
-		id="ButtonStatePlayerPowerChronoRiftLvl2">
-		<State
-			Image="Button_PlayerPower_ChronoRift2"
-			Title="NAME:PlayerPowerChronoRiftLvl2"
-			TypeDescription="TYPE:PlayerPowerChronoRiftLvl2"
-			Description="DESC:PlayerPowerChronoRiftLvl2" />
-	</ButtonSingleStateData>
-	<ButtonSingleStateData
-		id="ButtonStatePlayerPowerChronoRiftLvl3">
-		<State
-			Image="Button_PlayerPower_ChronoRift3"
-			Title="NAME:PlayerPowerChronoRiftLvl3"
-			TypeDescription="TYPE:PlayerPowerChronoRiftLvl3"
-			Description="DESC:PlayerPowerChronoRiftLvl3" />
-	</ButtonSingleStateData>
+	
 
 	<ButtonSingleStateData
 		id="ButtonStatePlayerPowerChronosphere">
