@@ -3,7 +3,7 @@
 	<Tags></Tags>
 	<Includes>
 		
-		<!-- References -->
+		<!-- References testing!!! now you merge!!! -->
 		<Include type="reference" source ="DATA:global.xml" />
 		<Include type="reference" source ="DATA:Static.xml" />
 		<Include type="reference" source ="DATA:Audio.xml" />
