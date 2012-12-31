@@ -9684,7 +9684,8 @@
 		id="JapanBalloonBombSuicideWeapon"
 		RadiusDamageAffects="ALLIES ENEMIES NEUTRALS SELF"
 		RequiredAntiMask="ANTI_AIRBORNE_VEHICLE ANTI_AIRBORNE_INFANTRY"
-		Flags="NOT_ATTRACTED_BY_MAGNETS">
+		Flags="NOT_ATTRACTED_BY_MAGNETS"
+		>
 		<Nuggets>
 			<DamageNugget
 				Damage="99999"
@@ -9710,15 +9711,16 @@
 		id="NODFlameTankDeathWeapon"
 		RadiusDamageAffects="ALLIES ENEMIES NEUTRALS"
 		RequiredAntiMask="ANTI_WATER ANTI_GROUND ANTI_STRUCTURE"
-        Flags="NOT_ATTRACTED_BY_MAGNETS">
+        Flags="NOT_ATTRACTED_BY_MAGNETS"
+		FireFX="FX_TimeBombExplosionLvl1">
 		<Nuggets>
 			<DamageNugget
 			  id="DefaultDamageNugget"
 			  Damage="150.0"
-			  Radius="150"
+			  Radius="100"
 			  DamageTaperOff="375"
 			  DamageType="EXPLOSIVE"
-			  DamageFXType="SOVIET_ORBITAL3"
+			  DamageFXType="ALLIED_BOMBLVL1"
 			  DeathType="NORMAL"
 			  RadiusAffectsBridges="true" />
 			<MetaImpactNugget
