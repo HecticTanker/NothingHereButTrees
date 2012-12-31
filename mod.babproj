@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0"?>
 <BinaryAssetBuilderProject xmlns="urn:xmlns:ea.com:babproject">
-  <Stream Source="C:\Games\Ra3 Mod SDK\Mods\RA3 Undecided\data\mod.xml">
+  <Stream Source="C:\RA3 MOD SDK\Mods\Ra3 Undecided\data\mod.xml">
     <Configuration Name="" Default="true">
-      <StreamReference ReferenceName="audio.xml" ReferenceManifest="C:\Games\Ra3 Mod SDK\BuiltMods\sagexml\audio.manifest" ReferenceConfiguration="" />
-      <StreamReference ReferenceName="global.xml" ReferenceManifest="C:\Games\Ra3 Mod SDK\BuiltMods\sagexml\global.manifest" ReferenceConfiguration="" />
-      <StreamReference ReferenceName="static.xml" ReferenceManifest="C:\Games\Ra3 Mod SDK\BuiltMods\sagexml\static.manifest" ReferenceConfiguration="" />
+      <StreamReference ReferenceName="audio.xml" ReferenceManifest="C:\RA3 MOD SDK\BuiltMods\sagexml\audio.manifest" ReferenceConfiguration="" />
+      <StreamReference ReferenceName="global.xml" ReferenceManifest="C:\RA3 MOD SDK\BuiltMods\sagexml\global.manifest" ReferenceConfiguration="" />
+      <StreamReference ReferenceName="static.xml" ReferenceManifest="C:\RA3 MOD SDK\BuiltMods\sagexml\static.manifest" ReferenceConfiguration="" />
     </Configuration>
   </Stream>
-  <Stream Source="C:\Games\Ra3 Mod SDK\Mods\RA3 Undecided\data\aptui\TacticalHUDBuildQueuePage.xml">
+  <Stream Source="C:\RA3 MOD SDK\Mods\Ra3 Undecided\data\aptui\TacticalHUDBuildQueuePage.xml">
     <Configuration Name="" />
   </Stream>
-  <Stream Source="C:\Games\Ra3 Mod SDK\Mods\RA3 Undecided\data\aptui\TacticalHUDCommandListBox.xml">
+  <Stream Source="C:\RA3 MOD SDK\Mods\Ra3 Undecided\data\aptui\TacticalHUDCommandListBox.xml">
     <Configuration Name="" />
   </Stream>
-  <Stream Source="C:\Games\Ra3 Mod SDK\Mods\RA3 Undecided\data\aptui\TacticalHUDMainCommandBar.xml">
+  <Stream Source="C:\RA3 MOD SDK\Mods\Ra3 Undecided\data\aptui\TacticalHUDMainCommandBar.xml">
     <Configuration Name="" />
   </Stream>
 </BinaryAssetBuilderProject>
